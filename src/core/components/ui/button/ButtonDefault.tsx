@@ -1,5 +1,3 @@
-import type { IComponent } from '@/core/types/common';
-
 import { Button, buttonVariants } from '@/core/components/shadcn/ui/button';
 import { type VariantProps } from 'class-variance-authority';
 
@@ -12,9 +10,6 @@ interface IButtonDefaultProps extends ButtonProps {
 	children?: any;
 }
 
-const ButtonDefault: IComponent<IButtonDefaultProps> = ({ children, ...props }): React.ReactNode | any => {
+export default function ButtonDefault({ children, ...props }: IButtonDefaultProps): React.ReactNode | any {
 	return <Button {...props}>{children}</Button>;
-};
-
-ButtonDefault.displayName = 'ButtonDefault';
-export default ButtonDefault;
+}
