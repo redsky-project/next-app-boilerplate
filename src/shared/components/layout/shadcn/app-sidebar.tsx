@@ -19,6 +19,7 @@ import {
 	SidebarMenuItem,
 } from '@/core/components/shadcn/ui/sidebar';
 import { SIDEBAR_MENU } from '@/shared/constants/layout/sidebar-menu';
+import Link from 'next/link';
 
 const data = {
 	user: {
@@ -71,7 +72,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 							size="lg"
 							asChild
 						>
-							<a href="#">
+							<Link href="/main">
 								<div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-transparent">
 									{/*<Command className="size-4" />*/}
 									<Image
@@ -86,7 +87,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 									<span className="truncate font-medium">Next.js App v16.1.1</span>
 									<span className="truncate text-xs">next-app-boilerplate</span>
 								</div>
-							</a>
+							</Link>
 						</SidebarMenuButton>
 					</SidebarMenuItem>
 				</SidebarMenu>
