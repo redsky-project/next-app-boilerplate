@@ -14,18 +14,18 @@ export const SIDEBAR_MENU = [
 		],
 	},
 	{
-		title: 'API',
+		title: 'Library-API',
 		url: '#',
 		icon: FileSliders,
 		isActive: false,
 		items: [
 			{
-				title: '◉ $router',
+				title: '◉ hooks',
 				type: 'group',
 			},
 			{
-				title: '$router.goBack()',
-				url: '/example/api-guides/router-goback',
+				title: 'useApi',
+				url: '/example/library-api/hooks/use-api',
 			},
 		],
 	},
