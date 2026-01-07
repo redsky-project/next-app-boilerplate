@@ -36,7 +36,7 @@ export function SiteHeader() {
 				<Breadcrumb className="hidden sm:block">
 					<BreadcrumbList>
 						<BreadcrumbItem>
-							<BreadcrumbLink href="#">Building Your Application</BreadcrumbLink>
+							<BreadcrumbLink href="#">Next.js(next-app-boilerplate) Application</BreadcrumbLink>
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
