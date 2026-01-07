@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: 'entec-next-assets',
-	description: 'Next.js 기반의 Frontend Assets 라이브러리',
+	title: 'next-app-boilerplate',
+	description: 'Next.js 기반의 앱 보일러플레이트 라이브러리',
 };
 interface IRootLayoutProps {
 	children: React.ReactNode;

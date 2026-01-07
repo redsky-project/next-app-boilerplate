@@ -1,5 +1,5 @@
-import { AppSidebar } from '@/core/components/shadcn/layout/app-sidebar';
-import { SiteHeader } from '@/core/components/shadcn/layout/site-header';
+import { AppSidebar } from '@/shared/components/layout/shadcn/app-sidebar';
+import { SiteHeader } from '@/shared/components/layout/shadcn/site-header';
 import { SidebarInset, SidebarProvider } from '@/core/components/shadcn/ui/sidebar';
 
 export const iframeHeight = '800px';

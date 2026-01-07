@@ -49,8 +49,8 @@ export default function MainIndex({}: IMainIndexProps) {
 						Made with <span className="font-semibold text-blue-600">next-app-boilerplate</span>
 					</span>
 					<p className="text-slate-400 text-base">
-						이 예제 사이트는 <span className="font-semibold text-blue-600">next-app-boilerplate</span> 라이브러리를
-						기반으로 제작되었습니다.
+						이 사이트는 <span className="font-semibold text-blue-600">next-app-boilerplate</span> 라이브러리를 기반으로
+						제작되었습니다.
 					</p>
 				</div>
 			</div>

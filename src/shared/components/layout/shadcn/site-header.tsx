@@ -2,7 +2,7 @@
 
 import { SidebarIcon } from 'lucide-react';
 
-import { SearchForm } from '@/core/components/shadcn/layout/search-form';
+import { SearchForm } from '@/shared/components/layout/shadcn/search-form';
 import {
 	Breadcrumb,
 	BreadcrumbItem,
