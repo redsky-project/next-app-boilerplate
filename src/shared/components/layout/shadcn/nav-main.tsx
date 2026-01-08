@@ -3,7 +3,7 @@
 import { useCallback } from 'react';
 import { type LucideIcon } from 'lucide-react';
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@components/shadcn/ui/collapsible';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/core/components/shadcn/ui/collapsible';
 import {
 	SidebarGroup,
 	SidebarGroupLabel,
@@ -14,8 +14,8 @@ import {
 	SidebarMenuSub,
 	SidebarMenuSubButton,
 	SidebarMenuSubItem,
-} from '@components/shadcn/ui/sidebar';
-import { Separator } from '@components/shadcn/ui/separator';
+} from '@/core/components/shadcn/ui/sidebar';
+import { Separator } from '@/core/components/shadcn/ui/separator';
 import { Icon } from '@components/ui';
 import { usePathname, useRouter } from 'next/navigation';
 

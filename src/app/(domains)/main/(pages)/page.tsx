@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/core/components/ui';
+import { Button } from '@components/ui';
 
 import { Code2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';

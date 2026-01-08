@@ -21,7 +21,7 @@
 		],
 		"paths": {
 			"@/*": ["./src/*"],
-			"@components/*": ["./src/core/components/*"]
+			"@components/*": ["./src/shared/components/*"] // 공통 UI 컴포넌트 경로
 		},
 		"baseUrl": ".",
 		"typeRoots": ["./node_modules/@types", "./@types"] // type 루트 설정
