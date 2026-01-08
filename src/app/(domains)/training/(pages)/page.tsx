@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { Separator } from '@/core/components/shadcn/ui/separator';
-import UiCodeBlock from '../_components/UiCodeBlock';
+import { CodeBlock } from '@components/ui';
 
 export interface ICreatePageProps {
 	// test?: string;
@@ -41,7 +41,7 @@ export default async function CreatePage({}: ICreatePageProps): Promise<JSX.Elem
 								모든 페이지(<strong>page.tsx</strong>)는 다음과 같은 기본 템플릿을 복사하여 생성합니다.
 							</p>
 							<div className="flex justify-start py-1">
-								<UiCodeBlock
+								<CodeBlock
 									code={`// ========================================================
 // 페이지 만들기 기본 템플릿
 // ========================================================

@@ -1,12 +1,12 @@
 import { codeToHtml } from 'shiki';
 
-export interface IUiCodeBlockProps {
+export interface ICodeBlockProps {
 	code: string;
 	lang: string;
 	theme?: string;
 }
 
-export default async function UiCodeBlock({ code, lang, theme = 'github-dark' }: IUiCodeBlockProps) {
+export default async function CodeBlock({ code, lang, theme = 'github-dark' }: ICodeBlockProps) {
 	const html = await codeToHtml(code, {
 		lang,
 		theme,
