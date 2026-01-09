@@ -1,24 +1,12 @@
-'use client';
-
-import { JSX, useState } from 'react';
+import { JSX, type ReactNode } from 'react';
 
 import { Separator } from '@/core/components/shadcn/ui/separator';
-import { Textarea } from '@/core/components/shadcn/ui/textarea';
-import { CodeBlock } from '@components/ui';
 
-export interface IUseApiExProps {
-	// test?: string;
+export interface IUseApiExLayoutProps {
+	basicUseApiDemo: ReactNode; // BasicUseApiEx 패러럴 라우터
 }
 
-export default function UseApiEx({}: IUseApiExProps): JSX.Element {
-	// basic useApi example ========================================================
-	//const { data: basicUseApiData } = useApi<IPost[]>(`${process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL}/posts`);
-	const [basicUseApiData] = useState<any[]>([]);
-	//==============================================================================
-	// textarea onChange handler
-	const handlerTextarea = () => {
-		//
-	};
+export default function UseApiExLayout({ basicUseApiDemo }: IUseApiExLayoutProps): JSX.Element {
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
 			<div className="h-(--top-spacing) shrink-0" />
@@ -60,38 +48,14 @@ export default function UseApiEx({}: IUseApiExProps): JSX.Element {
 							</li>
 							<li>
 								다음 예제는{' '}
-								<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] break-words outline-none">
-									https://jsonplaceholder.typicode.com/posts
+								<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none">
+									https://koreanjson.com/posts
 								</code>
 								로 데이터를 가져오기 위한 요청을 보냅니다.
 							</li>
 						</ul>
 					</div>
-					<div className="w-full flex-1 py-4">
-						<Textarea
-							value={JSON.stringify(basicUseApiData || [], null, 2)}
-							placeholder="Response Data (https://jsonplaceholder.typicode.com/posts)"
-							onChange={handlerTextarea}
-							className="h-60 rounded-t-md rounded-b-none border-b-0"
-						/>
-						<CodeBlock
-							code={`// ========================================================
-// 페이지 만들기 기본 템플릿
-// ========================================================
-import { JSX } from 'react';
-
-// 페이지 컴포넌트의 Props 타입 정의
-export interface ISamplePageProps {
-	// test?: string;
-}
-
-// 페이지 컴포넌트 함수
-export default function SamplePage({}: ISamplePageProps): JSX.Element {
-	return (<div>기본 템플릿 페이지입니다.</div>);
-}`}
-							lang="tsx"
-						/>
-					</div>
+					<div className="w-full flex-1 py-4">{basicUseApiDemo}</div>
 					{/* example 블럭요서 END */}
 				</div>
 			</div>

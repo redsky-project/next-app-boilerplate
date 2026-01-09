@@ -1,3 +1,7 @@
 export { default as Button } from './button/ButtonDefault.tsx';
 export { default as Icon } from './icon/IconDefault.tsx';
-export { default as CodeBlock } from './code-block/CodeBlock.tsx';
+export { CodeBlock, CodeBlockClient } from './code-block';
+
+// UI Components Types ====================================================
+export type { ICodeBlockProps, ICodeBlockClientProps } from './code-block';
+//=========================================================================

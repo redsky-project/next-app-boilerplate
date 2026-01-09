@@ -1,3 +1,6 @@
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
+import { IUseApiOptions } from './types';
+
 /**
  * 외부 API 조회를 위한 범용 훅 (GET, POST 조회용)
  * @example
