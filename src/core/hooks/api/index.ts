@@ -1,5 +1,7 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { IUseApiOptions } from './types';
+import { createQueryKey } from '@fetch/query';
+import { callApi } from '@fetch/api';
 
 /**
  * 외부 API 조회를 위한 범용 훅 (GET, POST 조회용)
@@ -13,16 +15,8 @@ import { IUseApiOptions } from './types';
  *   body: { query: 'keyword', filters: ['tag1', 'tag2'] }
  * });
  *
- * // PUT 요청
- * const { data } = useApi<User>('users/1', {
- *   method: 'PUT',
- *   body: { name: 'John' }
- * });
- *
- * // DELETE 요청
- * const { data } = useApi<void>('users/1', { method: 'DELETE' });
  */
-// react-query 관련 코드가 내부 로직이고, callApi 함수는 api 호출 로직이다.
+// tanstack query 를 사용하여 전역 상태 관리를 하고, callApi 함수를 사용하여 api 호출을 한다.
 function useApi<T>(endpoint: string, options?: IUseApiOptions<T>): UseQueryResult<NoInfer<T>, Error> {
 	const { params, body, queryOptions } = options || {};
 

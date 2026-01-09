@@ -7,19 +7,14 @@ import { CodeBlockClient } from '@components/ui';
 import { useApi } from '@hooks/api';
 import { IPost } from '@/app/(domains)/example/_types';
 
-export interface IBasicUseApiDemoProps {
+export interface IBasicUseApiDemoRouteHandlersProps {
 	// test?: string;
 }
 
-export default function BasicUseApiDemo({}: IBasicUseApiDemoProps): JSX.Element {
+export default function BasicUseApiDemoRouteHandlers({}: IBasicUseApiDemoRouteHandlersProps): JSX.Element {
 	// basic useApi example ========================================================
-	// 외부 API 호출(https://koreanjson.com/posts)
-	const {
-		data: postsData,
-		error: postsError,
-		isLoading: postsLoading,
-	} = useApi<IPost[]>(`${process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL3}/posts`);
-	//==============================================================================
+	// /example/api/posts route handler 사용 예제
+	const { data: postsData, error: postsError, isLoading: postsLoading } = useApi<IPost[]>('@routes/example/api/posts');
 
 	// textarea onChange handler
 	const handlerTextarea = () => {
@@ -27,18 +22,20 @@ export default function BasicUseApiDemo({}: IBasicUseApiDemoProps): JSX.Element 
 	};
 	return (
 		<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800">
-			<Textarea
-				value={
-					postsLoading
-						? 'Loading...'
-						: postsError
-							? 'Error: ' + JSON.stringify(postsError)
-							: JSON.stringify(postsData || [], null, 2) || 'No data'
-				}
-				placeholder="Response Data (https://koreanjson.com/posts)"
-				onChange={handlerTextarea}
-				className="min-h-[40px] border-0 rounded-none border-b border-neutral-200 focus-visible:ring-0 font-mono text-sm dark:border-neutral-800"
-			/>
+			<div className="max-h-52 overflow-auto">
+				<Textarea
+					value={
+						postsLoading
+							? 'Loading...'
+							: postsError
+								? 'Error: ' + JSON.stringify(postsError)
+								: JSON.stringify(postsData || [], null, 2) || 'No data'
+					}
+					placeholder="Response Data (https://koreanjson.com/posts)"
+					onChange={handlerTextarea}
+					className="min-h-[40px] border-0 rounded-none border-b border-neutral-200 focus-visible:ring-0 font-mono text-sm dark:border-neutral-800 resize-none"
+				/>
+			</div>
 			<CodeBlockClient
 				code={`import { JSX } from 'react';
 import { useApi } from '@hooks/api';
@@ -61,12 +58,12 @@ export interface ISamplePageProps {
 
 // 페이지 컴포넌트 함수
 export default function SamplePage({}: ISamplePageProps): JSX.Element {
-	// 외부 API 호출(https://koreanjson.com/posts)
+	// '/example/api/posts' Route Handler 사용 예제
 	const {
 		data: postsData,
 		error: postsError,
-		isLoading: postsLoading,
-	} = useApi<IPost[]>('https://koreanjson.com/posts');
+		isLoading: postsLoading
+	} = useApi<IPost[]>('@routes/example/api/posts');
 
 	return (
 		<div>

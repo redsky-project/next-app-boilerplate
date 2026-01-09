@@ -46,9 +46,21 @@ export default function CodeBlockClient({ code, lang, theme = 'github-dark' }: I
 	}
 
 	return (
-		<div
-			className="rounded-lg overflow-auto p-4 bg-[#24292e] text-[#e1e4e8]"
-			dangerouslySetInnerHTML={{ __html: html }}
-		/>
+		<>
+			<style>{`
+				pre {
+					tab-size: 2 !important;
+					-moz-tab-size: 2 !important;
+				}
+				pre code {
+					tab-size: 2 !important;
+					-moz-tab-size: 2 !important;
+				}
+			`}</style>
+			<div
+				className="rounded-lg overflow-auto p-4 bg-[#24292e] text-[#e1e4e8]"
+				dangerouslySetInnerHTML={{ __html: html }}
+			/>
+		</>
 	);
 }
