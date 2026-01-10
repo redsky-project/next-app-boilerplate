@@ -63,14 +63,15 @@ export default function UseApiExLayout({
 					</div>
 					<div className="flex flex-col gap-2 pt-6">
 						<h3 className="scroll-m-20 text-lg font-semibold tracking-tight sm:text-lg xl:text-lg">
-							◉ 같은 도메인 내부 API 호출 (/posts)
+							◉ 같은 도메인 API 호출 (/posts)
 						</h3>
 						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
 							다음 예제와 같이 <strong className="text-blue-500">같은 서버(도메인)의 API</strong>를{' '}
 							<strong className="text-blue-500">Client Component</strong>
 							에서 호출할 때는 API URL에서 <strong className="text-blue-500">도메인을 제외한</strong> 경로만 사용합니다.
+							<br />
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none">
-								/posts
+								useApi('/posts');
 							</code>
 						</p>
 					</div>

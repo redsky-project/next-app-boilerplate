@@ -58,7 +58,7 @@ export interface ISamplePageProps {
 
 // 페이지 컴포넌트 함수
 export default function SamplePage({}: ISamplePageProps): JSX.Element {
-	// 내부 API 호출(/posts)
+	// 같은 도메인 API 호출(/posts)
 	const { data: postsData, error: postsError, isLoading: postsLoading } = useApi<IPost[]>('/posts');
 
 	return (
