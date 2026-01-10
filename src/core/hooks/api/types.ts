@@ -1,5 +1,5 @@
 import { QueryParams, THttpMethod } from '@app-types/common';
-import { UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
+import { UseQueryOptions } from '@tanstack/react-query';
 
 export interface IUseApiOptions<T> {
 	/** HTTP Method (기본값: 'GET') */
@@ -10,7 +10,7 @@ export interface IUseApiOptions<T> {
 	body?: Record<string, any>;
 	/** Custom headers */
 	headers?: Record<string, string>;
-	/** React Query options (queryKey와 queryFn은 내부에서 자동 생성됨) */
+	/** React Query options (queryKey와 queryFn은 내부에서 자동 생성됨, initialData/enabled 등 모든 옵션 사용 가능) */
 	queryOptions?: Omit<UseQueryOptions<T, Error, T>, 'queryKey' | 'queryFn'>;
 	/** Request timeout */
 	timeout?: number;

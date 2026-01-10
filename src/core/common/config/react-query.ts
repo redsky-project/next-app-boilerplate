@@ -7,7 +7,7 @@ const queryConfig: DefaultOptions = {
 		refetchOnWindowFocus: true, // 윈도우 포커스 시 자동 refetch 비활성화
 		refetchOnReconnect: true, // 재연결 시 자동 refetch
 		staleTime: 0, //5 * 60 * 1000, // 5분 (데이터가 fresh한 상태로 유지되는 시간)
-		gcTime: 0, //10 * 60 * 1000, // 10분 (garbage collection time, 이전 cacheTime)
+		gcTime: Number(process.env.NEXT_PUBLIC_GC_TIME) || 0, // 30분 (garbage collection time, 이전 cacheTime) 애플리케이션 세션유지시간과 맞춰도 될듯.
 	},
 	mutations: {
 		retry: 0, // mutation은 재시도하지 않음
