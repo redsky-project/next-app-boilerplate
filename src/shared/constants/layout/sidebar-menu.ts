@@ -27,6 +27,10 @@ export const SIDEBAR_MENU = [
 				title: 'useApi',
 				url: '/example/library-api/hooks/use-api',
 			},
+			{
+				title: 'useApiData',
+				url: '/example/library-api/hooks/use-api-data',
+			},
 		],
 	},
 ];
