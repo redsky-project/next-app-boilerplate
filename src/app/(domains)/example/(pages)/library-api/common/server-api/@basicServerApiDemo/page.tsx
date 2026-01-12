@@ -1,6 +1,7 @@
 import { JSX } from 'react';
 
 import { CodeBlockClient } from '@components/ui';
+import { Card, CardContent, CardHeader, CardTitle } from '@/core/components/shadcn/ui/card';
 import { serverApi } from '@fetch/server-api';
 import { IPost } from '@/app/(domains)/example/_types';
 
@@ -66,6 +67,24 @@ export default function SamplePage({}: ISamplePageProps): JSX.Element {
 }`}
 				lang="tsx"
 			/>
+			<div className="grid gap-4 md:grid-cols-2 mt-4 overflow-y-auto h-200">
+				{postsData?.map((post) => (
+					<Card
+						key={post.id}
+						className="flex flex-col"
+					>
+						<CardHeader>
+							<CardTitle className="text-lg leading-tight">
+								<span className="text-muted-foreground mr-2">#{post.id}</span>
+								{post.title}
+							</CardTitle>
+						</CardHeader>
+						<CardContent className="flex-1">
+							<p className="text-sm text-muted-foreground">{post.content}</p>
+						</CardContent>
+					</Card>
+				))}
+			</div>
 		</div>
 	);
 }
