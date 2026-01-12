@@ -16,6 +16,16 @@ export default function BasicUseApiDataDemo({}: IBasicUseApiDataDemoProps): JSX.
 	// useApiMutation 인스턴스 생성
 	const createPostMutation = useApiMutation<IPost, { title: string; content: string }>('@routes/example/api/posts', {
 		method: 'POST',
+		mutationOptions: {
+			onSuccess: (data) => {
+				console.log('Post created successfully!', data);
+				// 캐시 무효화(선택적)
+				createPostMutation.invalidateQueries('@routes/example/api/posts');
+			},
+			onError: (error) => {
+				console.error('Error creating post:', error);
+			},
+		},
 	});
 
 	// 입력 상태 관리
@@ -91,6 +101,16 @@ export default function SamplePage({}: ISamplePageProps): JSX.Element {
 	// useApiMutation 인스턴스 생성
 	const createPostMutation = useApiMutation<IPost, { title: string; content: string }>('/posts', {
 		method: 'POST',
+		mutationOptions: {
+			onSuccess: (data) => {
+				console.log('Post created successfully!', data);
+				// 캐시 무효화(선택적)
+				createPostMutation.invalidateQueries('/posts');
+			},
+			onError: (error) => {
+				console.error('Error creating post:', error);
+			},
+		},
 	});
 	
 	// 입력 상태 관리

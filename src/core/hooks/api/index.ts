@@ -3,6 +3,7 @@ import { IUseApiOptions, IUseApiMutationOptions } from './types';
 import type { ApiRequestConfig } from '@app-types/common';
 import { createQueryKey } from '@fetch/query';
 import { callApi } from '@fetch/api';
+import { getQueryClient } from '@/core/common/config/react-query';
 
 /**
  * 외부 API 조회를 위한 범용 훅 (GET, POST 조회용)
@@ -196,6 +197,9 @@ function useApiMutation<TData = unknown, TVariables = unknown>(
 		...mutation,
 		mutate: wrappedMutate as typeof mutation.mutate,
 		mutateAsync: wrappedMutateAsync as typeof mutation.mutateAsync,
+		invalidateQueries: (endpoint: string): Promise<void> => {
+			return getQueryClient().invalidateQueries({ queryKey: createQueryKey(endpoint) });
+		},
 	};
 }
 
