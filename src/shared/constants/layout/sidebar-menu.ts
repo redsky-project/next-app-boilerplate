@@ -20,7 +20,7 @@ export const SIDEBAR_MENU = [
 		isActive: false,
 		items: [
 			{
-				title: '◉ hooks',
+				title: '◉ Hooks',
 				type: 'group',
 			},
 			{
@@ -34,6 +34,14 @@ export const SIDEBAR_MENU = [
 			{
 				title: 'useApiMutation',
 				url: '/example/library-api/hooks/use-api-mutation',
+			},
+			{
+				title: '◉ Common Functions',
+				type: 'group',
+			},
+			{
+				title: 'serverApi',
+				url: '/example/library-api/common/server-api',
 			},
 		],
 	},
