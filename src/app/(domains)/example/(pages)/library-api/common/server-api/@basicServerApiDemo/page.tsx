@@ -46,7 +46,7 @@ export interface ISamplePageProps {
 }
 
 // 페이지 컴포넌트 함수
-export default function SamplePage({}: ISamplePageProps): JSX.Element {
+export default async function SamplePage({}: ISamplePageProps): JSX.Element {
 	// basic serverApi example ========================================================
 	// serverApi 호출 (Server Component이므로 async/await 직접 사용 가능)
 	// 캐싱 옵션: 60초 동안 캐시 유지 (ISR)
