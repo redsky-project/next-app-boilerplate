@@ -31,6 +31,10 @@ export const SIDEBAR_MENU = [
 				title: 'useApiData',
 				url: '/example/library-api/hooks/use-api-data',
 			},
+			{
+				title: 'useApiMutation',
+				url: '/example/library-api/hooks/use-api-mutation',
+			},
 		],
 	},
 ];

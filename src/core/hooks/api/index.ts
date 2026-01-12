@@ -1,5 +1,6 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { IUseApiOptions } from './types';
+import { useQuery, UseQueryResult, useMutation } from '@tanstack/react-query';
+import { IUseApiOptions, IUseApiMutationOptions } from './types';
+import type { ApiRequestConfig } from '@app-types/common';
 import { createQueryKey } from '@fetch/query';
 import { callApi } from '@fetch/api';
 
@@ -81,4 +82,121 @@ function useApiData<T>(endpoint: string, options?: IUseApiOptions<T>): UseQueryR
 	});
 }
 
-export { useApi, useApiData };
+/**
+ * API 변경을 위한 범용 Mutation 훅 (POST, PUT, DELETE, PATCH)
+ * 데이터 변경 작업에 최적화되어 있으며, onSuccess/onError 콜백 지원
+ * FormData도 지원하며, 내부에서 자동으로 변환 처리
+ *
+ * @example
+ * // POST 요청 (JSON)
+ * const createUser = useApiMutation<User, CreateUserInput>('users', { method: 'POST' });
+ * createUser.mutate({ name: 'John', email: 'john@example.com' });
+ *
+ * // POST 요청 (FormData)
+ * const uploadFile = useApiMutation<Response, FormData>('upload', { method: 'POST' });
+ * const formData = new FormData();
+ * formData.append('file', file);
+ * uploadFile.mutate(formData); // FormData를 직접 전달 가능
+ *
+ * // PUT 요청
+ * const updateUser = useApiMutation<User, UpdateUserInput>('users/1', { method: 'PUT' });
+ * updateUser.mutate({ name: 'Jane' });
+ *
+ * // 콜백 사용
+ * const createPost = useApiMutation<Post, CreatePostInput>('posts', {
+ *   method: 'POST',
+ *   mutationOptions: {
+ *     onSuccess: (data) => console.log('Created:', data),
+ *     onError: (error) => console.error('Error:', error),
+ *   }
+ * });
+ */
+function useApiMutation<TData = unknown, TVariables = unknown>(
+	endpoint: string,
+	options?: IUseApiMutationOptions<TData, TVariables>,
+) {
+	const requestOptions = { ...options };
+
+	// useMutation을 생성 (내부적으로는 항상 Record<string, any>로 처리)
+	const mutation = useMutation<TData, Error, Record<string, any>>({
+		mutationFn: async (variables: Record<string, any>) => {
+			// variables는 이미 일반 객체로 변환된 상태
+			const callApiOptions: ApiRequestConfig = {
+				...requestOptions,
+				body: variables,
+				apiCallType: 'client',
+			};
+			const response = await callApi<TData>(endpoint, callApiOptions);
+			return response.data as TData;
+		},
+		// mutationOptions의 타입 호환을 위해 any로 캐스팅
+		...(requestOptions.mutationOptions as any),
+	});
+
+	// mutate 함수를 래핑하여 FormData 처리
+	const originalMutate = mutation.mutate;
+	const wrappedMutate = (variables: TVariables, ...args: any[]) => {
+		// FormData인지 체크 (타입 가드)
+		const variablesAsAny = variables as any;
+		const isFormData =
+			typeof FormData !== 'undefined' &&
+			typeof variablesAsAny === 'object' &&
+			variablesAsAny !== null &&
+			variablesAsAny instanceof FormData;
+
+		if (isFormData) {
+			// FormData를 일반 객체로 변환
+			const formValues: Record<string, any> = {};
+			(variablesAsAny as FormData).forEach((value: FormDataEntryValue, key: string) => {
+				// File이나 Blob은 그대로 유지
+				const valueAsAny = value as any;
+				if (valueAsAny instanceof File || valueAsAny instanceof Blob) {
+					formValues[key] = valueAsAny;
+				} else {
+					formValues[key] = value.toString();
+				}
+			});
+			// 변환된 객체로 호출
+			return originalMutate(formValues, ...args);
+		} else {
+			// 일반 객체는 그대로 전달
+			return originalMutate(variablesAsAny, ...args);
+		}
+	};
+
+	// mutateAsync도 래핑
+	const originalMutateAsync = mutation.mutateAsync;
+	const wrappedMutateAsync = async (variables: TVariables, ...args: any[]) => {
+		// FormData인지 체크
+		const variablesAsAny = variables as any;
+		const isFormData =
+			typeof FormData !== 'undefined' &&
+			typeof variablesAsAny === 'object' &&
+			variablesAsAny !== null &&
+			variablesAsAny instanceof FormData;
+
+		if (isFormData) {
+			const formValues: Record<string, any> = {};
+			(variablesAsAny as FormData).forEach((value: FormDataEntryValue, key: string) => {
+				const valueAsAny = value as any;
+				if (valueAsAny instanceof File || valueAsAny instanceof Blob) {
+					formValues[key] = valueAsAny;
+				} else {
+					formValues[key] = value.toString();
+				}
+			});
+			return originalMutateAsync(formValues, ...args);
+		} else {
+			return originalMutateAsync(variablesAsAny, ...args);
+		}
+	};
+
+	// 래핑된 함수로 교체
+	return {
+		...mutation,
+		mutate: wrappedMutate as typeof mutation.mutate,
+		mutateAsync: wrappedMutateAsync as typeof mutation.mutateAsync,
+	};
+}
+
+export { useApi, useApiData, useApiMutation };

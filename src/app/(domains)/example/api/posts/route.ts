@@ -50,3 +50,53 @@ export async function GET(_request: NextRequest) {
 		);
 	}
 }
+
+/**
+ * POST /example/api/posts
+ * 새로운 post를 생성합니다.
+ */
+export async function POST(request: NextRequest) {
+	try {
+		// 요청 본문 파싱
+		const body = await request.json();
+		const { title, content } = body;
+
+		// 유효성 검사
+		if (!title || !content) {
+			return NextResponse.json(
+				{
+					success: false,
+					error: 'title과 content는 필수입니다.',
+					data: null,
+				},
+				{ status: 400 },
+			);
+		}
+
+		// Mock 응답 데이터 생성
+		// 실제 프로젝트에서는 serverApi를 사용하여 외부 API 호출 또는 DB 저장
+		const newPost = {
+			id: Math.floor(Math.random() * 10000),
+			title,
+			content,
+			createdAt: new Date().toISOString(),
+			updatedAt: new Date().toISOString(),
+			UserId: 1,
+		};
+
+		// 성공 응답
+		return NextResponse.json(newPost, { status: 201 });
+	} catch (error) {
+		console.error('[POST /example/api/posts] Error:', error);
+
+		// 에러 응답
+		return NextResponse.json(
+			{
+				success: false,
+				error: error instanceof Error ? error.message : 'post 생성에 실패했습니다.',
+				data: null,
+			},
+			{ status: 500 },
+		);
+	}
+}
