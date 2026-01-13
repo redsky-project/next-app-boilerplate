@@ -1,11 +1,8 @@
 'use server';
 
 import { serverApi } from '@fetch/server-api';
-import { cookies } from 'next/headers';
-//import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
-export async function todosAction(formData: FormData, type?: string) {
+export async function todosAction(formData: FormData) {
 	const url = `${process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL3}/todos`;
 	// 폼 데이터 파싱
 	const title = formData.get('title') as string;
@@ -32,27 +29,7 @@ export async function todosAction(formData: FormData, type?: string) {
 		console.log(`[${url}] error:`, res.message);
 
 		// 성공 처리
-		if (!type && res.data) {
-			// 브라우저 쿠키에 결과 저장하여 전달 방법
-			(await cookies()).set('result_todos', JSON.stringify(res), { maxAge: 60 });
-
-			// 성공 페이지로 리다이렉트 (query parameter 포함시키는 방법)
-			const params = new URLSearchParams({
-				success: 'true',
-				message: '할일이 추가되었습니다.',
-				status: res?.status?.toString() || '',
-				id: res.data.id?.toString() || '',
-			});
-
-			// 캐시 무효화 (필요시 주석 해제)
-			// revalidatePath('/example/docs-examples/server-form');
-			// revalidateTag('todos'); // tag가 등록 되어 있을 경우. tag로 캐시 무효화 방법
-
-			// redirect는 함수를 종료시키므로 아래 코드는 실행되지 않음
-			redirect(`/example/docs-examples/server-form?${params.toString()}`);
-		}
-
-		if (type === 'type01' && res.data) {
+		if (res.data) {
 			// 성공 응답
 			return { success: true, message: '할일이 추가되었습니다.', data: res.data };
 		}
