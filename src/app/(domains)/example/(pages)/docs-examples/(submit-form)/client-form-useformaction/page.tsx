@@ -10,11 +10,11 @@ import { todosAction } from '@/app/(domains)/example/_action/todosActionClient';
 
 import clientFormUseFormAction01 from '@/assets/images/example/form/clientFormUseFormAction01.svg';
 
-export interface IServerFormExProps {
+export interface IClientFormUseFormActionExProps {
 	//
 }
 
-export default function ServerFormEx({}: IServerFormExProps): JSX.Element {
+export default function ClientFormUseFormActionEx({}: IClientFormUseFormActionExProps): JSX.Element {
 	const { loading, data, error, submitAction } = useFormAction(todosAction);
 
 	// form 제출 (useFormAction hook 사용) START ================================================
