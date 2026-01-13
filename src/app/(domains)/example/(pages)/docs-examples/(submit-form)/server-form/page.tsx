@@ -7,7 +7,7 @@ import { Separator } from '@/core/components/shadcn/ui/separator';
 import { CodeBlockClient } from '@components/ui';
 import { todosAction } from '@/app/(domains)/example/_action/todosAction';
 
-import serverFormDiagram from '@/assets/images/example/form/serverForm01.svg';
+import serverActionFlowDiagram from '@/assets/images/example/form/server-action-flow-diagram.svg';
 
 export interface IServerFormExProps {
 	searchParams?: Promise<any>;
@@ -53,10 +53,10 @@ export default function ServerFormEx({ searchParams }: IServerFormExProps): JSX.
 
 						<div className="flex justify-start py-1">
 							<Image
-								src={serverFormDiagram}
+								src={serverActionFlowDiagram}
 								alt="Server Form Diagram"
 								width={700}
-								height={400}
+								height={500}
 							/>
 						</div>
 					</div>
