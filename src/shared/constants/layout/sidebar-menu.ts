@@ -1,4 +1,4 @@
-import { Component, FileSliders } from 'lucide-react';
+import { Component, FileSliders, BookOpen } from 'lucide-react';
 
 export const SIDEBAR_MENU = [
 	{
@@ -42,6 +42,18 @@ export const SIDEBAR_MENU = [
 			{
 				title: 'serverApi',
 				url: '/example/library-api/common/server-api',
+			},
+		],
+	},
+	{
+		title: 'Docs-Examples',
+		url: '#',
+		icon: BookOpen,
+		isActive: false,
+		items: [
+			{
+				title: 'Form 전송 (Server + Actions)',
+				url: '/example/docs-examples/server-form',
 			},
 		],
 	},

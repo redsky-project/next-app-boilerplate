@@ -56,6 +56,7 @@ export class BaseFetchClient implements IBaseApiClient {
 			}
 
 			const response = await fetch(url, config);
+			console.log('>>>>>>response:::', response);
 
 			// 응답이 JSON인지 확인
 			const contentType = response.headers.get('content-type');
@@ -189,7 +190,14 @@ export class BaseFetchClient implements IBaseApiClient {
 
 		// POST, PUT, PATCH, DELETE 요청: body 추가
 		if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(method.toUpperCase() as string) && body) {
-			fetchOptions['body'] = JSON.stringify(body);
+			const isFormData = body instanceof FormData;
+			if (isFormData) {
+				// FormData를 객체로 변환 후 JSON.stringify
+				const formDataObj = Object.fromEntries(body as FormData);
+				fetchOptions['body'] = JSON.stringify(formDataObj);
+			} else {
+				fetchOptions['body'] = JSON.stringify(body);
+			}
 		}
 
 		return { url: _url.toString(), ...fetchOptions };
