@@ -170,8 +170,21 @@ export class BaseFetchClient implements IBaseApiClient {
 		}
 
 		// Next.js 캐싱 옵션 추가
+		// Next.js의 revalidate 옵션의 기본값은 undefined이므로, revalidate: false와 같습니다. (무한 캐시)
 		if (Object.keys(nextConfig).length > 0) {
 			fetchOptions.next = nextConfig;
+			if (fetchOptions.next.revalidate === undefined) {
+				fetchOptions.next.revalidate = 0;
+			}
+			if (fetchOptions.next.tags === undefined) {
+				fetchOptions.next.tags = [];
+			}
+		} else {
+			// next.js의 revalidate, tags 옵션이 없으면 무조건 재검증으로 기본 설정
+			fetchOptions.next = {
+				revalidate: 0, // 캐싱 비활성화 (매 요청마다 새로 fetch)
+				tags: [],
+			};
 		}
 
 		// POST, PUT, PATCH, DELETE 요청: body 추가
