@@ -5,7 +5,7 @@ import { cookies } from 'next/headers';
 //import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export async function todosAction(formData: FormData) {
+export async function todosAction(formData: FormData, type: string) {
 	const url = `${process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL3}/todos`;
 	// 폼 데이터 파싱
 	const title = formData.get('title') as string;
@@ -32,7 +32,7 @@ export async function todosAction(formData: FormData) {
 		console.log(`[${url}] error:`, res.message);
 
 		// 성공 처리
-		if (res.data) {
+		if (!type && res.data) {
 			// 브라우저 쿠키에 결과 저장하여 전달 방법
 			(await cookies()).set('result_todos', JSON.stringify(res), { maxAge: 60 });
 
@@ -50,6 +50,11 @@ export async function todosAction(formData: FormData) {
 
 			// redirect는 함수를 종료시키므로 아래 코드는 실행되지 않음
 			redirect(`/example/docs-examples/server-form?${params.toString()}`);
+		}
+
+		if (type === 'type01' && res.data) {
+			// 성공 응답
+			return { success: true, message: '할일이 추가되었습니다.', data: res.data };
 		}
 	} catch (err) {
 		// NEXT_REDIRECT 에러는 정상적인 redirect 동작이므로 다시 throw

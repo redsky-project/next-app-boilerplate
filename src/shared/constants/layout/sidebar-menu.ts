@@ -55,6 +55,10 @@ export const SIDEBAR_MENU = [
 				title: 'Form 전송 (Server + Actions)',
 				url: '/example/docs-examples/server-form',
 			},
+			{
+				title: 'Form 전송 (Client + Action)',
+				url: '/example/docs-examples/client-form',
+			},
 		],
 	},
 ];
