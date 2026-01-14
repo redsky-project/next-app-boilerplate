@@ -121,7 +121,7 @@ function useApiMutation<TData = unknown, TVariables = unknown>(
 
 	// useMutation을 생성 (내부적으로는 항상 Record<string, any>로 처리)
 	const mutation = useMutation<TData, Error, Record<string, any>>({
-		mutationFn: async (variables: Record<string, any>) => {
+		mutationFn: async (variables: any) => {
 			// variables는 이미 일반 객체로 변환된 상태
 			const callApiOptions: ApiRequestConfig = {
 				...requestOptions,
@@ -139,6 +139,7 @@ function useApiMutation<TData = unknown, TVariables = unknown>(
 	const originalMutate = mutation.mutate;
 	const wrappedMutate = (variables: TVariables, ...args: any[]) => {
 		// FormData인지 체크 (타입 가드)
+		// FormData를 mutationFn에 바로 전달하면 내부적으로 직렬화 문제가 발생하므로 JSON으로 변환하여 전달.
 		const variablesAsAny = variables as any;
 		const isFormData =
 			typeof FormData !== 'undefined' &&
@@ -159,7 +160,7 @@ function useApiMutation<TData = unknown, TVariables = unknown>(
 				}
 			});
 			// 변환된 객체로 호출
-			return originalMutate(formValues, ...args);
+			return originalMutate(formValues, ...args); // FormData일 때 JSON으로 변환하여 전달
 		} else {
 			// 일반 객체는 그대로 전달
 			return originalMutate(variablesAsAny, ...args);

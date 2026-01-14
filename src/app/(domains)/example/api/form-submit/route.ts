@@ -10,22 +10,28 @@ import { serverApi } from '@/core/common/api/server-api';
  * FormData를 받아서 외부 API로 전송합니다.
  */
 export async function POST(request: NextRequest) {
-	console.log('>>>>>>>>>>>>>request:', request.body);
+	// client에서 json으로 body에 세팅했을 때는 await request.json() 으로 파싱해야 함.
+	const body = await request.json();
+	console.log('>>>>>>>>>>>>>request:', body);
+	/* 그 외 여러가지 경우 파싱 방법
+	// 1. JSON 데이터 파싱
+	const body = await request.json();
+	// 2. FormData 파싱
+	const formData = await request.formData();
+	// 3. Plain Text 파싱
+	const text = await request.text();
+	// 4. Blob 파싱
+	const blob = await request.blob();
+	// 5. ArrayBuffer 파싱
+	const buffer = await request.arrayBuffer();
+	*/
+
 	try {
 		// serverApi를 사용하여 외부 API 호출
-		const response = await serverApi<any[]>(
-			'https://koreanjson.com/todos',
-			{
-				method: 'POST',
-				body: request.body,
-			},
-			{
-				// Next.js 캐싱 옵션
-				// 금융권 프로젝트에서는 데이터 민감성과 금융 거래의 실시간성 보장을 위해 캐싱을 최소화
-				revalidate: 0, // 항상 최신 데이터 fetch (SSR, 캐싱 X)
-				tags: ['todos', 'financial'], // 데이터 분류 및 감사 추적을 위한 다중 태그
-			},
-		);
+		const response = await serverApi<any[]>('https://koreanjson.com/todos', {
+			method: 'POST',
+			body,
+		});
 
 		// 성공 응답
 		return NextResponse.json(response, { status: 200 });

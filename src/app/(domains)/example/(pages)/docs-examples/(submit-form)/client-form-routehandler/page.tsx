@@ -8,7 +8,7 @@ import { Icon, Alert, AlertDescription, AlertTitle } from '@components/ui';
 import { CodeBlockClient } from '@components/ui';
 import { useApiMutation } from '@hooks/api';
 
-import clientFormUseFormAction01 from '@/assets/images/example/form/clientFormUseFormAction01.svg';
+import clientFormRouteHandler01 from '@/assets/images/example/form/clientFormRouteHandler01.svg';
 
 export interface IClientFormRouteHandlerExProps {
 	//
@@ -85,8 +85,8 @@ export default function ClientFormRouteHandlerEx({}: IClientFormRouteHandlerExPr
 
 						<div className="flex justify-start py-1">
 							<Image
-								src={clientFormUseFormAction01}
-								alt="Server Form Diagram"
+								src={clientFormRouteHandler01}
+								alt="Client Form Route Handler Diagram"
 								width={700}
 								height={500}
 							/>
@@ -116,8 +116,8 @@ export default function ClientFormRouteHandlerEx({}: IClientFormRouteHandlerExPr
 							Client Component에서 Form 제출을 처리할 때 <strong>Route Handler</strong>를 사용하여 구현한 예제입니다.
 						</p>
 						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-							<strong>TanStack Query의 useMutation</strong>을 사용하여 Route Handler를 호출하고, 로딩 상태와 에러를
-							자동으로 관리합니다.
+							<strong>TanStack Query의 useMutation</strong>을 랩핑한 <strong>useApiMutation</strong>을 사용하여 Route
+							Handler를 호출하고, 로딩 상태와 에러를 자동으로 관리합니다.
 						</p>
 						<Alert className="border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950">
 							<Icon
@@ -164,7 +164,7 @@ export default function ClientFormRouteHandlerEx({}: IClientFormRouteHandlerExPr
 									</p>
 									<p className="text-sm">
 										<strong>해결:</strong> FormData를 일반 객체로 변환하여 전달하고, mutationFn 내부에서 다시 FormData로
-										변환하여 사용합니다.
+										변환하여 사용하거나, json으로 직렬화하여 전달하여 사용합니다.
 									</p>
 								</div>
 							</AlertDescription>
@@ -271,68 +271,32 @@ export default function ClientFormRouteHandlerEx({}: IClientFormRouteHandlerExPr
 							<CodeBlockClient
 								code={`// ========================================================
 // page.tsx (Client Component)
-// TanStack Query의 useMutation을 사용한 Form 제출
+// useApiMutation을 사용한 Form 제출
 // ========================================================
 'use client';
 
-import { useMutation } from '@tanstack/react-query';
-
-interface FormSubmitResponse {
-	success: boolean;
-	message: string;
-	data: any;
-}
+import { useApiMutation } from '@hooks/api';
 
 function SamplePage() {
-	// useMutation으로 Router Handler 호출
-	// ⚠️ FormData를 직접 전달하면 postMessage 에러 발생!
-	// 해결: 일반 객체로 변환하여 사용
-	const mutation = useMutation<FormSubmitResponse, Error, Record<string, string>>({
-		mutationFn: async (formValues) => {
-			// 일반 객체를 FormData로 변환
-			const formData = new FormData();
-			Object.entries(formValues).forEach(([key, value]) => {
-				formData.append(key, value);
-			});
+	// useApiMutation으로 Router Handler 호출
+	const mutation = useApiMutation('@routes/example/api/form-submit', { method: 'POST' });
 
-			const response = await fetch('/example/api/form-submit', {
-				method: 'POST',
-				body: formData, // FormData를 전달
-			});
-
-			if (!response.ok) {
-				throw new Error(\`API Error: \${response.status}\`);
-			}
-
-			return response.json();
-		},
-		onSuccess: (data) => {
-			console.log('성공:', data);
-		},
-		onError: (error) => {
-			console.error('에러:', error);
-		},
-	});
-
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	// form 제출  START ================================================
+	// form의 onSubmit 이벤트 처리 핸들러
+	// Form 제출 핸들러
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
-		
-		// FormData를 일반 객체로 변환
-		const formValues: Record<string, string> = {};
-		formData.forEach((value, key) => {
-			formValues[key] = value.toString();
-		});
-		
-		mutation.mutate(formValues);
+		mutation.mutate(formData);
 	};
+	// form 제출  END ==================================================
 
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
 				<input name="id" defaultValue="1" />
 				<input name="title" defaultValue="제목 1" />
-				<textarea name="body" defaultValue="내용 1" />
+				<textarea name="content" defaultValue="내용 1" />
 				<button type="submit" disabled={mutation.isPending}>
 					{mutation.isPending ? '전송 중...' : 'POST 요청 보내기'}
 				</button>
@@ -356,37 +320,33 @@ import { NextRequest, NextResponse } from 'next/server';
 import { serverApi } from '@/core/common/api/server-api';
 
 export async function POST(request: NextRequest) {
-	try {
-		const formData = await request.formData();
-		const id = formData.get('id') as string;
-		const title = formData.get('title') as string;
-		const body = formData.get('body') as string;
+	// client에서 json으로 body에 세팅했을 때는 await request.json() 으로 파싱해야 함.
+	const body = await request.json();
 
-		// 외부 API 호출
-		const response = await serverApi<any>(
-			'https://jsonplaceholder.typicode.com/posts',
-			{ method: 'POST', body: formData },
-			{ revalidate: 0 }
+	try {
+		// serverApi를 사용하여 외부 API 호출
+		const response = await serverApi<any[]>(
+			'https://koreanjson.com/todos',
+			{
+				method: 'POST',
+				body,
+			}
 		);
 
-		if (response.data) {
-			return NextResponse.json({
-				success: true,
-				message: '게시글이 작성되었습니다.',
-				data: response.data,
-			}, { status: 200 });
-		} else {
-			return NextResponse.json({
-				success: false,
-				message: '폼이 제출되지 않았습니다.',
-			}, { status: 400 });
-		}
+		// 성공 응답
+		return NextResponse.json(response, { status: 200 });
 	} catch (error) {
-		return NextResponse.json({
-			success: false,
-			message: '폼 제출 중 오류가 발생했습니다.',
-			error: error instanceof Error ? error.message : 'Unknown error',
-		}, { status: 500 });
+		console.error('[GET /example/api/posts] Error:', error);
+
+		// 에러 응답
+		return NextResponse.json(
+			{
+				success: false,
+				error: error instanceof Error ? error.message : 'posts 목록을 가져오는데 실패했습니다.',
+				data: null,
+			},
+			{ status: 500 },
+		);
 	}
 }
 // ========================================================`}
