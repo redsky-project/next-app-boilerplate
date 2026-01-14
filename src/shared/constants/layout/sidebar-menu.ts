@@ -67,6 +67,10 @@ export const SIDEBAR_MENU = [
 				title: 'Form 전송 (Client + Route Handler)',
 				url: '/example/docs-examples/client-form-routehandler',
 			},
+			{
+				title: 'Form 전송 (Server + Zod + ReactookForm)',
+				url: '/example/docs-examples/server-form-zod-hookform',
+			},
 		],
 	},
 ];
