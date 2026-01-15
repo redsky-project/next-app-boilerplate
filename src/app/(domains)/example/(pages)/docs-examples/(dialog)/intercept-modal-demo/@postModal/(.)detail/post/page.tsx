@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import ModalPage from '../../_components/ModalPage';
+import PostDetailModal from '@/app/(domains)/example/_components/dialog/PostDetailModal';
 
 export interface IPostModalPageProps {
 	searchParams: any;
@@ -9,5 +9,5 @@ export default async function PostModalPage({ searchParams }: IPostModalPageProp
 	console.log('>>>>>>>>>>>>>> searchParams::', searchParams);
 	const { id } = await searchParams;
 
-	return <ModalPage id={id} />;
+	return <PostDetailModal id={id} />;
 }

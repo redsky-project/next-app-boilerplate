@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import InterceptModalPageComp from './_components/InterceptingModalPage';
+import InterceptModalPageComp from './_components/InterceptModalDemoPage';
 
 export interface IInterceptModalPageProps {
 	//

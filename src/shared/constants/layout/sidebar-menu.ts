@@ -72,8 +72,12 @@ export const SIDEBAR_MENU = [
 				url: '/example/docs-examples/server-form-zod-hookform',
 			},
 			{
-				title: 'Intercepting Modal',
-				url: '/example/docs-examples/intercepting-modal',
+				title: 'Intercept Modal(정적 경로(Static Route) 사용)',
+				url: '/example/docs-examples/intercept-modal-demo',
+			},
+			{
+				title: 'Intercept Modal(동적 경로(Dynamic Route) 사용)',
+				url: '/example/docs-examples/intercept-modal-demo2',
 			},
 		],
 	},

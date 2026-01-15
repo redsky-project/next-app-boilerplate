@@ -5,11 +5,12 @@ import { CodeBlock } from '@components/ui';
 import Link from 'next/link';
 import { serverApi } from '@fetch/server-api';
 
-export interface IInterceptModalPageCompProps {
+export interface IInterceptModalDemo2PageProps {
 	//
 }
 
-export default async function InterceptModalPageComp({}: IInterceptModalPageCompProps): Promise<JSX.Element> {
+export default async function InterceptModalDemo2Page({}: IInterceptModalDemo2PageProps): Promise<JSX.Element> {
+	// 전체 posts 데이터를 가져온다.
 	const { data: postsData } = await serverApi<any>('https://koreanjson.com/posts', {
 		method: 'GET',
 		cache: 'no-store',
@@ -21,7 +22,7 @@ export default async function InterceptModalPageComp({}: IInterceptModalPageComp
 				<div className="flex flex-col gap-2">
 					<div className="flex items-start justify-between">
 						<h1 className="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
-							Intercepting Modal 예제
+							Intercepting Modal(동적 경로(Dynamic Route) 사용) 예제
 						</h1>
 						<div className="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
 							&nbsp;
@@ -31,8 +32,8 @@ export default async function InterceptModalPageComp({}: IInterceptModalPageComp
 						현재 화면은 <strong>Server Component</strong>입니다.
 					</p>
 					<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-						현재 페이지 위에 보여질 <strong>Modal</strong>을 위한 <strong>페러럴 라우트</strong> 폴더와{' '}
-						<strong>인터셉팅 라우트</strong> 폴더는 직접 생성해야 합니다.
+						현재 페이지 위에 보여질 <strong>Modal</strong>을 위한 <strong>페러럴 라우트</strong>와{' '}
+						<strong>인터셉팅 라우트</strong>는 직접 생성해야 합니다.
 					</p>
 				</div>
 				<div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
@@ -63,7 +64,6 @@ export default async function InterceptModalPageComp({}: IInterceptModalPageComp
 						>
 							Intercepting Modal 구현을 위한 현재 페이지 폴더 구조
 						</h2>
-						<Link href="/example/docs-examples/intercepting-modal/detail/post">Intercepting Modal 열기</Link>
 						<CodeBlock
 							code={`src
 ├── app
@@ -121,7 +121,7 @@ export default async function InterceptModalPageComp({}: IInterceptModalPageComp
 										postsData.slice(0, 6).map((post: any) => (
 											<Link
 												key={post.id}
-												href={`/example/docs-examples/intercepting-modal/detail/post?id=${post.id}`}
+												href={`/example/docs-examples/intercept-modal-demo2/post/${post.id}`}
 												className="group block p-4 rounded-lg border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all dark:border-neutral-700 dark:hover:border-neutral-600"
 											>
 												<div className="flex flex-col gap-2">
