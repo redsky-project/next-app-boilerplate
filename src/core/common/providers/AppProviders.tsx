@@ -1,7 +1,8 @@
 'use client';
 
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { QueryProvider } from './QueryProvider';
+import { setUIService } from '@/core/components/ui';
 
 interface AppProvidersProps {
 	children: ReactNode;
@@ -14,5 +15,8 @@ interface AppProvidersProps {
  * Provider 순서는 의존성을 고려하여 배치합니다.
  */
 export function AppProviders({ children }: AppProvidersProps) {
+	useEffect(() => {
+		window.$ui = setUIService();
+	}, []);
 	return <QueryProvider>{children}</QueryProvider>;
 }

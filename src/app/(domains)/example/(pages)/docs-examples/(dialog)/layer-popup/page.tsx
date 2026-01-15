@@ -1,15 +1,27 @@
 'use client';
 
 import { JSX } from 'react';
-
+import loadable from '@loadable/component';
 import { Separator } from '@/core/components/shadcn/ui/separator';
+import { Button } from '@components/ui';
 import { CodeBlockClient } from '@components/ui';
+
+const EditProfileDialog = loadable(() => import('./EditProfileDialog'));
 
 export interface ILayerPopupExProps {
 	//
 }
 
 export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
+	const handlerOpenLayerPopup = () => {
+		console.log('handlerOpenLayerPopup ($ui.dialog):::', $ui.dialog);
+		$ui.dialog({
+			component: EditProfileDialog,
+			title: '프로필 편집',
+			description: '여기에서 프로필을 변경하세요.',
+			props: {},
+		});
+	};
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
 			<div className="h-(--top-spacing) shrink-0" />
@@ -66,18 +78,22 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 							</div>
 						</div>
 						<ul className="list-disc list-inside text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-							<li>다음 Posts를 클릭하면 게시글 상세 모달이 보여집니다.</li>
-							<li>상세 모달은 개별 URL 경로로 표시됩니다.</li>
+							<li>레이어 팝업의 컨텐츠는 EditProfileDialog.tsx 컴포넌트를 사용합니다.</li>
+							<li>
+								EditProfileDialog.tsx 컨텐츠 컴포넌트는 <strong>팝업의 헤더와 푸터를 제외한 내용만</strong>{' '}
+								포함해야합니다.
+							</li>
 						</ul>
 					</div>
 
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800">
 							<div className="w-full mx-auto my-5 p-6">
-								<strong>serverApi로 https://koreanjson.com/posts 데이터 리스트</strong>
+								<strong>버튼을 클릭하면 레이어 팝업이 열립니다.</strong>
 								<Separator className="my-4" />
 								{/* posts 데이터 화면에 표시 영역 */}
 								<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+									<Button onClick={handlerOpenLayerPopup}>레이어 팝업 열기</Button>
 									{/*{Array.isArray(postsData) && postsData.length > 0 ? (
 										postsData.slice(0, 10).map((post: any) => (
 											<Link
@@ -104,7 +120,83 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 									)}*/}
 								</div>
 							</div>
-							{/* 코드 예제 영역 */}
+							<CodeBlockClient
+								code={`// ========================================================
+// page.tsx (Client Component)
+// 레이어 팝업 띄우기
+// ========================================================
+'use client';
+
+import { Button } from '@components/ui';
+import loadable from '@loadable/component';
+const EditProfileDialog = loadable(() => import('./EditProfileDialog'));
+
+function SamplePage() {
+	
+	const handlerOpenLayerPopup = () => {
+		// $ui.dialog를 사용하여 레이어 팝업을 띄웁니다.
+		$ui.dialog({
+			component: EditProfileDialog,
+			title: '프로필 편집',
+			description: '여기에서 프로필을 변경하세요.',
+			props: {}, // EditProfileDialog 컴포넌트에 전달할 프로퍼티
+		});
+	};
+
+	return (
+		<div>
+			<Button onClick={handlerOpenLayerPopup}>레이어 팝업 열기</Button>
+		</div>
+	);
+}
+
+// ========================================================
+// EditProfileDialog.tsx (Client Component)
+// ========================================================
+'use client';
+
+import type { JSX } from 'react';
+import { Button, Input } from '@components/ui';
+
+interface IEditProfileDialogProps {
+	onClose: () => void;
+}
+
+export default function EditProfileDialog({ onClose }: IEditProfileDialogProps): JSX.Element {
+	return (
+		<>
+			<div className="space-y-4">
+				<div className="space-y-2 max-h-80 overflow-y-auto">
+					<div className="grid gap-4">
+						<div className="grid gap-3">
+							<label htmlFor="name-1">Name</label>
+							<Input
+								id="name-1"
+								name="name"
+								defaultValue="홍길동"
+							/>
+						</div>
+						<div className="grid gap-3">
+							<label htmlFor="username-1">Username</label>
+							<Input
+								id="username-1"
+								name="username"
+								defaultValue="@hong"
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div className="flex justify-end">
+					<Button onClick={onClose}>닫기</Button>
+				</div>
+			</div>
+		</>
+	);
+}
+// ========================================================`}
+								lang="tsx"
+							/>
 						</div>
 					</div>
 					{/* example 블럭요서 END */}
