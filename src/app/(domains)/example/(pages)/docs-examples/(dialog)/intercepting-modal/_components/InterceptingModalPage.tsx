@@ -3,12 +3,17 @@ import { JSX } from 'react';
 import { Separator } from '@/core/components/shadcn/ui/separator';
 import { CodeBlock } from '@components/ui';
 import Link from 'next/link';
+import { serverApi } from '@fetch/server-api';
 
 export interface IInterceptModalPageCompProps {
 	//
 }
 
-export default function InterceptModalPageComp({}: IInterceptModalPageCompProps): JSX.Element {
+export default async function InterceptModalPageComp({}: IInterceptModalPageCompProps): Promise<JSX.Element> {
+	const { data: postsData } = await serverApi<any>('https://koreanjson.com/posts', {
+		method: 'GET',
+		cache: 'no-store',
+	});
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
 			<div className="h-(--top-spacing) shrink-0" />
@@ -56,7 +61,7 @@ export default function InterceptModalPageComp({}: IInterceptModalPageCompProps)
 							data-shorcut="true"
 							className="scroll-m-20 text-2xl font-semibold tracking-tight sm:text-2xl xl:text-2xl"
 						>
-							Modal 구현을 위한 현재 페이지 폴더 구조
+							Intercepting Modal 구현을 위한 현재 페이지 폴더 구조
 						</h2>
 						<Link href="/example/docs-examples/intercepting-modal/detail/post">Intercepting Modal 열기</Link>
 						<CodeBlock
@@ -107,10 +112,36 @@ export default function InterceptModalPageComp({}: IInterceptModalPageCompProps)
 					</div>
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800">
-							<div className="w-full max-w-md mx-auto my-5 p-6 bg-white dark:bg-neutral-900 rounded-xl shadow-md border border-neutral-200 dark:border-neutral-800">
+							<div className="w-full mx-auto my-5 p-6">
 								<strong>serverApi로 https://koreanjson.com/posts 호출</strong>
-								<Separator className="my-1" />
+								<Separator className="my-4" />
 								{/* posts 데이터 화면에 표시 영역 */}
+								<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+									{Array.isArray(postsData) && postsData.length > 0 ? (
+										postsData.slice(0, 6).map((post: any) => (
+											<Link
+												key={post.id}
+												href={`/example/docs-examples/intercepting-modal/detail/post?id=${post.id}`}
+												className="group block p-4 rounded-lg border border-neutral-200 hover:border-neutral-300 hover:shadow-md transition-all dark:border-neutral-700 dark:hover:border-neutral-600"
+											>
+												<div className="flex flex-col gap-2">
+													<div className="flex items-center justify-between">
+														<span className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
+															#{post.id}
+														</span>
+														<span className="text-xs text-neutral-400 dark:text-neutral-500">User {post.UserId}</span>
+													</div>
+													<h3 className="font-semibold text-neutral-800 group-hover:text-blue-600 transition-colors dark:text-neutral-200 dark:group-hover:text-blue-400 line-clamp-2">
+														{post.title}
+													</h3>
+													<p className="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">{post.content}</p>
+												</div>
+											</Link>
+										))
+									) : (
+										<p className="text-neutral-500 dark:text-neutral-400">포스트가 없습니다.</p>
+									)}
+								</div>
 							</div>
 							<CodeBlock
 								code={`// ========================================================
