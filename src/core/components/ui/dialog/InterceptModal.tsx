@@ -9,6 +9,7 @@ import {
 	DialogTitle,
 	DialogDescription,
 } from '@/core/components/shadcn/ui/dialog';
+import { useLockBodyScroll } from '@hooks/useLockBodyScroll';
 
 export interface IInterceptModalProps {
 	options: any;
@@ -18,6 +19,9 @@ export interface IInterceptModalProps {
 export default function InterceptModal({ options, children }: IInterceptModalProps) {
 	const router = useRouter();
 	const [open, setOpen] = useState(true);
+
+	// 모달이 열릴 때 배경 스크롤 방지
+	useLockBodyScroll();
 
 	const handleClose = () => {
 		setOpen(false);
