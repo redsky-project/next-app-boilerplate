@@ -79,6 +79,10 @@ export const SIDEBAR_MENU = [
 				title: 'Intercept Modal(동적 경로(Dynamic Route) 사용)',
 				url: '/example/docs-examples/intercept-modal-demo2',
 			},
+			{
+				title: '레이어 팝업(Client Component)',
+				url: '/example/docs-examples/layer-popup',
+			},
 		],
 	},
 ];
