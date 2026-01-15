@@ -6,6 +6,8 @@ import { JSX } from 'react';
 import PostDetailModal from '@/app/(domains)/example/_components/dialog/PostDetailModal';
 import InterceptModalDemoPage from '../../_components/InterceptModalDemoPage';
 
+export const dynamic = 'force-dynamic';
+
 export interface IPostModalPageProps {
 	searchParams: any;
 }

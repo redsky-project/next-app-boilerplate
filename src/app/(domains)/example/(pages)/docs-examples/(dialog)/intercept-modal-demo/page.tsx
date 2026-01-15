@@ -1,6 +1,8 @@
 import { JSX } from 'react';
 import InterceptModalPageComp from './_components/InterceptModalDemoPage';
 
+export const dynamic = 'force-dynamic';
+
 export interface IInterceptModalPageProps {
 	//
 }
