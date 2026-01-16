@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { serverApi } from '@fetch/server-api';
-import InterceptModal from '@/core/components/ui/dialog/modal/InterceptModal';
+import InterceptModalWrapper from '@/shared/components/ui/dialog/InterceptModalWrapper';
 
 export interface IPostDetailModalProps {
 	id: any;
@@ -12,12 +12,12 @@ export default async function PostDetailModal({ id }: IPostDetailModalProps): Pr
 		cache: 'no-store',
 	});
 	return (
-		<InterceptModal
+		<InterceptModalWrapper
 			options={{
 				title: '상세 팝업',
 			}}
 		>
 			<pre>{JSON.stringify(postData, null, 2)}</pre>
-		</InterceptModal>
+		</InterceptModalWrapper>
 	);
 }

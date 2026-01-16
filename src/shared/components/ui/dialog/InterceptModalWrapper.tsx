@@ -11,12 +11,12 @@ import {
 } from '@/core/components/shadcn/ui/dialog';
 import { useLockBodyScroll } from '@hooks/useLockBodyScroll';
 
-export interface IInterceptModalProps {
+export interface IInterceptModalWrapperProps {
 	options: any;
 	children?: React.ReactNode;
 }
 
-export default function InterceptModal({ options, children }: IInterceptModalProps) {
+export default function InterceptModalWrapper({ options, children }: IInterceptModalWrapperProps) {
 	const router = useRouter();
 	const [open, setOpen] = useState(true);
 
