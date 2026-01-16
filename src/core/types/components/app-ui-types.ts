@@ -24,8 +24,8 @@ export interface IDialogControl<P = any> {
 export interface IDialogOptions<P = any> {
 	component?: ComponentType<P & IDialogComponentProps>;
 	props?: Omit<P, keyof IDialogComponentProps>;
-	title?: ReactNode;
-	description?: ReactNode;
+	title?: ReactNode | string;
+	description?: ReactNode | string;
 	className?: string;
 	showCloseButton?: boolean;
 	footer?: {
