@@ -3,6 +3,7 @@
 // ===============================
 
 import { JSX } from 'react';
+import { serverApi } from '@fetch/server-api';
 import PostDetailModal from '@/app/(domains)/example/_components/dialog/PostDetailModal';
 import InterceptModalDemoPage from '../../_components/InterceptModalDemoPage';
 
@@ -18,11 +19,15 @@ export interface IPostModalPageProps {
 export default async function PostModalPage({ searchParams }: IPostModalPageProps): Promise<JSX.Element> {
 	console.log('>>>>>>>>>>>>>> searchParams::', searchParams);
 	const { id } = await searchParams;
+	const { data: postData } = await serverApi(`https://koreanjson.com/posts/${id}`, {
+		method: 'GET',
+		cache: 'no-store',
+	});
 
 	return (
 		<>
 			<InterceptModalDemoPage />
-			<PostDetailModal id={id} />
+			<PostDetailModal data={postData} />
 		</>
 	);
 }

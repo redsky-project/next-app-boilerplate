@@ -1,3 +1,5 @@
+'use client';
+
 import type { IDialogOptions } from '@app-types/components';
 import {
 	Dialog,
@@ -13,6 +15,7 @@ export interface IDialogWrapperProps<P = any> {
 	handleConfirm: () => void;
 	handleCancel: () => void;
 	options: IDialogOptions<P>;
+	children?: React.ReactNode;
 }
 
 export default function DialogWrapper<P = any>({
@@ -21,13 +24,25 @@ export default function DialogWrapper<P = any>({
 	handleConfirm,
 	handleCancel,
 	options,
+	children,
 }: IDialogWrapperProps<P>) {
 	const currentProps = options.props || ({} as P);
 	const Component = options.component;
 
+	const Content = Component ? (
+		<Component
+			{...(currentProps as P)}
+			onClose={handleCancel}
+			onConfirm={handleConfirm}
+		/>
+	) : (
+		children
+	);
+
 	return (
 		<Dialog
 			open={open}
+			modal={true}
 			onOpenChange={(isOpen) => !isOpen && handleClose()}
 		>
 			<DialogContent className={options.className}>
@@ -37,12 +52,7 @@ export default function DialogWrapper<P = any>({
 						{options.description && <DialogDescription>{options.description}</DialogDescription>}
 					</DialogHeader>
 				)}
-
-				<Component
-					{...(currentProps as P)}
-					onClose={handleCancel}
-					onConfirm={handleConfirm}
-				/>
+				{Content}
 			</DialogContent>
 		</Dialog>
 	);

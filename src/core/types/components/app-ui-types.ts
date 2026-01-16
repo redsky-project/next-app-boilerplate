@@ -15,7 +15,7 @@ export interface IDialogResult<T = any> {
 
 export type TDialog = <P = any>(options: IDialogOptions<P>) => Promise<IDialogResult>;
 export interface IDialogOptions<P = any> {
-	component: ComponentType<P & IDialogComponentProps>;
+	component?: ComponentType<P & IDialogComponentProps>;
 	props?: Omit<P, keyof IDialogComponentProps>;
 	title?: ReactNode;
 	description?: ReactNode;

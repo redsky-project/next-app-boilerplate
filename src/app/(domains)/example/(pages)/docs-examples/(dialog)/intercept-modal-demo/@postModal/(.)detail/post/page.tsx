@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+import { serverApi } from '@fetch/server-api';
 import PostDetailModal from '@/app/(domains)/example/_components/dialog/PostDetailModal';
 
 export interface IPostModalPageProps {
@@ -8,6 +9,10 @@ export interface IPostModalPageProps {
 export default async function PostModalPage({ searchParams }: IPostModalPageProps): Promise<JSX.Element> {
 	console.log('>>>>>>>>>>>>>> searchParams::', searchParams);
 	const { id } = await searchParams;
+	const { data: postData } = await serverApi(`https://koreanjson.com/posts/${id}`, {
+		method: 'GET',
+		cache: 'no-store',
+	});
 
-	return <PostDetailModal id={id} />;
+	return <PostDetailModal data={postData} />;
 }
