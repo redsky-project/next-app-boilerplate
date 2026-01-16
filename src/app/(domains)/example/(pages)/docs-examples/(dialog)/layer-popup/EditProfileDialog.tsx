@@ -5,18 +5,16 @@ import { Input } from '@/core/components/shadcn/ui/input';
 
 interface IEditProfileDialogProps {
 	onClose: () => void;
-	test: string;
 }
 
-export default function EditProfileDialog({ onClose, test }: IEditProfileDialogProps): JSX.Element {
-	console.log('>>>>>>>>>>>>>> EditProfileDialog Props::', test);
+export default function EditProfileDialog({ onClose }: IEditProfileDialogProps): JSX.Element {
 	return (
 		<>
 			<div className="space-y-4">
 				<div className="space-y-2 max-h-80 overflow-y-auto">
 					<div className="grid gap-4">
 						<div className="grid gap-3">
-							<label htmlFor="name-1">Name : {test}</label>
+							<label htmlFor="name-1">Name</label>
 							<Input
 								id="name-1"
 								name="name"

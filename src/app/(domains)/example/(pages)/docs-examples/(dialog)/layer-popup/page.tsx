@@ -29,7 +29,7 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 			component: EditProfileDialog,
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
-			props: { test },
+			props: {},
 		});
 
 		const result = await dialog.current?.promise;
