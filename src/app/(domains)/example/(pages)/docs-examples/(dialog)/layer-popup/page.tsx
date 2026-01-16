@@ -13,14 +13,24 @@ export interface ILayerPopupExProps {
 }
 
 export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
-	const handlerOpenLayerPopup = () => {
+	// 버튼 클릭 이벤트 함수
+	const handlerOpenLayerPopup = async () => {
 		console.log('handlerOpenLayerPopup ($ui.dialog):::', $ui.dialog);
-		$ui.dialog({
+		const result = await $ui.dialog({
 			component: EditProfileDialog,
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
 			props: {},
 		});
+
+		console.log('Dialog result:', result);
+		if (result.action === 'confirm') {
+			console.log('확인됨:', result.data);
+		} else if (result.action === 'close') {
+			console.log('닫기 버튼 클릭');
+		} else if (result.action === 'cancel') {
+			console.log('ESC 또는 오버레이 클릭');
+		}
 	};
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
@@ -133,14 +143,23 @@ const EditProfileDialog = loadable(() => import('./EditProfileDialog'));
 
 function SamplePage() {
 	
-	const handlerOpenLayerPopup = () => {
+	const handlerOpenLayerPopup = async () => {
 		// $ui.dialog를 사용하여 레이어 팝업을 띄웁니다.
-		$ui.dialog({
+		const result = await $ui.dialog({
 			component: EditProfileDialog,
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
 			props: {}, // EditProfileDialog 컴포넌트에 전달할 프로퍼티
 		});
+
+		// 팝업 닫힘 결과 처리
+		if (result.action === 'confirm') {
+			console.log('확인됨:', result.data);
+		} else if (result.action === 'close') {
+			console.log('닫기 버튼 클릭');
+		} else if (result.action === 'cancel') {
+			console.log('ESC 또는 오버레이 클릭');
+		}
 	};
 
 	return (

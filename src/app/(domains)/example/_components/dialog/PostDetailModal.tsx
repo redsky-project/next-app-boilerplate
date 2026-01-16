@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { serverApi } from '@fetch/server-api';
-import InterceptModal from '@/core/components/ui/dialog/InterceptModal';
+import InterceptModal from '@/core/components/ui/dialog/modal/InterceptModal';
 
 export interface IPostDetailModalProps {
 	id: any;

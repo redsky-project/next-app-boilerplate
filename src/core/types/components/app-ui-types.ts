@@ -8,10 +8,15 @@ export interface IUI {
 }
 
 // $ui - Dialog 컴포넌트 types ---------------------------------------
-export type TDialog = <T = any>(options: IDialogOptions<T>) => IDialogInstance;
-export interface IDialogOptions<T = any> {
-	component: ComponentType<T & IDialogComponentProps>;
-	props?: Omit<T, keyof IDialogComponentProps>;
+export interface IDialogResult<T = any> {
+	action: 'confirm' | 'close' | 'cancel';
+	data?: T;
+}
+
+export type TDialog = <P = any>(options: IDialogOptions<P>) => Promise<IDialogResult>;
+export interface IDialogOptions<P = any> {
+	component: ComponentType<P & IDialogComponentProps>;
+	props?: Omit<P, keyof IDialogComponentProps>;
 	title?: ReactNode;
 	description?: ReactNode;
 	className?: string;
