@@ -28,7 +28,7 @@ export default function DialogWrapper<P = any>({
 	return (
 		<Dialog
 			open={open}
-			onOpenChange={(isOpen) => !isOpen && handleCancel()}
+			onOpenChange={(isOpen) => !isOpen && handleClose()}
 		>
 			<DialogContent className={options.className}>
 				{(options.title || options.description) && (
@@ -40,7 +40,7 @@ export default function DialogWrapper<P = any>({
 
 				<Component
 					{...(currentProps as P)}
-					onClose={handleClose}
+					onClose={handleCancel}
 					onConfirm={handleConfirm}
 				/>
 			</DialogContent>

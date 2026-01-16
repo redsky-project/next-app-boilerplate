@@ -61,7 +61,7 @@ class DialogService {
 				};
 
 				return (
-					<DialogWrapper
+					<DialogWrapper<P>
 						open={open}
 						handleClose={handleClose}
 						handleConfirm={handleConfirm}
