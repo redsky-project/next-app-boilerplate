@@ -13,7 +13,14 @@ export interface IDialogResult<T = any> {
 	data?: T;
 }
 
-export type TDialog = <P = any>(options: IDialogOptions<P>) => Promise<IDialogResult>;
+export type TDialog = <P = any>(options: IDialogOptions<P>) => IDialogControl<P>;
+
+export interface IDialogControl<P = any> {
+	promise: Promise<IDialogResult>;
+	update: (newProps: Partial<Omit<P, keyof IDialogComponentProps>>) => void;
+	close: () => void;
+}
+
 export interface IDialogOptions<P = any> {
 	component?: ComponentType<P & IDialogComponentProps>;
 	props?: Omit<P, keyof IDialogComponentProps>;

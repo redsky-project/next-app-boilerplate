@@ -1,7 +1,6 @@
 'use client';
 
 import type { IDialogOptions } from '@app-types/components';
-import { useState, useEffect } from 'react';
 import {
 	Dialog,
 	DialogContent,
@@ -27,23 +26,17 @@ export default function DialogWrapper<P = any>({
 	options,
 	children,
 }: IDialogWrapperProps<P>) {
-	const [currentProps, setCurrentProps] = useState<P>(options.props as P);
 	const Component = options.component;
 
 	const Content = Component ? (
 		<Component
-			{...(currentProps as P)}
+			{...(options.props as P)}
 			onClose={handleCancel}
 			onConfirm={handleConfirm}
 		/>
 	) : (
 		children
 	);
-
-	useEffect(() => {
-		console.log('>>>>>>>>>>>>>> DialogWrapper Props::', options.props);
-		setCurrentProps(options.props as P);
-	}, [options.props]);
 
 	return (
 		<Dialog

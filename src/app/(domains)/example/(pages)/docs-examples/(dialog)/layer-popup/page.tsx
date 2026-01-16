@@ -1,10 +1,11 @@
 'use client';
 
-import { JSX, useState } from 'react';
+import { JSX, useEffect, useRef, useState } from 'react';
 import loadable from '@loadable/component';
 import { Separator } from '@/core/components/shadcn/ui/separator';
 import { Button } from '@components/ui';
 import { CodeBlockClient } from '@components/ui';
+import { IDialogControl } from '@app-types/components';
 
 const EditProfileDialog = loadable(() => import('./EditProfileDialog'));
 
@@ -14,17 +15,24 @@ export interface ILayerPopupExProps {
 
 export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 	const [test] = useState<string>('test111');
+	const dialog = useRef<IDialogControl<any>>(null);
 
-	// 버튼 클릭 이벤트 함수
+	useEffect(() => {
+		console.log('test:', test);
+		dialog.current?.update({ test });
+	}, [test]);
+
+	// 기본 사용법 - Promise 기반
 	const handlerOpenLayerPopup = async () => {
 		console.log('handlerOpenLayerPopup ($ui.dialog):::', $ui.dialog);
-		const result = await $ui.dialog({
+		dialog.current = $ui.dialog({
 			component: EditProfileDialog,
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
 			props: { test },
 		});
 
+		const result = await dialog.current?.promise;
 		console.log('Dialog result:', result);
 		if (result.action === 'confirm') {
 			console.log('확인됨:', result.data);
@@ -34,6 +42,7 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 			console.log('ESC 또는 오버레이 클릭');
 		}
 	};
+
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
 			<div className="h-(--top-spacing) shrink-0" />
@@ -95,6 +104,10 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 								EditProfileDialog.tsx 컨텐츠 컴포넌트는 <strong>팝업의 헤더와 푸터를 제외한 내용만</strong>{' '}
 								포함해야합니다.
 							</li>
+							<li>
+								<strong>$ui.dialog()</strong>는 <strong>IDialogControl</strong> 객체를 반환하며, 이를 통해{' '}
+								<strong>update()</strong> 메서드로 props를 동적으로 업데이트할 수 있습니다.
+							</li>
 						</ul>
 					</div>
 
@@ -144,17 +157,20 @@ import loadable from '@loadable/component';
 const EditProfileDialog = loadable(() => import('./EditProfileDialog'));
 
 function SamplePage() {
+	const dialog = useRef<IDialogControl<any>>(null);
 	
+	// 기본 사용법
 	const handlerOpenLayerPopup = async () => {
-		// $ui.dialog를 사용하여 레이어 팝업을 띄웁니다.
-		const result = await $ui.dialog({
+		// $ui.dialog는 IDialogControl 객체를 반환합니다
+		dialog.current = $ui.dialog({
 			component: EditProfileDialog,
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
-			props: {}, // EditProfileDialog 컴포넌트에 전달할 프로퍼티
+			props: { test: 'Hello' }, // EditProfileDialog 컴포넌트에 전달할 프로퍼티
 		});
 
-		// 팝업 닫힘 결과 처리
+		// promise로 팝업 닫힘 결과를 기다립니다
+		const result = await dialog.current?.promise;
 		if (result.action === 'confirm') {
 			console.log('확인됨:', result.data);
 		} else if (result.action === 'close') {
