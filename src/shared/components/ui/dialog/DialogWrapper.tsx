@@ -61,9 +61,9 @@ export default function DialogWrapper<P = any>({
 							variant="outline"
 							onClick={handleCancel}
 						>
-							취소
+							{options.footer.cancelText || '취소'}
 						</Button>
-						<Button onClick={handleConfirm}>확인</Button>
+						<Button onClick={handleConfirm}>{options.footer.confirmText || '확인'}</Button>
 					</DialogFooter>
 				)}
 			</DialogContent>

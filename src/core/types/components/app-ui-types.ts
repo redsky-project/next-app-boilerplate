@@ -28,7 +28,10 @@ export interface IDialogOptions<P = any> {
 	description?: ReactNode;
 	className?: string;
 	showCloseButton?: boolean;
-	footer?: boolean;
+	footer?: {
+		confirmText?: string;
+		cancelText?: string;
+	};
 	onConfirm?: (data?: any) => void;
 	onCancel?: (data?: any) => void;
 }
