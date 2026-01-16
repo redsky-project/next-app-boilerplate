@@ -5,9 +5,11 @@ import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
+	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 } from '@/core/components/shadcn/ui/dialog';
+import { Button } from '@/core/components/shadcn/ui/button';
 
 export interface IDialogWrapperProps<P = any> {
 	open: boolean;
@@ -31,7 +33,8 @@ export default function DialogWrapper<P = any>({
 	const Content = Component ? (
 		<Component
 			{...(options.props as P)}
-			onClose={handleCancel}
+			onClose={handleClose}
+			onCancel={handleCancel}
 			onConfirm={handleConfirm}
 		/>
 	) : (
@@ -52,6 +55,17 @@ export default function DialogWrapper<P = any>({
 					</DialogHeader>
 				)}
 				{Content}
+				{options.footer && (
+					<DialogFooter>
+						<Button
+							variant="outline"
+							onClick={handleCancel}
+						>
+							취소
+						</Button>
+						<Button onClick={handleConfirm}>확인</Button>
+					</DialogFooter>
+				)}
 			</DialogContent>
 		</Dialog>
 	);

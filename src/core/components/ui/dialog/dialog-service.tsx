@@ -64,10 +64,11 @@ class DialogService {
 					}, 200);
 				};
 
-				const handleCancel = () => {
+				const handleCancel = (data?: any) => {
+					options.onCancel?.(data);
 					setOpen(false);
 					setTimeout(() => {
-						resolve({ action: 'cancel' });
+						resolve({ action: 'cancel', data });
 						cleanup();
 					}, 200);
 				};

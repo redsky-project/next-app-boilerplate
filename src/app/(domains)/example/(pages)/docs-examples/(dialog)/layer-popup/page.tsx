@@ -30,6 +30,13 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
 			props: {},
+			//footer: true,
+			//onConfirm: (data?: any) => {
+			//	console.log('확인됨:', data);
+			//},
+			//onCancel: (data?: any) => {
+			//	console.log('취소됨:', data);
+			//},
 		});
 
 		const result = await dialog.current?.promise;
