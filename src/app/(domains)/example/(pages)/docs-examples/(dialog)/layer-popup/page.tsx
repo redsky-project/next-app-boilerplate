@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX } from 'react';
+import { JSX, useState } from 'react';
 import loadable from '@loadable/component';
 import { Separator } from '@/core/components/shadcn/ui/separator';
 import { Button } from '@components/ui';
@@ -13,6 +13,8 @@ export interface ILayerPopupExProps {
 }
 
 export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
+	const [test] = useState<string>('test111');
+
 	// 버튼 클릭 이벤트 함수
 	const handlerOpenLayerPopup = async () => {
 		console.log('handlerOpenLayerPopup ($ui.dialog):::', $ui.dialog);
@@ -20,7 +22,7 @@ export default function LayerPopupEx({}: ILayerPopupExProps): JSX.Element {
 			component: EditProfileDialog,
 			title: '프로필 편집',
 			description: '여기에서 프로필을 변경하세요.',
-			props: {},
+			props: { test },
 		});
 
 		console.log('Dialog result:', result);
