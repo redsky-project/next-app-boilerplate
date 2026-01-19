@@ -2,10 +2,37 @@ import { type ComponentType, type ReactNode } from 'react';
 import { type Root } from 'react-dom/client';
 
 export interface IUI {
-	//alert: TAlertDialog;
+	alert: TAlert;
 	//confirm: TConfirmDialog;
 	dialog: TDialog;
 }
+
+// $ui - Alert 컴포넌트 types ---------------------------------------
+export type TAlert = (
+	message?: ReactNode | string,
+	options?: IAlertOptions,
+) => IAlertControl;
+
+export interface IAlertOptions {
+	type?: 'success' | 'info' | 'warning' | 'error';
+	title?: ReactNode | string;
+	description?: ReactNode | string;
+	autoDismiss?: number;
+	confirmText?: string;
+	className?: string;
+	showConfirm?: boolean;
+}
+
+export interface IAlertControl {
+	promise: Promise<IAlertResult>;
+	close: () => void;
+}
+export interface IAlertResult {
+	action: 'confirm' | 'close';
+}
+
+
+
 
 // $ui - Dialog 컴포넌트 types ---------------------------------------
 export interface IDialogResult<T = any> {
@@ -27,7 +54,6 @@ export interface IDialogOptions<P = any> {
 	title?: ReactNode | string;
 	description?: ReactNode | string;
 	className?: string;
-	showCloseButton?: boolean;
 	footer?: {
 		confirmText?: string;
 		cancelText?: string;

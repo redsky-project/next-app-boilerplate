@@ -83,6 +83,10 @@ export const SIDEBAR_MENU = [
 				title: '레이어 팝업(Client Component)',
 				url: '/example/docs-examples/layer-popup',
 			},
+			{
+				title: 'Alert(Client Component)',
+				url: '/example/docs-examples/alert',
+			},
 		],
 	},
 ];
