@@ -3,7 +3,7 @@ import { JSX } from 'react';
 import { Separator } from '@/core/components/shadcn/ui/separator';
 import { CodeBlock } from '@components/ui';
 import Link from 'next/link';
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 export interface IInterceptModalDemo2PageProps {
 	//

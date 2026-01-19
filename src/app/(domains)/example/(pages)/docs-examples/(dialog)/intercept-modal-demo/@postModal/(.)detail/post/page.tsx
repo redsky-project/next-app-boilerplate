@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 import PostDetailModal from '@/app/(domains)/example/_components/dialog/PostDetailModal';
 
 export interface IPostModalPageProps {

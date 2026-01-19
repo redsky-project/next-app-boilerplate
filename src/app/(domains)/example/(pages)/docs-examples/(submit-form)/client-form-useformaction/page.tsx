@@ -250,7 +250,7 @@ function SamplePage({ searchParams }) {
 // ========================================================
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 export async function todosAction(formData: FormData) {
 	const url = 'https://koreanjson.com/todos';

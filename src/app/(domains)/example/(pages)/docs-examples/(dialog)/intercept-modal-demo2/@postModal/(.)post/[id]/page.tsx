@@ -1,5 +1,5 @@
 import { JSX } from 'react';
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 // 공통 Dialog 컴포넌트
 import PostDetailModal from '@/app/(domains)/example/_components/dialog/PostDetailModal';
 

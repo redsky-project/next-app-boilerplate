@@ -1,6 +1,6 @@
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 export async function todosAction(formData: FormData) {
 	const url = `${process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL3}/todos`;

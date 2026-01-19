@@ -2,7 +2,7 @@ import { JSX } from 'react';
 
 import { CodeBlockClient } from '@components/ui';
 import { Card, CardContent, CardHeader, CardTitle } from '@/core/components/shadcn/ui/card';
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 import { IPost } from '@/app/(domains)/example/_types';
 
 export interface IBasicServerApiDemoProps {
@@ -27,7 +27,7 @@ export default async function BasicServerApiDemo({}: IBasicServerApiDemoProps): 
 			</p>
 			<CodeBlockClient
 				code={`import { JSX } from 'react';
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 // KoreanJSON API - Posts(업무 폴더 내부의 _types 폴더에 선언된 타입 사용)
 // https://koreanjson.com/posts

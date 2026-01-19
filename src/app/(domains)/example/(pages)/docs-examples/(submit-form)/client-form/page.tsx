@@ -349,7 +349,7 @@ function SamplePage() {
 // ========================================================
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 export async function todosAction(formData: FormData) {
 
@@ -626,7 +626,7 @@ function SamplePage() {
 // ========================================================
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 export async function todosAction(formData: FormData) {
 
@@ -777,7 +777,7 @@ export default function ClientFormPage() {
 // ========================================================
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 // ✅ 첫 번째 매개변수는 이전 상태 (필수!)
 export async function postsAction(prevState: any, formData: FormData) {
@@ -1016,7 +1016,7 @@ export default function ClientFormPage() {
 // ========================================================
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 // ✅ 첫 번째 매개변수는 이전 상태 (필수!)
 export async function postsAction(prevState: any, formData: FormData) {

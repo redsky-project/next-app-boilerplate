@@ -201,7 +201,7 @@ export default function ServerFormEx({ searchParams }: IServerFormExProps): JSX.
 // SamplePage.tsx
 // 상황에 따라 쿠키를 사용하거나 query parameter를 사용하여 결과를 전달할 수 있습니다.
 // ========================================================
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 import { todosAction } from './todosAction'; // Server Action 파일 읽음
 import { cookies } from 'next/headers';
 
@@ -250,7 +250,7 @@ function SamplePage({ searchParams }) {
 // ========================================================
 'use server';
 
-import { serverApi } from '@fetch/server-api';
+import { serverApi } from '@fetch/api';
 
 export async function todosAction(formData: FormData) {
 
