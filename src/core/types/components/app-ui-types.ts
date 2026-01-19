@@ -38,6 +38,7 @@ export interface IDialogOptions<P = any> {
 
 export interface IDialogComponentProps {
 	onClose: () => void;
+	onCancel?: (data?: any) => void;
 	onConfirm?: (data?: any) => void;
 }
 

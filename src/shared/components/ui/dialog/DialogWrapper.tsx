@@ -14,8 +14,8 @@ import { Button } from '@/core/components/shadcn/ui/button';
 export interface IDialogWrapperProps<P = any> {
 	open: boolean;
 	handleClose: () => void;
-	handleConfirm: () => void;
-	handleCancel: () => void;
+	handleConfirm: (data?: any) => void;
+	handleCancel: (data?: any) => void;
 	options: IDialogOptions<P>;
 	children?: React.ReactNode;
 }

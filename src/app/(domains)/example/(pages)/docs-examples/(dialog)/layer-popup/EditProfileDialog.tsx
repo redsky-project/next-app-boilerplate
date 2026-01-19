@@ -5,9 +5,25 @@ import { Input } from '@/core/components/shadcn/ui/input';
 
 interface IEditProfileDialogProps {
 	onClose: () => void;
+	onCancel: (data?: any) => void;
+	onConfirm: (data?: any) => void;
 }
 
-export default function EditProfileDialog({ onClose }: IEditProfileDialogProps): JSX.Element {
+export default function EditProfileDialog({ onClose, onCancel, onConfirm }: IEditProfileDialogProps): JSX.Element {
+
+
+	const handlerClose = () => {
+		onClose();
+	};
+
+	//const handlerCancel = () => {
+	//	onCancel?.('22222222');
+	//};
+
+	//const handlerConfirm = () => {
+	//	onConfirm?.('33333333');
+	//};
+
 	return (
 		<>
 			<div className="space-y-4">
@@ -33,7 +49,7 @@ export default function EditProfileDialog({ onClose }: IEditProfileDialogProps):
 				</div>
 
 				<div className="flex justify-end">
-					<Button onClick={onClose}>닫기</Button>
+					<Button onClick={handlerClose}>닫기</Button>
 				</div>
 			</div>
 		</>
