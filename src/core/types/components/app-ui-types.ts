@@ -3,7 +3,7 @@ import { type Root } from 'react-dom/client';
 
 export interface IUI {
 	alert: TAlert;
-	//confirm: TConfirmDialog;
+	confirm: TConfirm;
 	dialog: TDialog;
 }
 
@@ -29,6 +29,32 @@ export interface IAlertControl {
 }
 export interface IAlertResult {
 	action: 'confirm' | 'close';
+}
+
+
+
+
+// $ui - Confirm 컴포넌트 types ---------------------------------------
+export type TConfirm = (
+	message?: ReactNode | string,
+	options?: IConfirmOptions,
+) => IConfirmControl;
+
+export interface IConfirmOptions {
+	type?: 'success' | 'info' | 'warning' | 'error';
+	title?: ReactNode | string;
+	description?: ReactNode | string;
+	confirmText?: string;
+	cancelText?: string;
+	className?: string;
+}
+
+export interface IConfirmControl {
+	promise: Promise<IConfirmResult>;
+	close: () => void;
+}
+export interface IConfirmResult {
+	action: 'confirm' | 'close' | 'cancel';
 }
 
 

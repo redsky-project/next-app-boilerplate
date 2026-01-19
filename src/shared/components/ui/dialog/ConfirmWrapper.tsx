@@ -1,6 +1,6 @@
 'use client';
 
-import type { IAlertOptions } from '@app-types/components';
+import type { IConfirmOptions } from '@app-types/components';
 import {
 	Dialog,
 	DialogContent,
@@ -11,25 +11,26 @@ import {
 } from '@/core/components/shadcn/ui/dialog';
 import { Button } from '@/core/components/shadcn/ui/button';
 
-export interface IAlertWrapperProps {
+export interface IConfirmWrapperProps {
 	open: boolean;
 	handleClose: () => void;
+	handleCancel: (data?: any) => void;
 	handleConfirm: (data?: any) => void;
 	message: string;
-	options?: IAlertOptions;
+	options?: IConfirmOptions;
 	children?: React.ReactNode;
 }
 
-export default function AlertWrapper({
+export default function ConfirmWrapper({
 	open,
 	handleClose,
+	handleCancel,
 	handleConfirm,
 	message,
 	options,
 	children,
-}: IAlertWrapperProps) {
+}: IConfirmWrapperProps) {
 	const opts = options || {};
-	const showConfirm = opts.showConfirm !== undefined ? opts.showConfirm : true;
 	const description = opts.description !== undefined ? (<DialogDescription>{opts.description}</DialogDescription>) : null;
 	const Content = message ? (
 		message
@@ -53,11 +54,15 @@ aria-describedby={opts.description ? 'alert-description' : ''}>
 					{description}
 				</DialogHeader>
 				{Content}
-				{showConfirm && (
-					<DialogFooter>
-						<Button onClick={handleConfirm}>{opts.confirmText || '확인'}</Button>
-					</DialogFooter>
-				)}
+				<DialogFooter>
+					<Button
+						variant="outline"
+						onClick={handleCancel}
+					>
+						{opts.cancelText || '취소'}
+					</Button>
+					<Button onClick={handleConfirm}>{opts.confirmText || '확인'}</Button>
+				</DialogFooter>
 			</DialogContent>
 		</Dialog>
 	);

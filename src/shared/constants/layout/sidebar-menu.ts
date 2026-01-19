@@ -87,6 +87,10 @@ export const SIDEBAR_MENU = [
 				title: 'Alert(Client Component)',
 				url: '/example/docs-examples/alert',
 			},
+			{
+				title: 'Confirm(Client Component)',
+				url: '/example/docs-examples/confirm',
+			},
 		],
 	},
 ];
