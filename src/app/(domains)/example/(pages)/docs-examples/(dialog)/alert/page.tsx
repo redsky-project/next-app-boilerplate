@@ -128,7 +128,7 @@ export default function AlertEx({}: IAlertExProps): JSX.Element {
 							<CodeBlockClient
 								code={`// ========================================================
 // page.tsx (Client Component)
-// 레이어 팝업 띄우기
+// Alert 띄우기
 // ========================================================
 'use client';
 
