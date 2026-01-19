@@ -49,7 +49,7 @@ aria-describedby={opts.description ? 'alert-description' : ''}>
 				<DialogHeader>
 					{/*<DialogTitle className={opts.title ? '' : 'sr-only'}>*/}
 					<DialogTitle>
-						{opts.title || '알림'}
+						{opts.title || '확인'}
 					</DialogTitle>
 					{description}
 				</DialogHeader>
