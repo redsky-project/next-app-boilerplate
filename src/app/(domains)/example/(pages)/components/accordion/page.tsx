@@ -8,7 +8,7 @@ import {
 export default function AccordionEx() {
 	return (
 		<>
-			<h1>Accordion</h1>
+			<h1>Accordion Example</h1>
 			<Accordion
       type="single"
       collapsible
