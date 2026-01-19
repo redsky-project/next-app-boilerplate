@@ -1,3 +1,7 @@
+export { default as Accordion } from './accordion/Accordion.tsx';
+export { default as AccordionContent } from './accordion/AccordionContent.tsx';
+export { default as AccordionItem } from './accordion/AccordionItem.tsx';
+export { default as AccordionTrigger } from './accordion/AccordionTrigger.tsx';
 export { default as Alert } from './alert/AlertDefault.tsx';
 export { default as AlertDescription } from './alert/AlertDescription.tsx';
 export { default as AlertTitle } from './alert/AlertTitle.tsx';

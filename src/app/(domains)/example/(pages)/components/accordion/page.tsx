@@ -1,9 +1,9 @@
 import {
   Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/core/components/shadcn/ui/accordion";
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from '@components/ui';
 
 export default function AccordionEx() {
 	return (
