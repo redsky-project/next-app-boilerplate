@@ -355,7 +355,7 @@ function SamplePage() {
 							</div>
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function SamplePage() {
 	return (
@@ -508,7 +508,7 @@ function SamplePage() {
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function SamplePage() {
 	return (
@@ -703,7 +703,7 @@ function SamplePage() {
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function SamplePage() {
 	return (
@@ -858,7 +858,7 @@ function SamplePage() {
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function SamplePage() {
 	const [value, setValue] = useState('item-1');
@@ -1070,7 +1070,7 @@ function SamplePage() {
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function TransactionHistory() {
 	return (
@@ -1320,7 +1320,7 @@ function TransactionHistory() {
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function TermsAgreement() {
 	return (
@@ -1585,7 +1585,7 @@ function TermsAgreement() {
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function AssetPortfolio() {
 	return (
