@@ -91,6 +91,7 @@ export function NavMain({
 									<button
 										onClick={() => handlerNav(item.url)}
 										className="link-style"
+										title={item.title}
 										key={index}
 									>
 										<item.icon />
@@ -128,6 +129,7 @@ export function NavMain({
 																>
 																	<button
 																		onClick={() => handlerNav(subItem.url)}
+																		title={subItem.title}
 																		className="link-style w-full"
 																	>
 																		<span>{subItem.title}</span>
