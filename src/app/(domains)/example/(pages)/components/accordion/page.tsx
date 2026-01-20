@@ -87,7 +87,7 @@ export default function AccordionEx({}: IAccordionExProps): JSX.Element {
 							
 						</div>
 						<div className="w-full flex-1 py-4">
-							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
 								<Accordion
 									type="single"
 									collapsible
@@ -219,7 +219,7 @@ function SamplePage() {
 							</p>
 						</div>
 						<div className="w-full flex-1 py-4">
-							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
 								<Accordion
 									type="multiple"
 									className="w-full"
@@ -319,7 +319,7 @@ function SamplePage() {
 							</p>
 						</div>
 						<div className="w-full flex-1 py-4">
-							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
 								<Accordion
 									type="multiple"
 									className="w-full"
@@ -427,7 +427,7 @@ function SamplePage() {
 						</div>
 						<div className="w-full flex-1 py-4">
 							{/* 아코디언 예제 영역 start ============================ */}
-							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
 								<div className="flex flex-col md:flex-row w-full gap-6">
 									<div className="flex-1 flex flex-col gap-2">
 										<label htmlFor="message-2">Accordion Disabled 처리</label>
@@ -622,7 +622,7 @@ function SamplePage() {
 						</div>
 						<div className="w-full flex-1 py-4">
 							{/* 아코디언 예제 영역 start ============================ */}
-							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
 								<div className="flex flex-col md:flex-row w-full gap-6">
 									<div className="flex-1 flex flex-col gap-2">
 										<label htmlFor="message-2">Accordion animation 비활성화 처리</label>
@@ -814,7 +814,7 @@ function SamplePage() {
 						</div>
 						<div className="w-full flex-1 py-4">
 							{/* 아코디언 예제 영역 start ============================ */}
-							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
 								<div className="flex-1 flex flex-col gap-2">
 									<label htmlFor="message-2">
 										현재 선택된 value상태 값 : <strong style={{ color: 'blue' }}>{value}</strong>
