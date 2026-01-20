@@ -31,12 +31,8 @@ export default function ConfirmWrapper({
 	children,
 }: IConfirmWrapperProps) {
 	const opts = options || {};
-	const description = opts.description !== undefined ? (<DialogDescription>{opts.description}</DialogDescription>) : null;
-	const Content = message ? (
-		message
-	) : (
-		children
-	);
+	const description = opts.description !== undefined ? <DialogDescription>{opts.description}</DialogDescription> : null;
+	const Content = message ? message : children;
 
 	return (
 		<Dialog
@@ -44,13 +40,13 @@ export default function ConfirmWrapper({
 			modal={true}
 			onOpenChange={(isOpen) => !isOpen && handleClose()}
 		>
-			<DialogContent className={opts.className || ''}
-aria-describedby={opts.description ? 'alert-description' : ''}>
+			<DialogContent
+				className={opts.className || ''}
+				aria-describedby={opts.description ? 'alert-description' : ''}
+			>
 				<DialogHeader>
 					{/*<DialogTitle className={opts.title ? '' : 'sr-only'}>*/}
-					<DialogTitle>
-						{opts.title || '확인'}
-					</DialogTitle>
+					<DialogTitle>{opts.title || '확인'}</DialogTitle>
 					{description}
 				</DialogHeader>
 				{Content}

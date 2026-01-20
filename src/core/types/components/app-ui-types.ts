@@ -8,10 +8,7 @@ export interface IUI {
 }
 
 // $ui - Alert 컴포넌트 types ---------------------------------------
-export type TAlert = (
-	message?: ReactNode | string,
-	options?: IAlertOptions,
-) => IAlertControl;
+export type TAlert = (message?: ReactNode | string, options?: IAlertOptions) => IAlertControl;
 
 export interface IAlertOptions {
 	type?: 'success' | 'info' | 'warning' | 'error';
@@ -31,14 +28,8 @@ export interface IAlertResult {
 	action: 'confirm' | 'close';
 }
 
-
-
-
 // $ui - Confirm 컴포넌트 types ---------------------------------------
-export type TConfirm = (
-	message?: ReactNode | string,
-	options?: IConfirmOptions,
-) => IConfirmControl;
+export type TConfirm = (message?: ReactNode | string, options?: IConfirmOptions) => IConfirmControl;
 
 export interface IConfirmOptions {
 	type?: 'success' | 'info' | 'warning' | 'error';
@@ -56,9 +47,6 @@ export interface IConfirmControl {
 export interface IConfirmResult {
 	action: 'confirm' | 'close' | 'cancel';
 }
-
-
-
 
 // $ui - Dialog 컴포넌트 types ---------------------------------------
 export interface IDialogResult<T = any> {

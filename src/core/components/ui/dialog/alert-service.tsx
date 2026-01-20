@@ -4,8 +4,7 @@ import { createRoot, type Root } from 'react-dom/client';
 import AlertWrapper from '@components/ui/dialog/AlertWrapper';
 
 class AlertService {
-	private activeAlerts: Map<string, { root: Root; container: HTMLDivElement; }> =
-		new Map();
+	private activeAlerts: Map<string, { root: Root; container: HTMLDivElement }> = new Map();
 
 	private createAlertContainer(): HTMLDivElement {
 		const container = document.createElement('div');

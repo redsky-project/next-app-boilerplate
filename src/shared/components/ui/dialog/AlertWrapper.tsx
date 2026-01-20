@@ -30,12 +30,8 @@ export default function AlertWrapper({
 }: IAlertWrapperProps) {
 	const opts = options || {};
 	const showConfirm = opts.showConfirm !== undefined ? opts.showConfirm : true;
-	const description = opts.description !== undefined ? (<DialogDescription>{opts.description}</DialogDescription>) : null;
-	const Content = message ? (
-		message
-	) : (
-		children
-	);
+	const description = opts.description !== undefined ? <DialogDescription>{opts.description}</DialogDescription> : null;
+	const Content = message ? message : children;
 
 	return (
 		<Dialog
@@ -43,13 +39,13 @@ export default function AlertWrapper({
 			modal={true}
 			onOpenChange={(isOpen) => !isOpen && handleClose()}
 		>
-			<DialogContent className={opts.className || ''}
-aria-describedby={opts.description ? 'alert-description' : ''}>
+			<DialogContent
+				className={opts.className || ''}
+				aria-describedby={opts.description ? 'alert-description' : ''}
+			>
 				<DialogHeader>
 					{/*<DialogTitle className={opts.title ? '' : 'sr-only'}>*/}
-					<DialogTitle>
-						{opts.title || '알림'}
-					</DialogTitle>
+					<DialogTitle>{opts.title || '알림'}</DialogTitle>
 					{description}
 				</DialogHeader>
 				{Content}

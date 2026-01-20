@@ -4,8 +4,7 @@ import { createRoot, type Root } from 'react-dom/client';
 import ConfirmWrapper from '@components/ui/dialog/ConfirmWrapper';
 
 class ConfirmService {
-	private activeConfirms: Map<string, { root: Root; container: HTMLDivElement; }> =
-		new Map();
+	private activeConfirms: Map<string, { root: Root; container: HTMLDivElement }> = new Map();
 
 	private createConfirmContainer(): HTMLDivElement {
 		const container = document.createElement('div');

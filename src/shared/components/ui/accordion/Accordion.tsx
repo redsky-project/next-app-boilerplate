@@ -11,11 +11,17 @@ interface IAccordionDefaultProps {
 	expandIcon?: IconName;
 }
 
-export default function Accordion({ disableAnimation = false, expandIcon, ...props }: IAccordionDefaultProps & (AccordionSingleProps | AccordionMultipleProps) & React.RefAttributes<HTMLDivElement>) {
-  return (
+export default function Accordion({
+	disableAnimation = false,
+	expandIcon,
+	...props
+}: IAccordionDefaultProps & (AccordionSingleProps | AccordionMultipleProps) & React.RefAttributes<HTMLDivElement>) {
+	return (
 		<AccordionProvider value={{ disableAnimation, expandIcon }}>
-			<AccordionPrimitive.Root data-slot="accordion"
-				{...props} />
+			<AccordionPrimitive.Root
+				data-slot="accordion"
+				{...props}
+			/>
 		</AccordionProvider>
 	);
 }

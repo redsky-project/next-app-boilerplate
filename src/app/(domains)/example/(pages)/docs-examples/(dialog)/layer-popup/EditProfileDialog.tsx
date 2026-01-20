@@ -10,8 +10,6 @@ interface IEditProfileDialogProps {
 }
 
 export default function EditProfileDialog({ onClose, onCancel, onConfirm }: IEditProfileDialogProps): JSX.Element {
-
-
 	const handlerClose = () => {
 		onClose();
 	};

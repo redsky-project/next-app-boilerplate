@@ -6,8 +6,6 @@ import { Button } from '@components/ui';
 import { CodeBlockClient } from '@components/ui';
 import { IConfirmControl } from '@app-types/components';
 
-
-
 export interface IConfirmExProps {
 	//
 }
@@ -36,9 +34,7 @@ export default function ConfirmEx({}: IConfirmExProps): JSX.Element {
 			<div className="mx-auto flex w-full  min-w-0 flex-1 flex-col gap-8 px-4 py-6 text-neutral-800 md:px-0 lg:py-8 dark:text-neutral-300">
 				<div className="flex flex-col gap-2">
 					<div className="flex items-start justify-between">
-						<h1 className="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">
-							Confirm 예제
-						</h1>
+						<h1 className="scroll-m-20 text-4xl font-semibold tracking-tight sm:text-3xl xl:text-4xl">Confirm 예제</h1>
 						<div className="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
 							&nbsp;
 						</div>
@@ -87,8 +83,8 @@ export default function ConfirmEx({}: IConfirmExProps): JSX.Element {
 						</div>
 						<ul className="list-disc list-inside text-muted-foreground text-[1.05rem] text-balance sm:text-base">
 							<li>
-								<strong>$ui.confirm()</strong>는 <strong>IConfirmControl</strong> 객체를 반환하며, 이를 통해{' '}
-								Confirm의 상태와 결과를 관리할 수 있습니다.
+								<strong>$ui.confirm()</strong>는 <strong>IConfirmControl</strong> 객체를 반환하며, 이를 통해 Confirm의
+								상태와 결과를 관리할 수 있습니다.
 							</li>
 						</ul>
 					</div>

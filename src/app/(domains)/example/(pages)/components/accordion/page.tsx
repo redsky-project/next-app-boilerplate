@@ -91,12 +91,12 @@ export default function AccordionEx({}: IAccordionExProps): JSX.Element {
 									<AccordionTrigger>제품 정보</AccordionTrigger>
 									<AccordionContent className="flex flex-col gap-4 text-balance">
 										<p>
-											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
-											탁월한 성능과 안정성을 제공합니다.
+											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+											성능과 안정성을 제공합니다.
 										</p>
 										<p>
-											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-											인터페이스가 있습니다.
+											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+											있습니다.
 										</p>
 									</AccordionContent>
 								</AccordionItem>
@@ -104,12 +104,12 @@ export default function AccordionEx({}: IAccordionExProps): JSX.Element {
 									<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 									<AccordionContent className="flex flex-col gap-4 text-balance">
 										<p>
-											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-											영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
+											3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 										</p>
 										<p>
-											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-											실시간으로 배송 상황을 확인하실 수 있습니다.
+											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
+											상황을 확인하실 수 있습니다.
 										</p>
 									</AccordionContent>
 								</AccordionItem>
@@ -158,8 +158,6 @@ function SamplePage() {
 	);
 }`}
 							/>
-												
-											
 						</div>
 						{/* example 블럭요서 END */}
 						{/* example 블럭요서 START */}
@@ -215,12 +213,12 @@ function SamplePage() {
 									<AccordionTrigger>제품 정보</AccordionTrigger>
 									<AccordionContent className="flex flex-col gap-4 text-balance">
 										<p>
-											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
-											탁월한 성능과 안정성을 제공합니다.
+											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+											성능과 안정성을 제공합니다.
 										</p>
 										<p>
-											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-											인터페이스가 있습니다.
+											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+											있습니다.
 										</p>
 									</AccordionContent>
 								</AccordionItem>
@@ -228,12 +226,12 @@ function SamplePage() {
 									<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 									<AccordionContent className="flex flex-col gap-4 text-balance">
 										<p>
-											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-											영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
+											3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 										</p>
 										<p>
-											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-											실시간으로 배송 상황을 확인하실 수 있습니다.
+											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
+											상황을 확인하실 수 있습니다.
 										</p>
 									</AccordionContent>
 								</AccordionItem>
@@ -281,7 +279,6 @@ function SamplePage() {
 	);
 }`}
 							/>
-								
 						</div>
 						{/* example 블럭요서 END */}
 						{/* example 블럭요서 START */}
@@ -316,12 +313,12 @@ function SamplePage() {
 									<AccordionTrigger expandIcon="SquareArrowDown">제품 정보</AccordionTrigger>
 									<AccordionContent className="flex flex-col gap-4 text-balance">
 										<p>
-											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
-											탁월한 성능과 안정성을 제공합니다.
+											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+											성능과 안정성을 제공합니다.
 										</p>
 										<p>
-											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-											인터페이스가 있습니다.
+											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+											있습니다.
 										</p>
 									</AccordionContent>
 								</AccordionItem>
@@ -329,12 +326,12 @@ function SamplePage() {
 									<AccordionTrigger expandIcon="SquareArrowDown">배송 세부 정보</AccordionTrigger>
 									<AccordionContent className="flex flex-col gap-4 text-balance">
 										<p>
-											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-											영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
+											3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 										</p>
 										<p>
-											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-											실시간으로 배송 상황을 확인하실 수 있습니다.
+											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
+											상황을 확인하실 수 있습니다.
 										</p>
 									</AccordionContent>
 								</AccordionItem>
@@ -383,7 +380,6 @@ function SamplePage() {
 	);
 }`}
 							/>
-											
 						</div>
 						{/* example 블럭요서 END */}
 						{/* example 블럭요서 START */}
@@ -427,8 +423,8 @@ function SamplePage() {
 											<AccordionTrigger>제품 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로
-													제작되어 탁월한 성능과 안정성을 제공합니다.
+													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+													성능과 안정성을 제공합니다.
 												</p>
 												<p>
 													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
@@ -440,12 +436,12 @@ function SamplePage() {
 											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-													영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 												</p>
 												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-													실시간으로 배송 상황을 확인하실 수 있습니다.
+													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+													배송 상황을 확인하실 수 있습니다.
 												</p>
 											</AccordionContent>
 										</AccordionItem>
@@ -465,8 +461,8 @@ function SamplePage() {
 											<AccordionTrigger>제품 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로
-													제작되어 탁월한 성능과 안정성을 제공합니다.
+													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+													성능과 안정성을 제공합니다.
 												</p>
 												<p>
 													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
@@ -478,12 +474,12 @@ function SamplePage() {
 											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-													영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 												</p>
 												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-													실시간으로 배송 상황을 확인하실 수 있습니다.
+													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+													배송 상황을 확인하실 수 있습니다.
 												</p>
 											</AccordionContent>
 										</AccordionItem>
@@ -575,7 +571,7 @@ function SamplePage() {
 		</div>
 	);
 }`}
-							/>			
+							/>
 						</div>
 						{/* example 블럭요서 END */}
 						{/* example 블럭요서 START */}
@@ -620,8 +616,8 @@ function SamplePage() {
 											<AccordionTrigger>제품 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로
-													제작되어 탁월한 성능과 안정성을 제공합니다.
+													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+													성능과 안정성을 제공합니다.
 												</p>
 												<p>
 													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
@@ -633,21 +629,19 @@ function SamplePage() {
 											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-													영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 												</p>
 												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-													실시간으로 배송 상황을 확인하실 수 있습니다.
+													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+													배송 상황을 확인하실 수 있습니다.
 												</p>
 											</AccordionContent>
 										</AccordionItem>
 									</Accordion>
 								</div>
 								<div className="flex-1 flex flex-col gap-2">
-									<label htmlFor="message-2">
-										첫번째 AccordionTrigger, AccordionContent만 animation 비활성화 처리
-									</label>
+									<label htmlFor="message-2">첫번째 AccordionTrigger, AccordionContent만 animation 비활성화 처리</label>
 									<Accordion
 										type="multiple"
 										className="w-full"
@@ -660,8 +654,8 @@ function SamplePage() {
 												className="flex flex-col gap-4 text-balance"
 											>
 												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로
-													제작되어 탁월한 성능과 안정성을 제공합니다.
+													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+													성능과 안정성을 제공합니다.
 												</p>
 												<p>
 													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
@@ -673,12 +667,12 @@ function SamplePage() {
 											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 											<AccordionContent className="flex flex-col gap-4 text-balance">
 												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-													영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 												</p>
 												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-													실시간으로 배송 상황을 확인하실 수 있습니다.
+													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+													배송 상황을 확인하실 수 있습니다.
 												</p>
 											</AccordionContent>
 										</AccordionItem>
@@ -773,7 +767,6 @@ function SamplePage() {
 	);
 }`}
 							/>
-												
 						</div>
 						{/* example 블럭요서 END */}
 						{/* example 블럭요서 START */}
@@ -815,12 +808,12 @@ function SamplePage() {
 										<AccordionTrigger>제품 정보</AccordionTrigger>
 										<AccordionContent className="flex flex-col gap-4 text-balance">
 											<p>
-												저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
-												탁월한 성능과 안정성을 제공합니다.
+												저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+												성능과 안정성을 제공합니다.
 											</p>
 											<p>
-												주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-												인터페이스가 있습니다.
+												주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+												있습니다.
 											</p>
 										</AccordionContent>
 									</AccordionItem>
@@ -828,12 +821,12 @@ function SamplePage() {
 										<AccordionTrigger>배송 세부 정보</AccordionTrigger>
 										<AccordionContent className="flex flex-col gap-4 text-balance">
 											<p>
-												저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-												영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+												저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+												기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
 											</p>
 											<p>
-												모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-												실시간으로 배송 상황을 확인하실 수 있습니다.
+												모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+												배송 상황을 확인하실 수 있습니다.
 											</p>
 										</AccordionContent>
 									</AccordionItem>
@@ -888,7 +881,6 @@ function SamplePage() {
 	);
 }`}
 							/>
-												
 						</div>
 						{/* example 블럭요서 END */}
 
@@ -1102,7 +1094,6 @@ function TransactionHistory() {
 	);
 }`}
 							/>
-												
 						</div>
 
 						{/* 예제 2: 약관 동의 */}
@@ -1149,27 +1140,26 @@ function TransactionHistory() {
 											<div className="h-48 overflow-y-auto text-sm space-y-3 border border-border rounded p-3 bg-background">
 												<h5 className="font-semibold">제1조 (목적)</h5>
 												<p className="text-muted-foreground">
-													본 약관은 은행(이하 "은행"이라 합니다)과 거래처(이하 "거래자"라 합니다) 사이의 모든
-													금융거래에 관한 기본적이고 공통적인 사항을 정함으로써 신의에 따라 성실하게 거래를
-													이행하고 거래의 원활한 진행을 확보하는 것을 목적으로 합니다.
+													본 약관은 은행(이하 "은행"이라 합니다)과 거래처(이하 "거래자"라 합니다) 사이의 모든 금융거래에
+													관한 기본적이고 공통적인 사항을 정함으로써 신의에 따라 성실하게 거래를 이행하고 거래의 원활한
+													진행을 확보하는 것을 목적으로 합니다.
 												</p>
 												<h5 className="font-semibold">제2조 (거래의 개시)</h5>
 												<p className="text-muted-foreground">
 													① 거래자는 은행이 정하는 절차에 따라 거래계좌를 개설하여야 합니다.
-													<br />② 거래자가 거래계좌를 개설할 때에는 실명법에서 정하는 실명확인증표를 제시하고
-													거래계좌를 개설하여야 하며, 실명법 등에 의하여 필요한 사항을 신고하여야 합니다.
+													<br />② 거래자가 거래계좌를 개설할 때에는 실명법에서 정하는 실명확인증표를 제시하고 거래계좌를
+													개설하여야 하며, 실명법 등에 의하여 필요한 사항을 신고하여야 합니다.
 												</p>
 												<h5 className="font-semibold">제3조 (거래의 제한)</h5>
 												<p className="text-muted-foreground">
-													은행은 거래자의 거래행위가 법령, 건전한 거래질서 또는 사회상규에 반하는 경우 또는
-													그러한 거래행위에 이용될 우려가 있는 경우에는 거래자의 거래를 제한할 수 있습니다.
+													은행은 거래자의 거래행위가 법령, 건전한 거래질서 또는 사회상규에 반하는 경우 또는 그러한
+													거래행위에 이용될 우려가 있는 경우에는 거래자의 거래를 제한할 수 있습니다.
 												</p>
 												<h5 className="font-semibold">제4조 (거래의 안전성 확보)</h5>
 												<p className="text-muted-foreground">
-													① 거래자는 은행이 제공하는 보안매체 및 보안수단을 사용하여 거래의 안전성을 확보하여야
-													합니다.
-													<br />② 거래자는 비밀번호 등 거래수단을 제3자에게 누설하거나 노출하여서는 아니되며,
-													이를 위반하여 발생한 손해는 거래자가 부담합니다.
+													① 거래자는 은행이 제공하는 보안매체 및 보안수단을 사용하여 거래의 안전성을 확보하여야 합니다.
+													<br />② 거래자는 비밀번호 등 거래수단을 제3자에게 누설하거나 노출하여서는 아니되며, 이를
+													위반하여 발생한 손해는 거래자가 부담합니다.
 												</p>
 											</div>
 										</div>
@@ -1191,24 +1181,23 @@ function TransactionHistory() {
 											<div className="h-48 overflow-y-auto text-sm space-y-3 border border-border rounded p-3 bg-background">
 												<h5 className="font-semibold">제1조 (목적)</h5>
 												<p className="text-muted-foreground">
-													이 약관은 은행과 이용자 사이의 전자금융거래에 관한 기본적인 사항을 정함으로써
-													전자금융거래의 안전성과 신뢰성을 확보하고 전자금융거래의 건전한 발전을 위함을 목적으로
-													합니다.
+													이 약관은 은행과 이용자 사이의 전자금융거래에 관한 기본적인 사항을 정함으로써 전자금융거래의
+													안전성과 신뢰성을 확보하고 전자금융거래의 건전한 발전을 위함을 목적으로 합니다.
 												</p>
 												<h5 className="font-semibold">제2조 (용어의 정의)</h5>
 												<p className="text-muted-foreground">
-													① "전자금융거래"라 함은 은행이 전자적 장치를 통하여 제공하는 금융상품 및 서비스를
-													이용자가 전자적 장치를 통하여 비대면·자동화된 방식으로 직접 이용하는 거래를 말합니다.
+													① "전자금융거래"라 함은 은행이 전자적 장치를 통하여 제공하는 금융상품 및 서비스를 이용자가
+													전자적 장치를 통하여 비대면·자동화된 방식으로 직접 이용하는 거래를 말합니다.
 													<br />② "접근매체"라 함은 전자금융거래에 있어서 거래지시를 하거나 이용자 및 거래내용의
-													진실성과 정확성을 확보하기 위하여 사용되는 수단 또는 정보로서 전자식 카드 및 이에
-													준하는 전자적 정보를 말합니다.
+													진실성과 정확성을 확보하기 위하여 사용되는 수단 또는 정보로서 전자식 카드 및 이에 준하는
+													전자적 정보를 말합니다.
 												</p>
 												<h5 className="font-semibold">제3조 (접근매체의 관리)</h5>
 												<p className="text-muted-foreground">
 													① 은행은 접근매체의 발급 주체에 따라 접근매체를 은행발급 접근매체와 이용자 선택·지정
 													접근매체로 구분하여 관리합니다.
-													<br />② 이용자는 접근매체를 제3자에게 대여하거나 그 사용을 위임하거나 양도 또는 담보
-													목적으로 제공하여서는 안됩니다.
+													<br />② 이용자는 접근매체를 제3자에게 대여하거나 그 사용을 위임하거나 양도 또는 담보 목적으로
+													제공하여서는 안됩니다.
 												</p>
 											</div>
 										</div>
@@ -1232,8 +1221,8 @@ function TransactionHistory() {
 												<p className="text-muted-foreground">
 													은행은 수집한 개인정보를 다음의 목적을 위해 활용합니다.
 													<br />- 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산
-													<br />- 회원 관리: 회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정이용
-													방지와 비인가 사용 방지, 가입 의사 확인
+													<br />- 회원 관리: 회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정이용 방지와
+													비인가 사용 방지, 가입 의사 확인
 												</p>
 												<h5 className="font-semibold">2. 수집하는 개인정보 항목</h5>
 												<p className="text-muted-foreground">
@@ -1243,16 +1232,16 @@ function TransactionHistory() {
 												</p>
 												<h5 className="font-semibold">3. 개인정보의 보유 및 이용기간</h5>
 												<p className="text-muted-foreground">
-													이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이
-													파기합니다. 단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.
+													이용자의 개인정보는 원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기합니다.
+													단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.
 													<br />- 보존 항목: 거래기록
 													<br />- 보존 근거: 전자금융거래법
 													<br />- 보존 기간: 5년
 												</p>
 												<h5 className="font-semibold">4. 동의를 거부할 권리 및 동의 거부에 따른 불이익</h5>
 												<p className="text-muted-foreground">
-													이용자는 개인정보의 수집·이용에 대한 동의를 거부할 수 있습니다. 다만, 필수 항목에 대한
-													동의를 거부할 경우 서비스 이용이 제한될 수 있습니다.
+													이용자는 개인정보의 수집·이용에 대한 동의를 거부할 수 있습니다. 다만, 필수 항목에 대한 동의를
+													거부할 경우 서비스 이용이 제한될 수 있습니다.
 												</p>
 											</div>
 										</div>
@@ -1292,8 +1281,8 @@ function TransactionHistory() {
 												</p>
 												<h5 className="font-semibold">4. 동의 거부 시</h5>
 												<p className="text-muted-foreground">
-													마케팅 정보 수신에 동의하지 않으셔도 은행의 금융 서비스를 이용하실 수 있습니다. 다만,
-													각종 이벤트 및 프로모션 안내를 받으실 수 없습니다.
+													마케팅 정보 수신에 동의하지 않으셔도 은행의 금융 서비스를 이용하실 수 있습니다. 다만, 각종
+													이벤트 및 프로모션 안내를 받으실 수 없습니다.
 												</p>
 											</div>
 										</div>
@@ -1353,7 +1342,6 @@ function TermsAgreement() {
 	);
 }`}
 							/>
-							
 						</div>
 
 						{/* 예제 3: 포트폴리오 자산 현황 */}
@@ -1509,9 +1497,7 @@ function TermsAgreement() {
 												<div>
 													<p className="font-medium">글로벌 AI 테크 펀드</p>
 													<p className="text-sm text-muted-foreground">미래에셋자산운용 | 주식형</p>
-													<p className="text-xs text-muted-foreground mt-1">
-														수익률: +5.8% | 가입일: 2024.06.15
-													</p>
+													<p className="text-xs text-muted-foreground mt-1">수익률: +5.8% | 가입일: 2024.06.15</p>
 												</div>
 												<div className="text-right">
 													<p className="font-semibold">3,500,000원</p>
@@ -1522,9 +1508,7 @@ function TermsAgreement() {
 												<div>
 													<p className="font-medium">배당 성장 펀드</p>
 													<p className="text-sm text-muted-foreground">삼성자산운용 | 혼합형</p>
-													<p className="text-xs text-muted-foreground mt-1">
-														수익률: -0.4% | 가입일: 2024.09.01
-													</p>
+													<p className="text-xs text-muted-foreground mt-1">수익률: -0.4% | 가입일: 2024.09.01</p>
 												</div>
 												<div className="text-right">
 													<p className="font-semibold">2,300,000원</p>
@@ -1553,9 +1537,7 @@ function TermsAgreement() {
 												<div>
 													<p className="font-medium">종신보험</p>
 													<p className="text-sm text-muted-foreground">삼성생명 | 월 150,000원 납입</p>
-													<p className="text-xs text-muted-foreground mt-1">
-														가입일: 2020.03.01 | 납입 68개월/240개월
-													</p>
+													<p className="text-xs text-muted-foreground mt-1">가입일: 2020.03.01 | 납입 68개월/240개월</p>
 												</div>
 												<div className="text-right">
 													<p className="font-semibold">1,580,000원</p>
@@ -1566,9 +1548,7 @@ function TermsAgreement() {
 												<div>
 													<p className="font-medium">건강보험</p>
 													<p className="text-sm text-muted-foreground">한화생명 | 월 80,000원 납입</p>
-													<p className="text-xs text-muted-foreground mt-1">
-														가입일: 2022.01.15 | 납입 34개월/120개월
-													</p>
+													<p className="text-xs text-muted-foreground mt-1">가입일: 2022.01.15 | 납입 34개월/120개월</p>
 												</div>
 												<div className="text-right">
 													<p className="font-semibold">902,500원</p>
@@ -1633,7 +1613,6 @@ function AssetPortfolio() {
 	);
 }`}
 							/>
-							
 						</div>
 						{/* 금융권 실무 예제 END */}
 					</div>
