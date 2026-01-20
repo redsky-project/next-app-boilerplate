@@ -2,16 +2,33 @@
 
 import * as React from "react";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import type { AccordionTriggerProps } from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from "lucide-react";
+import { type IconName } from '@/core/components/ui/icon/registry-icon';
+import { useAccordionContext } from '@/core/hooks';
+import { Icon } from '@components/ui';
 
 import { cn } from "@/core/components/shadcn/lib/utils";
 
+interface IAccordionTriggerProps extends AccordionTriggerProps {
+	className?: string;
+	expandIcon?: IconName;
+	disableAnimation?: boolean;
+}
 
 export default function AccordionTrigger({
   className,
+	expandIcon,
+	disableAnimation,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
+}: IAccordionTriggerProps) {
+	const context = useAccordionContext();
+	// 개별 prop이 우선, 없으면 Context 값 사용
+	const shouldDisableAnimation = disableAnimation ?? context?.disableAnimation ?? false;
+	// expandIcon이 우선, 없으면 Context 값 사용
+	const iconName = expandIcon ?? context?.expandIcon ?? 'ChevronDownIcon';
+
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
@@ -23,7 +40,14 @@ export default function AccordionTrigger({
         {...props}
       >
         {children}
-        <ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />
+				<Icon
+					name={iconName}
+					className={cn(
+						'text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5',
+						!shouldDisableAnimation && 'transition-transform duration-200',
+					)}
+				/>
+        {/*<ChevronDownIcon className="text-muted-foreground pointer-events-none size-4 shrink-0 translate-y-0.5 transition-transform duration-200" />*/}
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   );

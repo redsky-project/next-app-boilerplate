@@ -37,7 +37,7 @@ export default function CodeBlockClient({ code, lang, theme = 'github-dark' }: I
 
 	if (isLoading) {
 		return (
-			<div className="rounded-lg overflow-auto p-4 bg-[#24292e] text-[#e1e4e8]">
+			<div className="w-full rounded-lg overflow-auto p-4 bg-[#24292e] text-[#e1e4e8]">
 				<div className="animate-pulse">
 					<div className="h-4 bg-gray-700 rounded w-3/4 mb-2"></div>
 					<div className="h-4 bg-gray-700 rounded w-1/2"></div>
@@ -59,14 +59,14 @@ export default function CodeBlockClient({ code, lang, theme = 'github-dark' }: I
 					-moz-tab-size: 2 !important;
 				}
 			`}</style>
-			<div className="rounded-lg bg-[#24292e] text-[#e1e4e8]">
+			<div className="w-full rounded-lg bg-[#24292e] text-[#e1e4e8] overflow-hidden">
 				<div
-					className="rounded-lg flex items-center justify-between p-4 cursor-pointer hover:bg-[#2d3338] transition-colors"
+					className="rounded-t-lg flex items-center justify-between p-4 cursor-pointer hover:bg-[#2d3338] transition-colors"
 					onClick={() => setIsExpanded(!isExpanded)}
 				>
 					<span className="text-sm font-medium text-gray-400">{lang}</span>
 					<svg
-						className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+						className={`w-5 h-5 transition-transform shrink-0 ${isExpanded ? 'rotate-180' : ''}`}
 						fill="none"
 						stroke="currentColor"
 						viewBox="0 0 24 24"
@@ -79,7 +79,7 @@ d="M19 9l-7 7-7-7" />
 				</div>
 				{isExpanded && (
 					<div
-						className="overflow-auto p-4 border-t border-gray-700"
+						className="overflow-x-auto overflow-y-auto max-h-[600px] p-4 border-t border-gray-700"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
 				)}
