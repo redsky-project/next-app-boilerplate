@@ -12,6 +12,7 @@ export interface ICodeBlockClientProps {
 export default function CodeBlockClient({ code, lang, theme = 'github-dark' }: ICodeBlockClientProps) {
 	const [html, setHtml] = useState<string>('');
 	const [isLoading, setIsLoading] = useState(true);
+	const [isExpanded, setIsExpanded] = useState(true);
 
 	useEffect(() => {
 		const highlightCode = async () => {
@@ -51,16 +52,38 @@ export default function CodeBlockClient({ code, lang, theme = 'github-dark' }: I
 				pre {
 					tab-size: 2 !important;
 					-moz-tab-size: 2 !important;
+					font-size: 0.9em !important;
 				}
 				pre code {
 					tab-size: 2 !important;
 					-moz-tab-size: 2 !important;
 				}
 			`}</style>
-			<div
-				className="rounded-lg overflow-auto p-4 bg-[#24292e] text-[#e1e4e8]"
-				dangerouslySetInnerHTML={{ __html: html }}
-			/>
+			<div className="rounded-lg bg-[#24292e] text-[#e1e4e8]">
+				<div
+					className="rounded-lg flex items-center justify-between p-4 cursor-pointer hover:bg-[#2d3338] transition-colors"
+					onClick={() => setIsExpanded(!isExpanded)}
+				>
+					<span className="text-sm font-medium text-gray-400">{lang}</span>
+					<svg
+						className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<path strokeLinecap="round"
+strokeLinejoin="round"
+strokeWidth={2}
+d="M19 9l-7 7-7-7" />
+					</svg>
+				</div>
+				{isExpanded && (
+					<div
+						className="overflow-auto p-4 border-t border-gray-700"
+						dangerouslySetInnerHTML={{ __html: html }}
+					/>
+				)}
+			</div>
 		</>
 	);
 }
