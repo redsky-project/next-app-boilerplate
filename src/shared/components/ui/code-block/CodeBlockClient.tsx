@@ -81,7 +81,8 @@ export default function CodeBlockClient({ code, lang, theme = 'github-dark' }: I
 				</div>
 				{isExpanded && (
 					<div
-						className="overflow-x-auto overflow-y-auto max-h-[600px] p-4 border-t border-gray-700"
+						//className="overflow-x-auto overflow-y-auto max-h-[600px] p-4 border-t border-gray-700"
+						className="overflow-x-auto overflow-y-auto p-4 border-t border-gray-700"
 						dangerouslySetInnerHTML={{ __html: html }}
 					/>
 				)}

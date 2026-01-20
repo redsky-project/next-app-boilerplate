@@ -30,9 +30,31 @@ export default function AccordionEx({}: IAccordionExProps): JSX.Element {
 							</div>
 						</div>
 						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-							<strong>Accordion</strong> 컴포넌트는 여러 개의 섹션으로 나누어진 콘텐츠 영역을 제공하며, 각 섹션은 제목을
+							현재 화면은 <strong>Client Component</strong>입니다.
+						</p>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+							<strong>Accordion</strong>은 <strong>Client Component</strong>에서만 사용할 수 있습니다.
+						</p>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+							여러 개의 섹션으로 나누어진 콘텐츠 영역을 제공하며, 각 섹션은 제목을
 							클릭하여 내용을 확장하거나 축소할 수 있습니다. 이를 통해 사용자는 필요한 정보만을 선택적으로 확인할 수
 							있어 화면 공간을 효율적으로 활용할 수 있습니다.
+						</p>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
+							<strong>Accordion, AccordionContent, AccordionItem, AccordionTrigger</strong> 이렇게 4가지 컴포넌트로
+							구성되어 있습니다.
+						</p>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
+							이 네 가지를 조합하여 하나 이상의 섹션을 자유롭게 만들 수 있으며, 각 <strong>AccordionItem</strong>에는{' '}
+							<strong>AccordionTrigger</strong>와 <strong>AccordionContent</strong>를 배치하여 토글 기능과 내용을
+							구현합니다.
+						</p>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
+							기본적으로 <strong>type="single"</strong> 속성을 사용하면 한 번에 한 섹션만 펼칠 수 있고,{' '}
+							<strong>type="multiple"</strong>을 주면 여러 섹션이 동시에 펼쳐지는 등 유연한 설정이 가능합니다.
+							<br />
+							또한 <strong>collapsible</strong> 옵션을 추가하면 열려 있는 항목을 다시 클릭해서 모두 닫을 수도
+							있습니다.
 						</p>
 					</div>
 					<div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
@@ -62,99 +84,83 @@ export default function AccordionEx({}: IAccordionExProps): JSX.Element {
 									&nbsp;
 								</div>
 							</div>
-							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
-								<strong>Accordion</strong> 컴포넌트는{' '}
-								<strong>Accordion, AccordionContent, AccordionItem, AccordionTrigger</strong> 이렇게 4가지 컴포넌트로
-								구성되어 있습니다.
-							</p>
-							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
-								이 네 가지를 조합하여 하나 이상의 섹션을 자유롭게 만들 수 있으며, 각 <strong>AccordionItem</strong>에는{' '}
-								<strong>AccordionTrigger</strong>와 <strong>AccordionContent</strong>를 배치하여 토글 기능과 내용을
-								구현합니다.
-							</p>
-							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
-								기본적으로 <strong>type="single"</strong> 속성을 사용하면 한 번에 한 섹션만 펼칠 수 있고,{' '}
-								<strong>type="multiple"</strong>을 주면 여러 섹션이 동시에 펼쳐지는 등 유연한 설정이 가능합니다.
-								<br />
-								또한 <strong>collapsible</strong> 옵션을 추가하면 열려 있는 항목을 다시 클릭해서 모두 닫을 수도
-								있습니다.
-							</p>
+							
 						</div>
 						<div className="w-full flex-1 py-4">
-							<Accordion
-								type="single"
-								collapsible
-								className="w-full"
-								defaultValue="item-1"
-							>
-								<AccordionItem value="item-1">
-									<AccordionTrigger>제품 정보</AccordionTrigger>
-									<AccordionContent className="flex flex-col gap-4 text-balance">
-										<p>
-											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-											성능과 안정성을 제공합니다.
-										</p>
-										<p>
-											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
-											있습니다.
-										</p>
-									</AccordionContent>
-								</AccordionItem>
-								<AccordionItem value="item-2">
-									<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-									<AccordionContent className="flex flex-col gap-4 text-balance">
-										<p>
-											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
-											3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-										</p>
-										<p>
-											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
-											상황을 확인하실 수 있습니다.
-										</p>
-									</AccordionContent>
-								</AccordionItem>
-							</Accordion>
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+								<Accordion
+									type="single"
+									collapsible
+									className="w-full"
+									defaultValue="item-1"
+								>
+									<AccordionItem value="item-1">
+										<AccordionTrigger>제품 정보</AccordionTrigger>
+										<AccordionContent className="flex flex-col gap-4 text-balance">
+											<p>
+												저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+												성능과 안정성을 제공합니다.
+											</p>
+											<p>
+												주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+												있습니다.
+											</p>
+										</AccordionContent>
+									</AccordionItem>
+									<AccordionItem value="item-2">
+										<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+										<AccordionContent className="flex flex-col gap-4 text-balance">
+											<p>
+												저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
+												3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+											</p>
+											<p>
+												모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
+												상황을 확인하실 수 있습니다.
+											</p>
+										</AccordionContent>
+									</AccordionItem>
+								</Accordion>
+							</div>
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function SamplePage() {
 	return (
-		<div>
-			<Accordion
-				type="single"
-				collapsible
-				className="w-full"
-				defaultValue="item-1"
-			>
-				<AccordionItem value="item-1">
-					<AccordionTrigger>제품 정보</AccordionTrigger>
-					<AccordionContent className="flex flex-col gap-4 text-balance">
-						<p>
-							저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
-							탁월한 성능과 안정성을 제공합니다.
-						</p>
-						<p>
-							주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-							인터페이스가 있습니다.
-						</p>
-					</AccordionContent>
-				</AccordionItem>
-				<AccordionItem value="item-2">
-					<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-					<AccordionContent className="flex flex-col gap-4 text-balance">
-						<p>
-							저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-							영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-						</p>
-						<p>
-							모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-							실시간으로 배송 상황을 확인하실 수 있습니다.
-						</p>
-					</AccordionContent>
-				</AccordionItem>
-			</Accordion>
-		</div>
+		<Accordion
+			type="single"
+			collapsible
+			className="w-full"
+			defaultValue="item-1"
+		>
+			<AccordionItem value="item-1">
+				<AccordionTrigger>제품 정보</AccordionTrigger>
+				<AccordionContent className="flex flex-col gap-4 text-balance">
+					<p>
+						저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
+						탁월한 성능과 안정성을 제공합니다.
+					</p>
+					<p>
+						주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
+						인터페이스가 있습니다.
+					</p>
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="item-2">
+				<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+				<AccordionContent className="flex flex-col gap-4 text-balance">
+					<p>
+						저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
+						영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+					</p>
+					<p>
+						모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
+						실시간으로 배송 상황을 확인하실 수 있습니다.
+					</p>
+				</AccordionContent>
+			</AccordionItem>
+		</Accordion>
 	);
 }`}
 							/>
@@ -173,6 +179,11 @@ function SamplePage() {
 									&nbsp;
 								</div>
 							</div>
+							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+								<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none">
+									type="single"
+								</code>
+							</p>
 							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
 								<strong>Accordion</strong> 컴포넌트는 단일 선택 모드인 <strong>Single</strong> 타입을 제공합니다. 이
 								모드에서는 한 번에 하나의 섹션만 확장할 수 있어, 사용자가 특정 정보에 집중할 수 있도록 도와줍니다.
@@ -195,87 +206,91 @@ function SamplePage() {
 								</div>
 							</div>
 							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+								<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none">
+									type="multiple"
+								</code>
+							</p>
+							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
 								<strong>Accordion</strong> 컴포넌트는 다중 선택 모드인 <strong>Multiple</strong> 타입도 제공합니다. 이
 								모드에서는 사용자가 여러 섹션을 동시에 확장할 수 있어, 다양한 정보를 한눈에 확인하고자 할 때 유용합니다.
 							</p>
 							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-								<strong>Multiple</strong> 타입은 정보가 풍부한 대시보드나 설정 페이지에서 특히 효과적이며, 예제는 아래와
-								같습니다.
+								<strong>Multiple</strong> 타입은 정보가 풍부한 대시보드나 설정 페이지에서 특히 효과적입니다.
 							</p>
 						</div>
 						<div className="w-full flex-1 py-4">
-							<Accordion
-								type="multiple"
-								className="w-full"
-								defaultValue={['item-1']}
-							>
-								<AccordionItem value="item-1">
-									<AccordionTrigger>제품 정보</AccordionTrigger>
-									<AccordionContent className="flex flex-col gap-4 text-balance">
-										<p>
-											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-											성능과 안정성을 제공합니다.
-										</p>
-										<p>
-											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
-											있습니다.
-										</p>
-									</AccordionContent>
-								</AccordionItem>
-								<AccordionItem value="item-2">
-									<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-									<AccordionContent className="flex flex-col gap-4 text-balance">
-										<p>
-											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
-											3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-										</p>
-										<p>
-											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
-											상황을 확인하실 수 있습니다.
-										</p>
-									</AccordionContent>
-								</AccordionItem>
-							</Accordion>
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+								<Accordion
+									type="multiple"
+									className="w-full"
+									defaultValue={[]}
+								>
+									<AccordionItem value="item-1">
+										<AccordionTrigger>제품 정보</AccordionTrigger>
+										<AccordionContent className="flex flex-col gap-4 text-balance">
+											<p>
+												저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+												성능과 안정성을 제공합니다.
+											</p>
+											<p>
+												주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+												있습니다.
+											</p>
+										</AccordionContent>
+									</AccordionItem>
+									<AccordionItem value="item-2">
+										<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+										<AccordionContent className="flex flex-col gap-4 text-balance">
+											<p>
+												저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
+												3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+											</p>
+											<p>
+												모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
+												상황을 확인하실 수 있습니다.
+											</p>
+										</AccordionContent>
+									</AccordionItem>
+								</Accordion>
+							</div>
 							<CodeBlockClient
 								lang="tsx"
-								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
+								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@components/ui';
 
 function SamplePage() {
 	return (
-		<div>
-			<Accordion
-				type="multiple"
-				className="w-full"
-				defaultValue={['item-1']}
-			>
-				<AccordionItem value="item-1">
-					<AccordionTrigger>제품 정보</AccordionTrigger>
-					<AccordionContent className="flex flex-col gap-4 text-balance">
-						<p>
-							저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
-							탁월한 성능과 안정성을 제공합니다.
-						</p>
-						<p>
-							주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-							인터페이스가 있습니다.
-						</p>
-					</AccordionContent>
-				</AccordionItem>
-				<AccordionItem value="item-2">
-					<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-					<AccordionContent className="flex flex-col gap-4 text-balance">
-						<p>
-							저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
-							영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-						</p>
-						<p>
-							모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
-							실시간으로 배송 상황을 확인하실 수 있습니다.
-						</p>
-					</AccordionContent>
-				</AccordionItem>
-			</Accordion>
-		</div>
+		<Accordion
+			type="multiple"
+			className="w-full"
+			defaultValue={[]}
+		>
+			<AccordionItem value="item-1">
+				<AccordionTrigger>제품 정보</AccordionTrigger>
+				<AccordionContent className="flex flex-col gap-4 text-balance">
+					<p>
+						저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
+						탁월한 성능과 안정성을 제공합니다.
+					</p>
+					<p>
+						주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
+						인터페이스가 있습니다.
+					</p>
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="item-2">
+				<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+				<AccordionContent className="flex flex-col gap-4 text-balance">
+					<p>
+						저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
+						영업일 기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+					</p>
+					<p>
+						모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해
+						실시간으로 배송 상황을 확인하실 수 있습니다.
+					</p>
+				</AccordionContent>
+			</AccordionItem>
+		</Accordion>
 	);
 }`}
 							/>
@@ -304,38 +319,40 @@ function SamplePage() {
 							</p>
 						</div>
 						<div className="w-full flex-1 py-4">
-							<Accordion
-								type="multiple"
-								className="w-full"
-								defaultValue={['item-1']}
-							>
-								<AccordionItem value="item-1">
-									<AccordionTrigger expandIcon="SquareArrowDown">제품 정보</AccordionTrigger>
-									<AccordionContent className="flex flex-col gap-4 text-balance">
-										<p>
-											저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-											성능과 안정성을 제공합니다.
-										</p>
-										<p>
-											주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
-											있습니다.
-										</p>
-									</AccordionContent>
-								</AccordionItem>
-								<AccordionItem value="item-2">
-									<AccordionTrigger expandIcon="SquareArrowDown">배송 세부 정보</AccordionTrigger>
-									<AccordionContent className="flex flex-col gap-4 text-balance">
-										<p>
-											저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
-											3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-										</p>
-										<p>
-											모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
-											상황을 확인하실 수 있습니다.
-										</p>
-									</AccordionContent>
-								</AccordionItem>
-							</Accordion>
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+								<Accordion
+									type="multiple"
+									className="w-full"
+									defaultValue={['item-1']}
+								>
+									<AccordionItem value="item-1">
+										<AccordionTrigger expandIcon="SquareArrowDown">제품 정보</AccordionTrigger>
+										<AccordionContent className="flex flex-col gap-4 text-balance">
+											<p>
+												저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+												성능과 안정성을 제공합니다.
+											</p>
+											<p>
+												주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+												있습니다.
+											</p>
+										</AccordionContent>
+									</AccordionItem>
+									<AccordionItem value="item-2">
+										<AccordionTrigger expandIcon="SquareArrowDown">배송 세부 정보</AccordionTrigger>
+										<AccordionContent className="flex flex-col gap-4 text-balance">
+											<p>
+												저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일 기준
+												3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+											</p>
+											<p>
+												모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로 배송
+												상황을 확인하실 수 있습니다.
+											</p>
+										</AccordionContent>
+									</AccordionItem>
+								</Accordion>
+							</div>
 							<CodeBlockClient
 								lang="tsx"
 								code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui';
@@ -410,80 +427,82 @@ function SamplePage() {
 						</div>
 						<div className="w-full flex-1 py-4">
 							{/* 아코디언 예제 영역 start ============================ */}
-							<div className="flex flex-col md:flex-row w-full gap-6">
-								<div className="flex-1 flex flex-col gap-2">
-									<label htmlFor="message-2">Accordion Disabled 처리</label>
-									<Accordion
-										type="multiple"
-										className="w-full"
-										defaultValue={['item-1']}
-										disabled
-									>
-										<AccordionItem value="item-1">
-											<AccordionTrigger>제품 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-													성능과 안정성을 제공합니다.
-												</p>
-												<p>
-													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-													인터페이스가 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-										<AccordionItem value="item-2">
-											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
-													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-												</p>
-												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
-													배송 상황을 확인하실 수 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-									</Accordion>
-								</div>
-								<div className="flex-1 flex flex-col gap-2">
-									<label htmlFor="message-2">첫번째 AccordionItem Disabled 처리</label>
-									<Accordion
-										type="multiple"
-										className="w-full"
-										defaultValue={['item-1']}
-									>
-										<AccordionItem
-											value="item-1"
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+								<div className="flex flex-col md:flex-row w-full gap-6">
+									<div className="flex-1 flex flex-col gap-2">
+										<label htmlFor="message-2">Accordion Disabled 처리</label>
+										<Accordion
+											type="multiple"
+											className="w-full"
+											defaultValue={['item-1']}
 											disabled
 										>
-											<AccordionTrigger>제품 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-													성능과 안정성을 제공합니다.
-												</p>
-												<p>
-													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-													인터페이스가 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-										<AccordionItem value="item-2">
-											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
-													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-												</p>
-												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
-													배송 상황을 확인하실 수 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-									</Accordion>
+											<AccordionItem value="item-1">
+												<AccordionTrigger>제품 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+														성능과 안정성을 제공합니다.
+													</p>
+													<p>
+														주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
+														인터페이스가 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+											<AccordionItem value="item-2">
+												<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+														기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													</p>
+													<p>
+														모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+														배송 상황을 확인하실 수 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+										</Accordion>
+									</div>
+									<div className="flex-1 flex flex-col gap-2">
+										<label htmlFor="message-2">첫번째 AccordionItem Disabled 처리</label>
+										<Accordion
+											type="multiple"
+											className="w-full"
+											defaultValue={['item-1']}
+										>
+											<AccordionItem
+												value="item-1"
+												disabled
+											>
+												<AccordionTrigger>제품 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+														성능과 안정성을 제공합니다.
+													</p>
+													<p>
+														주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
+														인터페이스가 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+											<AccordionItem value="item-2">
+												<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+														기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													</p>
+													<p>
+														모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+														배송 상황을 확인하실 수 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+										</Accordion>
+									</div>
 								</div>
 							</div>
 							{/* 아코디언 예제 영역 end ============================ */}
@@ -603,80 +622,82 @@ function SamplePage() {
 						</div>
 						<div className="w-full flex-1 py-4">
 							{/* 아코디언 예제 영역 start ============================ */}
-							<div className="flex flex-col md:flex-row w-full gap-6">
-								<div className="flex-1 flex flex-col gap-2">
-									<label htmlFor="message-2">Accordion animation 비활성화 처리</label>
-									<Accordion
-										type="multiple"
-										className="w-full"
-										defaultValue={['item-1']}
-										disableAnimation
-									>
-										<AccordionItem value="item-1">
-											<AccordionTrigger>제품 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-													성능과 안정성을 제공합니다.
-												</p>
-												<p>
-													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-													인터페이스가 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-										<AccordionItem value="item-2">
-											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
-													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-												</p>
-												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
-													배송 상황을 확인하실 수 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-									</Accordion>
-								</div>
-								<div className="flex-1 flex flex-col gap-2">
-									<label htmlFor="message-2">첫번째 AccordionTrigger, AccordionContent만 animation 비활성화 처리</label>
-									<Accordion
-										type="multiple"
-										className="w-full"
-										defaultValue={['item-1']}
-									>
-										<AccordionItem value="item-1">
-											<AccordionTrigger disableAnimation>제품 정보</AccordionTrigger>
-											<AccordionContent
-												disableAnimation
-												className="flex flex-col gap-4 text-balance"
-											>
-												<p>
-													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-													성능과 안정성을 제공합니다.
-												</p>
-												<p>
-													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
-													인터페이스가 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-										<AccordionItem value="item-2">
-											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-											<AccordionContent className="flex flex-col gap-4 text-balance">
-												<p>
-													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
-													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-												</p>
-												<p>
-													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
-													배송 상황을 확인하실 수 있습니다.
-												</p>
-											</AccordionContent>
-										</AccordionItem>
-									</Accordion>
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+								<div className="flex flex-col md:flex-row w-full gap-6">
+									<div className="flex-1 flex flex-col gap-2">
+										<label htmlFor="message-2">Accordion animation 비활성화 처리</label>
+										<Accordion
+											type="multiple"
+											className="w-full"
+											defaultValue={['item-1']}
+											disableAnimation
+										>
+											<AccordionItem value="item-1">
+												<AccordionTrigger>제품 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+														성능과 안정성을 제공합니다.
+													</p>
+													<p>
+														주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
+														인터페이스가 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+											<AccordionItem value="item-2">
+												<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+														기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													</p>
+													<p>
+														모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+														배송 상황을 확인하실 수 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+										</Accordion>
+									</div>
+									<div className="flex-1 flex flex-col gap-2">
+										<label htmlFor="message-2">첫번째 AccordionTrigger, AccordionContent만 animation 비활성화 처리</label>
+										<Accordion
+											type="multiple"
+											className="w-full"
+											defaultValue={['item-1']}
+										>
+											<AccordionItem value="item-1">
+												<AccordionTrigger disableAnimation>제품 정보</AccordionTrigger>
+												<AccordionContent
+													disableAnimation
+													className="flex flex-col gap-4 text-balance"
+												>
+													<p>
+														저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+														성능과 안정성을 제공합니다.
+													</p>
+													<p>
+														주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자
+														인터페이스가 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+											<AccordionItem value="item-2">
+												<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+												<AccordionContent className="flex flex-col gap-4 text-balance">
+													<p>
+														저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+														기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+													</p>
+													<p>
+														모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+														배송 상황을 확인하실 수 있습니다.
+													</p>
+												</AccordionContent>
+											</AccordionItem>
+										</Accordion>
+									</div>
 								</div>
 							</div>
 							{/* 아코디언 예제 영역 end ============================ */}
@@ -793,44 +814,46 @@ function SamplePage() {
 						</div>
 						<div className="w-full flex-1 py-4">
 							{/* 아코디언 예제 영역 start ============================ */}
-							<div className="flex-1 flex flex-col gap-2">
-								<label htmlFor="message-2">
-									현재 선택된 value상태 값 : <strong style={{ color: 'blue' }}>{value}</strong>
-								</label>
-								<Accordion
-									type="single"
-									collapsible
-									className="w-full"
-									value={value}
-									onValueChange={setValue}
-								>
-									<AccordionItem value="item-1">
-										<AccordionTrigger>제품 정보</AccordionTrigger>
-										<AccordionContent className="flex flex-col gap-4 text-balance">
-											<p>
-												저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
-												성능과 안정성을 제공합니다.
-											</p>
-											<p>
-												주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
-												있습니다.
-											</p>
-										</AccordionContent>
-									</AccordionItem>
-									<AccordionItem value="item-2">
-										<AccordionTrigger>배송 세부 정보</AccordionTrigger>
-										<AccordionContent className="flex flex-col gap-4 text-balance">
-											<p>
-												저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
-												기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
-											</p>
-											<p>
-												모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
-												배송 상황을 확인하실 수 있습니다.
-											</p>
-										</AccordionContent>
-									</AccordionItem>
-								</Accordion>
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4">
+								<div className="flex-1 flex flex-col gap-2">
+									<label htmlFor="message-2">
+										현재 선택된 value상태 값 : <strong style={{ color: 'blue' }}>{value}</strong>
+									</label>
+									<Accordion
+										type="single"
+										collapsible
+										className="w-full"
+										value={value}
+										onValueChange={setValue}
+									>
+										<AccordionItem value="item-1">
+											<AccordionTrigger>제품 정보</AccordionTrigger>
+											<AccordionContent className="flex flex-col gap-4 text-balance">
+												<p>
+													저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어 탁월한
+													성능과 안정성을 제공합니다.
+												</p>
+												<p>
+													주요 특징으로는 고급 처리 기능과 초보자와 전문가 모두를 위해 설계된 직관적인 사용자 인터페이스가
+													있습니다.
+												</p>
+											</AccordionContent>
+										</AccordionItem>
+										<AccordionItem value="item-2">
+											<AccordionTrigger>배송 세부 정보</AccordionTrigger>
+											<AccordionContent className="flex flex-col gap-4 text-balance">
+												<p>
+													저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은 영업일
+													기준 3~5일이 소요되며, 특급 배송은 영업일 기준 1~2일 이내에 배송됩니다.
+												</p>
+												<p>
+													모든 주문은 꼼꼼하게 포장되고 완벽하게 보험 처리됩니다. 저희 전용 추적 포털을 통해 실시간으로
+													배송 상황을 확인하실 수 있습니다.
+												</p>
+											</AccordionContent>
+										</AccordionItem>
+									</Accordion>
+								</div>
 							</div>
 							{/* 아코디언 예제 영역 end ============================ */}
 							<CodeBlockClient
