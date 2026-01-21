@@ -35,27 +35,6 @@ export default function AccordionEx({}: IAccordionExProps): JSX.Element {
 						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
 							<strong>Accordion</strong>은 <strong>Client Component</strong>에서만 사용할 수 있습니다.
 						</p>
-						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-							여러 개의 섹션으로 나누어진 콘텐츠 영역을 제공하며, 각 섹션은 제목을
-							클릭하여 내용을 확장하거나 축소할 수 있습니다. 이를 통해 사용자는 필요한 정보만을 선택적으로 확인할 수
-							있어 화면 공간을 효율적으로 활용할 수 있습니다.
-						</p>
-						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
-							<strong>Accordion, AccordionContent, AccordionItem, AccordionTrigger</strong> 이렇게 4가지 컴포넌트로
-							구성되어 있습니다.
-						</p>
-						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
-							이 네 가지를 조합하여 하나 이상의 섹션을 자유롭게 만들 수 있으며, 각 <strong>AccordionItem</strong>에는{' '}
-							<strong>AccordionTrigger</strong>와 <strong>AccordionContent</strong>를 배치하여 토글 기능과 내용을
-							구현합니다.
-						</p>
-						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base pb-4">
-							기본적으로 <strong>type="single"</strong> 속성을 사용하면 한 번에 한 섹션만 펼칠 수 있고,{' '}
-							<strong>type="multiple"</strong>을 주면 여러 섹션이 동시에 펼쳐지는 등 유연한 설정이 가능합니다.
-							<br />
-							또한 <strong>collapsible</strong> 옵션을 추가하면 열려 있는 항목을 다시 클릭해서 모두 닫을 수도
-							있습니다.
-						</p>
 					</div>
 					<div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
 						{/*<Alert>
@@ -360,14 +339,16 @@ function SamplePage() {
 function SamplePage() {
 	return (
 		<div>
+			{/* 전체적으로 확장 표시 아이콘 변경 */}
 			<Accordion
 				type="multiple"
 				className="w-full"
 				defaultValue={['item-1']}
-				expandIcon="SquareArrowDown" // 전체적으로 확장 표시 아이콘 변경
+				expandIcon="SquareArrowDown"
 			>
 				<AccordionItem value="item-1">
-					<AccordionTrigger expandIcon="SquareArrowDown">제품 정보</AccordionTrigger> // 개별적으로 확장 표시 아이콘 변경
+					{/* 개별적으로 확장 표시 아이콘 변경 */}
+					<AccordionTrigger expandIcon="SquareArrowDown">제품 정보</AccordionTrigger> 
 					<AccordionContent className="flex flex-col gap-4 text-balance">
 						<p>
 							저희의 주력 제품은 최첨단 기술과 세련된 디자인이 결합되었습니다. 최고급 소재로 제작되어
@@ -380,7 +361,8 @@ function SamplePage() {
 					</AccordionContent>
 				</AccordionItem>
 				<AccordionItem value="item-2">
-					<AccordionTrigger expandIcon="SquareArrowDown">배송 세부 정보</AccordionTrigger> // 개별적으로 확장 표시 아이콘 변경
+					{/* 개별적으로 확장 표시 아이콘 변경 */}
+					<AccordionTrigger expandIcon="SquareArrowDown">배송 세부 정보</AccordionTrigger>
 					<AccordionContent className="flex flex-col gap-4 text-balance">
 						<p>
 							저희는 신뢰할 수 있는 택배 파트너를 통해 전 세계 배송 서비스를 제공합니다. 일반 배송은
