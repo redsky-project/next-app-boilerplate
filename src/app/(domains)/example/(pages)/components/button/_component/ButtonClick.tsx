@@ -1,7 +1,7 @@
 'use client';
 
 import { JSX } from 'react';
-import { CodeBlockClient, Button, Icon } from '@components/ui';
+import { CodeBlockClient, Button } from '@components/ui';
 
 interface IButtonClickProps {}
 
