@@ -1,9 +1,9 @@
 'use client';
 
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { QueryProvider } from './QueryProvider';
-import { setUiService } from '@/core/components/ui';
-import { $utils } from '@utils/index';
+// 전역 객체 초기화 (모듈이 로드될 때 즉시 실행됨)
+import './global-init';
 
 interface AppProvidersProps {
 	children: ReactNode;
@@ -16,9 +16,5 @@ interface AppProvidersProps {
  * Provider 순서는 의존성을 고려하여 배치합니다.
  */
 export function AppProviders({ children }: AppProvidersProps) {
-	useEffect(() => {
-		window.$ui = setUiService();
-		window.$utils = $utils;
-	}, []);
 	return <QueryProvider>{children}</QueryProvider>;
 }

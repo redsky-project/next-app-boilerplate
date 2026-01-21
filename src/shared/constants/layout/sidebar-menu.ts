@@ -47,6 +47,14 @@ export const SIDEBAR_MENU = [
 				title: 'serverApi',
 				url: '/example/library-api/common/server-api',
 			},
+			{
+				title: '◉ Utils',
+				type: 'group',
+			},
+			{
+				title: '$utils.string',
+				url: '/example/library-api/utils/string',
+			},
 		],
 	},
 	{
