@@ -55,6 +55,14 @@ export const SIDEBAR_MENU = [
 				title: '$utils.string',
 				url: '/example/library-api/utils/string',
 			},
+			{
+				title: '$utils.date',
+				url: '/example/library-api/utils/date',
+			},
+			{
+				title: '$utils.format',
+				url: '/example/library-api/utils/format',
+			},
 		],
 	},
 	{
