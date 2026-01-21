@@ -37,7 +37,9 @@ export default function ButtonClick({}: IButtonClickProps): JSX.Element {
 				</div>
 				<CodeBlockClient
 					lang="tsx"
-					code={`import { Button } from '@components/ui';
+					code={`'use client';
+
+import { Button } from '@components/ui';
 
 function SamplePage() {
 	return (
