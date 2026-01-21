@@ -3,6 +3,7 @@
 import { ReactNode, useEffect } from 'react';
 import { QueryProvider } from './QueryProvider';
 import { setUiService } from '@/core/components/ui';
+import { $utils } from '@utils/index';
 
 interface AppProvidersProps {
 	children: ReactNode;
@@ -17,6 +18,7 @@ interface AppProvidersProps {
 export function AppProviders({ children }: AppProvidersProps) {
 	useEffect(() => {
 		window.$ui = setUiService();
+		window.$utils = $utils;
 	}, []);
 	return <QueryProvider>{children}</QueryProvider>;
 }
