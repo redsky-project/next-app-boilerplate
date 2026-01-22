@@ -127,6 +127,10 @@ export const SIDEBAR_MENU = [
 				title: 'Confirm(Client Component)',
 				url: '/example/docs-examples/confirm',
 			},
+			{
+				title: '업무 공통함수 만들기 예제',
+				url: '/example/biz-common',
+			},
 		],
 	},
 ];
