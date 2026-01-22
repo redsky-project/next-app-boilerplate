@@ -29,8 +29,23 @@ export default function RouterPushNextEx({}: IRouterPushNextExProps): JSX.Elemen
 						  이전 페이지에서
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none font-bold">
 								$router.push('/example/library-api/router/push-next');
+							</code>
+							또는 
+							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none font-bold">
+								$router.replace('/example/library-api/router/push-next');
 							</code> 
 							메서드 호출로 이동된 페이지입니다.
+						</p>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+						  만약 
+							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none font-bold">
+								$router.replace()
+							</code> 
+							메서드를 통해 이동했다면 이전 페이지가 덮어씌워 졌으므로
+							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none font-bold">
+								$router.back()
+							</code>
+							했을 때 덮어씌워진 이전 페이지로 이동합니다.
 						</p>
 					</div>
 					<div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
