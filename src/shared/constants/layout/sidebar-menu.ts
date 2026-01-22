@@ -24,6 +24,14 @@ export const SIDEBAR_MENU = [
 		isActive: false,
 		items: [
 			{
+				title: '◉ Common Functions',
+				type: 'group',
+			},
+			{
+				title: 'serverApi',
+				url: '/example/library-api/common/server-api',
+			},
+			{
 				title: '◉ Hooks',
 				type: 'group',
 			},
@@ -40,12 +48,20 @@ export const SIDEBAR_MENU = [
 				url: '/example/library-api/hooks/use-api-mutation',
 			},
 			{
-				title: '◉ Common Functions',
+				title: '◉ Router',
 				type: 'group',
 			},
 			{
-				title: 'serverApi',
-				url: '/example/library-api/common/server-api',
+				title: '$router.push',
+				url: '/example/library-api/router/push',
+			},
+			{
+				title: '$router.replace',
+				url: '/example/library-api/router/replace',
+			},
+			{
+				title: '$router.back',
+				url: '/example/library-api/router/back',
 			},
 			{
 				title: '◉ Utils',
