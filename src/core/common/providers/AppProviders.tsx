@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import { QueryProvider } from './QueryProvider';
+import { RouterProvider } from './RouterProvider';
 // 전역 객체 초기화 (모듈이 로드될 때 즉시 실행됨)
 import './global-init';
 
@@ -16,5 +17,9 @@ interface AppProvidersProps {
  * Provider 순서는 의존성을 고려하여 배치합니다.
  */
 export function AppProviders({ children }: AppProvidersProps) {
-	return <QueryProvider>{children}</QueryProvider>;
+	return (
+		<RouterProvider>
+			<QueryProvider>{children}</QueryProvider>
+		</RouterProvider>
+	);
 }

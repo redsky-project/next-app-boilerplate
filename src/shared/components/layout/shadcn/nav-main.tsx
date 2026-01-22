@@ -17,7 +17,7 @@ import {
 } from '@/core/components/shadcn/ui/sidebar';
 import { Separator } from '@/core/components/shadcn/ui/separator';
 import { Icon } from '@components/ui';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export function NavMain({
 	menu,
@@ -34,7 +34,6 @@ export function NavMain({
 		}[];
 	}[];
 }) {
-	const router = useRouter();
 	const activeMenu = usePathname();
 
 	// url에 http, https가 있는지 찾는 함수
@@ -47,7 +46,7 @@ export function NavMain({
 		if (findExternalUrl(url)) {
 			window.open(url, '_blank', 'noopener,noreferrer');
 		} else {
-			router.push(url);
+			$router.push(url);
 		}
 	};
 

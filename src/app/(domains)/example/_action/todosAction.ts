@@ -3,7 +3,7 @@
 import { serverApi } from '@fetch/api';
 import { cookies } from 'next/headers';
 //import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
+import { $router } from '@router';
 
 export async function todosAction(formData: FormData, type?: string) {
 	const url = `${process.env.NEXT_PUBLIC_EXTERNAL_API_BASE_URL3}/todos`;
@@ -36,20 +36,28 @@ export async function todosAction(formData: FormData, type?: string) {
 			// 브라우저 쿠키에 결과 저장하여 전달 방법
 			(await cookies()).set('result_todos', JSON.stringify(res), { maxAge: 60 });
 
-			// 성공 페이지로 리다이렉트 (query parameter 포함시키는 방법)
-			const params = new URLSearchParams({
+			// 성공 페이지로 리다이렉트 (query parameter 포함시키는 방법) redirect를 사용할 때
+			//const params = new URLSearchParams({
+			//	success: 'true',
+			//	message: '할일이 추가되었습니다.',
+			//	status: res?.status?.toString() || '',
+			//	id: res.data.id?.toString() || '',
+			//});
+			const params = {
 				success: 'true',
 				message: '할일이 추가되었습니다.',
 				status: res?.status?.toString() || '',
 				id: res.data.id?.toString() || '',
-			});
+			};
 
 			// 캐시 무효화 (필요시 주석 해제)
 			// revalidatePath('/example/docs-examples/server-form');
 			// revalidateTag('todos'); // tag가 등록 되어 있을 경우. tag로 캐시 무효화 방법
 
 			// redirect는 함수를 종료시키므로 아래 코드는 실행되지 않음
-			redirect(`/example/docs-examples/server-form?${params.toString()}`);
+			//redirect(`/example/docs-examples/server-form?${params.toString()}`);
+			// params 를 그냥 json으로 넘겨주면 내부적으로 서버환경이면 redirect를 사용하고 params가 있으면 쿼리스트링으로 붙여줍니다.
+			$router.push(`/example/docs-examples/server-form`, { params });
 		}
 
 		if (type === 'type01' && res.data) {

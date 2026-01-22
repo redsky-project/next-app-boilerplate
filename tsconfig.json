@@ -23,9 +23,12 @@
 			"@/*": ["./src/*"],
 			"@components/*": ["./src/shared/components/*"], // 공통 UI 컴포넌트 경로(UI Component는 퍼블수정이 있을 수 있어서 shared 폴더에 위치)
 			"@hooks/*": ["./src/core/hooks/*"], // 공통 훅 경로
-			"@utils/*": ["./src/core/utils/*"], // 공통 유틸리티 경로
+			"@utils": ["./src/core/utils/index.ts"], // 공통 유틸리티 경로
+			"@utils/*": ["./src/core/utils/*"], // 공통 유틸리티 파일 경로
 			"@app-types/*": ["./src/core/types/*"], // 공통 타입 경로
-			"@fetch/*": ["./src/core/common/*"] // 공통 API 파일 경로
+			"@fetch/*": ["./src/core/common/*"], // 공통 API 파일 경로
+			"@router": ["./src/core/router/index.ts"], // 라우터 유틸리티 경로
+			"@router/*": ["./src/core/router/*"] // 라우터 관련 파일 경로
 		},
 		"baseUrl": ".",
 		"typeRoots": ["./node_modules/@types", "./@types"] // type 루트 설정

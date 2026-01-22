@@ -3,7 +3,6 @@
 import { Button } from '@components/ui';
 
 import { Code2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 // Props Type(Props가 있을경우 타입을 정의)
 interface IMainIndexProps {
@@ -11,8 +10,6 @@ interface IMainIndexProps {
 }
 
 export default function MainIndex({}: IMainIndexProps) {
-	const router = useRouter();
-
 	return (
 		<div className="w-full py-20 px-6">
 			{/* Hero Section */}
@@ -34,7 +31,7 @@ export default function MainIndex({}: IMainIndexProps) {
 					<Button
 						size="lg"
 						className="h-11 px-6 bg-slate-900 hover:bg-slate-800 text-sm font-medium"
-						onClick={() => router.push('/example/components/accordion')}
+						onClick={() => $router.push('/example/components/accordion')}
 					>
 						Examples
 						<Code2 className="w-4 h-4 ml-2" />
