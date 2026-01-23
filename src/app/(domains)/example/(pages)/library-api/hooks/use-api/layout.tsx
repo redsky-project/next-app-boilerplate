@@ -6,12 +6,14 @@ export interface IUseApiExLayoutProps {
 	basicUseApiDemoInternalApi: ReactNode; // BasicUseApiEx 패러럴 라우터
 	basicUseApiDemo: ReactNode; // BasicUseApiEx 패러럴 라우터
 	basicUseApiDemoRouteHandlers: ReactNode; // BasicUseApiEx 패러럴 라우터
+	useApiEnabled: ReactNode; // UseApiEnabled 패러럴 라우터
 }
 
 export default function UseApiExLayout({
 	basicUseApiDemoInternalApi,
 	basicUseApiDemo,
 	basicUseApiDemoRouteHandlers,
+	useApiEnabled,
 }: IUseApiExLayoutProps): JSX.Element {
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
@@ -102,6 +104,16 @@ export default function UseApiExLayout({
 						</p>
 					</div>
 					<div className="w-full flex-1 py-4">{basicUseApiDemoRouteHandlers}</div>
+					<div className="flex flex-col gap-2 pt-6">
+						<h3 className="scroll-m-20 text-lg font-semibold tracking-tight sm:text-lg xl:text-lg">
+							◉ enabled 옵션을 사용하여 API 호출 제어(이벤트 발생 시 fetch)
+						</h3>
+						<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+							<strong className="text-blue-500">useApi</strong> 훅의 <strong className="text-blue-500">enabled</strong>{' '}
+							옵션을 사용하여 API 호출 제어(이벤트 발생 시 fetch)
+						</p>
+					</div>
+					<div className="w-full flex-1 py-4">{useApiEnabled}</div>
 					{/* example 블럭요서 END */}
 				</div>
 			</div>
