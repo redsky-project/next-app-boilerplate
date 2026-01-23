@@ -2,12 +2,7 @@
 
 import { JSX, useState } from 'react';
 import { CodeBlockClient, Icon, Input, Button } from '@components/ui';
-import {
-	maskEmail,
-	formatPhoneNumber,
-	truncateString,
-	FormatUtils,
-} from '@/app/(domains)/example/_common';
+import { maskEmail, formatPhoneNumber, truncateString, FormatUtils } from '@/app/(domains)/example/_common';
 
 interface IBizCommonPageProps {
 	//children: React.ReactNode;
@@ -68,12 +63,8 @@ export default function BizCommonPage({}: IBizCommonPageProps): JSX.Element {
 	return (
 		<div className="container mx-auto px-4 py-8">
 			<div className="flex flex-col gap-2 pb-8">
-				<h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
-					업무(domain)별 공통함수 사용하기
-				</h1>
-				<p className="text-muted-foreground text-lg">
-					example 도메인에서만 사용하는 공통 유틸리티 함수들입니다.
-				</p>
+				<h1 className="scroll-m-20 text-4xl font-bold tracking-tight">업무(domain)별 공통함수 사용하기</h1>
+				<p className="text-muted-foreground text-lg">example 도메인에서만 사용하는 공통 유틸리티 함수들입니다.</p>
 				<p className="text-muted-foreground">
 					<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm">
 						src/app/(domains)/example/_common
@@ -83,16 +74,12 @@ export default function BizCommonPage({}: IBizCommonPageProps): JSX.Element {
 
 			{/* Function 방식 섹션 */}
 			<div className="mb-12">
-				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-6">
-					Function 방식 공통함수
-				</h2>
+				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-6">Function 방식 공통함수</h2>
 
 				{/* maskEmail */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							maskEmail()
-						</h3>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">maskEmail()</h3>
 						<p className="text-muted-foreground text-base">
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm font-bold">
 								maskEmail(email: string, options?: EmailMaskOptions)
@@ -112,8 +99,10 @@ export default function BizCommonPage({}: IBizCommonPageProps): JSX.Element {
 										className="flex-1"
 										placeholder="이메일 입력"
 									/>
-									<Button onClick={handleMaskEmail}
-variant="default">
+									<Button
+										onClick={handleMaskEmail}
+										variant="default"
+									>
 										마스킹
 									</Button>
 									<Icon name="ChevronsRight" />
@@ -146,17 +135,13 @@ const masked2 = maskEmail('example@domain.com', {
 				{/* formatPhoneNumber */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							formatPhoneNumber()
-						</h3>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">formatPhoneNumber()</h3>
 						<p className="text-muted-foreground text-base">
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm font-bold">
 								formatPhoneNumber(phoneNumber: string, options?: PhoneNumberFormatOptions)
 							</code>
 						</p>
-						<p className="text-muted-foreground text-base">
-							전화번호를 포맷팅합니다. 한국 전화번호 형식을 지원합니다.
-						</p>
+						<p className="text-muted-foreground text-base">전화번호를 포맷팅합니다. 한국 전화번호 형식을 지원합니다.</p>
 					</div>
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
@@ -168,8 +153,10 @@ const masked2 = maskEmail('example@domain.com', {
 										className="flex-1"
 										placeholder="전화번호 입력 (숫자만)"
 									/>
-									<Button onClick={handleFormatPhone}
-variant="default">
+									<Button
+										onClick={handleFormatPhone}
+										variant="default"
+									>
 										포맷팅
 									</Button>
 									<Icon name="ChevronsRight" />
@@ -205,17 +192,13 @@ const formatted3 = formatPhoneNumber('01012345678', {
 				{/* truncateString */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							truncateString()
-						</h3>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">truncateString()</h3>
 						<p className="text-muted-foreground text-base">
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm font-bold">
 								truncateString(str: string, maxLength: number, options?: TruncateOptions)
 							</code>
 						</p>
-						<p className="text-muted-foreground text-base">
-							문자열을 지정된 길이로 자르고 생략 문자를 추가합니다.
-						</p>
+						<p className="text-muted-foreground text-base">문자열을 지정된 길이로 자르고 생략 문자를 추가합니다.</p>
 					</div>
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
@@ -227,8 +210,10 @@ const formatted3 = formatPhoneNumber('01012345678', {
 										className="flex-1"
 										placeholder="텍스트 입력"
 									/>
-									<Button onClick={handleTruncateString}
-variant="default">
+									<Button
+										onClick={handleTruncateString}
+										variant="default"
+									>
 										자르기 (10자)
 									</Button>
 									<Icon name="ChevronsRight" />
@@ -266,29 +251,22 @@ const truncated3 = truncateString('Hello World Example', 10, {
 
 			{/* Class 방식 섹션 */}
 			<div className="mb-12">
-				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-6">
-					Class 방식 공통함수 (Singleton)
-				</h2>
+				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-6">Class 방식 공통함수 (Singleton)</h2>
 				<p className="text-muted-foreground text-base mb-6">
-					<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm">
-						FormatUtils
-					</code> 클래스는 Singleton 패턴으로 구현되어 즉시 인스턴스가 생성됩니다.
+					<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm">FormatUtils</code>{' '}
+					클래스는 Singleton 패턴으로 구현되어 즉시 인스턴스가 생성됩니다.
 				</p>
 
 				{/* formatCurrency */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							FormatUtils.formatCurrency()
-						</h3>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">FormatUtils.formatCurrency()</h3>
 						<p className="text-muted-foreground text-base">
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm font-bold">
 								FormatUtils.formatCurrency(amount: number, options?: CurrencyFormatOptions)
 							</code>
 						</p>
-						<p className="text-muted-foreground text-base">
-							숫자를 금액 형식으로 포맷팅합니다.
-						</p>
+						<p className="text-muted-foreground text-base">숫자를 금액 형식으로 포맷팅합니다.</p>
 					</div>
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
@@ -301,8 +279,10 @@ const truncated3 = truncateString('Hello World Example', 10, {
 										placeholder="금액 입력"
 										type="number"
 									/>
-									<Button onClick={handleFormatCurrency}
-variant="default">
+									<Button
+										onClick={handleFormatCurrency}
+										variant="default"
+									>
 										포맷팅
 									</Button>
 									<Icon name="ChevronsRight" />
@@ -341,17 +321,13 @@ const formatted3 = FormatUtils.formatCurrency(1234567, {
 				{/* formatDate */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							FormatUtils.formatDate()
-						</h3>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">FormatUtils.formatDate()</h3>
 						<p className="text-muted-foreground text-base">
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm font-bold">
 								FormatUtils.formatDate(date: Date | string, format?: string, options?: DateFormatOptions)
 							</code>
 						</p>
-						<p className="text-muted-foreground text-base">
-							Date 객체를 지정된 형식의 문자열로 변환합니다.
-						</p>
+						<p className="text-muted-foreground text-base">Date 객체를 지정된 형식의 문자열로 변환합니다.</p>
 					</div>
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
@@ -364,8 +340,10 @@ const formatted3 = FormatUtils.formatCurrency(1234567, {
 										placeholder="날짜 입력 (ISO)"
 										type="datetime-local"
 									/>
-									<Button onClick={handleFormatDate}
-variant="default">
+									<Button
+										onClick={handleFormatDate}
+										variant="default"
+									>
 										포맷팅
 									</Button>
 									<Icon name="ChevronsRight" />
@@ -406,17 +384,13 @@ const formatted3 = FormatUtils.formatDate(date, 'YYYY/MM/DD', {
 				{/* formatFileSize */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							FormatUtils.formatFileSize()
-						</h3>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">FormatUtils.formatFileSize()</h3>
 						<p className="text-muted-foreground text-base">
 							<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-sm font-bold">
 								FormatUtils.formatFileSize(bytes: number, decimals?: number)
 							</code>
 						</p>
-						<p className="text-muted-foreground text-base">
-							파일 크기를 읽기 쉬운 형식으로 변환합니다.
-						</p>
+						<p className="text-muted-foreground text-base">파일 크기를 읽기 쉬운 형식으로 변환합니다.</p>
 					</div>
 					<div className="w-full flex-1 py-4">
 						<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
@@ -429,8 +403,10 @@ const formatted3 = FormatUtils.formatDate(date, 'YYYY/MM/DD', {
 										placeholder="바이트 입력"
 										type="number"
 									/>
-									<Button onClick={handleFormatFileSize}
-variant="default">
+									<Button
+										onClick={handleFormatFileSize}
+										variant="default"
+									>
 										포맷팅
 									</Button>
 									<Icon name="ChevronsRight" />
@@ -462,12 +438,8 @@ const formatted3 = FormatUtils.formatFileSize(1536000, 0);
 				{/* 기타 함수들 설명 */}
 				<div className="mb-8">
 					<div className="flex flex-col gap-2 pt-6">
-						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-							기타 유틸리티 함수들
-						</h3>
-						<p className="text-muted-foreground text-base">
-							FormatUtils는 다음의 추가 함수들도 제공합니다.
-						</p>
+						<h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">기타 유틸리티 함수들</h3>
+						<p className="text-muted-foreground text-base">FormatUtils는 다음의 추가 함수들도 제공합니다.</p>
 					</div>
 					<div className="w-full flex-1 py-4">
 						<CodeBlockClient
@@ -497,9 +469,7 @@ FormatUtils.formatCompactNumber(1234567890);
 
 			{/* Import 방법 안내 */}
 			<div className="mb-12">
-				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-6">
-					Import 방법
-				</h2>
+				<h2 className="scroll-m-20 text-3xl font-semibold tracking-tight mb-6">Import 방법</h2>
 				<div className="w-full flex-1">
 					<CodeBlockClient
 						lang="tsx"
