@@ -3,9 +3,10 @@ import { Separator } from '@/core/components/shadcn/ui/separator';
 
 export interface IDataTableLayoutProps {
 	basicDataTable: ReactNode;
+	sortingDataTable: ReactNode;
 }
 
-export default function DataTableLayout({ basicDataTable }: IDataTableLayoutProps): JSX.Element {
+export default function DataTableLayout({ basicDataTable, sortingDataTable }: IDataTableLayoutProps): JSX.Element {
 	return (
 		<div className="flex min-w-0 flex-1 flex-col">
 			<div className="h-(--top-spacing) shrink-0" />
@@ -51,6 +52,9 @@ export default function DataTableLayout({ basicDataTable }: IDataTableLayoutProp
 					<Separator className="my-6" />
 					{/* example 블럭요소 START */}
 					{basicDataTable}
+					{/* example 블럭요소 END */}
+					{/* example 블럭요소 START */}
+					{sortingDataTable}
 					{/* example 블럭요소 END */}
 				</div>
 			</div>
