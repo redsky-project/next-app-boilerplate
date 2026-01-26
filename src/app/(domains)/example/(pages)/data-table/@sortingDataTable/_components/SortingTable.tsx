@@ -35,7 +35,7 @@ const columns: ColumnDef<User>[] = [
 		accessorKey: 'joinedAt',
 		header: 'Joined At',
 		cell: ({ row }) => {
-			return $utils.date.formatDate(row.getValue('joinedAt'), 'yyyy-MM-dd');
+			return $utils.date.formatDate(row.getValue('joinedAt'), 'YYYY-MM-DD');
 		},
 	},
 ];
