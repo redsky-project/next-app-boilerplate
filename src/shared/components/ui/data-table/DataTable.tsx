@@ -13,10 +13,12 @@ import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tan
 
 export interface IDataTableProps<TData, TValue> {
 	data: TData[];
-	columns: ColumnDef<TData, TValue>[];
+	columns: TDataTableColumns<TData, TValue>[];
 }
 
-export default function DataTable<TData, TValue>({ data, columns }: IDataTableProps<TData, TValue>) {
+export type TDataTableColumns<TData = any, TValue = any> = ColumnDef<TData, TValue>;
+
+export default function DataTable<TData = any, TValue = any>({ data, columns }: IDataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
 		columns,

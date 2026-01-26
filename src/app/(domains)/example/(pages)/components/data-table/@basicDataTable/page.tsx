@@ -1,14 +1,13 @@
 'use client';
 
-import { DataTable } from '@components/ui';
+import { DataTable, type TDataTableColumns } from '@components/ui';
 import { $utils } from '@utils';
 import { CodeBlockClient } from '@components/ui';
-//import { Separator } from '@/core/components/shadcn/ui/separator';
 
-//import type { User } from '@/app/(domains)/example/_types/data-table';
+import type { User } from '@/app/(domains)/example/_types/data-table';
 import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
 
-const columns: any = [
+const columns: TDataTableColumns<User>[] = [
 	{
 		accessorKey: 'name',
 		header: 'Name',
@@ -50,7 +49,7 @@ export default function BasicDataTablePage() {
 					</div>
 				</div>
 				<ul className="list-disc list-inside text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-					<li>기본 DataTable 예제(DataTable 컴포넌트 사용)</li>
+					<li>가장 기본적인 columns, data 만 전달하여 DataTable 컴포넌트를 사용한 예제입니다.</li>
 				</ul>
 			</div>
 
@@ -61,7 +60,7 @@ export default function BasicDataTablePage() {
 						<Separator className="my-4" />*/}
 						{/* posts 데이터 화면에 표시 영역 */}
 						<div className="grid gap-4">
-							<DataTable
+							<DataTable<User>
 								columns={columns}
 								data={mockUsers.slice(0, 10)}
 							/>
@@ -70,13 +69,29 @@ export default function BasicDataTablePage() {
 					<CodeBlockClient
 						code={`'use client';
 
-import { DataTable } from '@components/ui';
+import { DataTable, type TDataTableColumns } from '@components/ui';
 import { $utils } from '@utils';
 
 import type { User } from '@/app/(domains)/example/_types/data-table';
+/* User 타입 정의 예제
+export type UserStatus = 'active' | 'inactive' | 'pending';
+export type UserRole = 'admin' | 'user' | 'moderator';
+
+export interface User {
+	id: string;
+	name: string;
+	email: string;
+	status: UserStatus;
+	role: UserRole;
+	joinedAt: string;
+	lastActive: string;
+	avatar?: string;
+}
+*/
+
 import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
 
-const columns: any = [
+const columns: TDataTableColumns<User>[] = [
 	{
 		accessorKey: 'name',
 		header: 'Name',
