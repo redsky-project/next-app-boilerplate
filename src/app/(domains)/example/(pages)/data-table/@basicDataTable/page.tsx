@@ -45,19 +45,20 @@ export default function BasicDataTablePage() {
 							<BasicTable />
 						</div>
 					</div>
-					<div className="w-full mx-auto my-5 p-6 pt-0">
-						<strong>기본 DataTable 예제(HTML table 요소, CSS Module 사용)</strong>
-						<Separator className="my-4" />
-						{/* posts 데이터 화면에 표시 영역 */}
-						<div className="grid gap-4">
-							<BasicTableCssModule />
-						</div>
-					</div>
 					<CodeBlockClient
 						code={`'use client';
 
 import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tanstack/react-table';
 import { $utils } from '@utils';
+import {
+	Table,
+	TableBody,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+	TableFooter,
+} from '@components/ui';
 
 import type { User } from '@/app/(domains)/example/_types/data-table';
 import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
@@ -101,50 +102,179 @@ function SamplePage() {
 	});
 
 	return (
-		<table>
-			<thead>
-				{table.getHeaderGroups().map((headerGroup) => (
-					<tr key={headerGroup.id}>
-						{headerGroup.headers.map((header) => (
-							<th key={header.id}>
-								{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-							</th>
-						))}
-					</tr>
-				))}
-			</thead>
-			<tbody>
-				{table.getRowModel().rows?.length ? (
-					table.getRowModel().rows.map((row) => (
-						<tr key={row.id}>
-							{row.getVisibleCells().map((cell) => (
-								<td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+		<div className="rounded-md border">
+			<Table>
+				<TableHeader>
+					{table.getHeaderGroups().map((headerGroup) => (
+						<TableRow key={headerGroup.id}>
+							{headerGroup.headers.map((header) => (
+								<TableHead key={header.id}>
+									{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+								</TableHead>
+							))}
+						</TableRow>
+					))}
+				</TableHeader>
+				<TableBody>
+					{table.getRowModel().rows?.length ? (
+						table.getRowModel().rows.map((row) => (
+							<TableRow key={row.id}>
+								{row.getVisibleCells().map((cell) => (
+									<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+								))}
+							</TableRow>
+						))
+					) : (
+						<TableRow>
+							<TableCell
+								colSpan={columns.length}
+								className="h-24 text-center"
+							>
+								No results.
+							</TableCell>
+						</TableRow>
+					)}
+				</TableBody>
+				<TableFooter>
+					{table.getFooterGroups().map((footerGroup) => (
+						<TableRow key={footerGroup.id}>
+							{footerGroup.headers.map((header) => (
+								<TableCell key={header.id}>
+									{header.isPlaceholder ? null : flexRender(header.column.columnDef.footer, header.getContext())}
+								</TableCell>
+							))}
+						</TableRow>
+					))}
+				</TableFooter>
+			</Table>
+		</div>
+	);
+}`}
+						lang="tsx"
+					/>
+					<div className="w-full mx-auto my-5 p-6 pt-0">
+						<strong>기본 DataTable 예제(HTML table 요소, CSS Module 사용)</strong>
+						<Separator className="my-4" />
+						{/* posts 데이터 화면에 표시 영역 */}
+						<div className="grid gap-4">
+							<BasicTableCssModule />
+						</div>
+					</div>
+					<CodeBlockClient
+						code={`'use client';
+
+import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tanstack/react-table';
+import { $utils } from '@utils';
+import styles from '@/app/(domains)/example/_styles/data-table/DataTableBasic.module.css';
+
+import type { User } from '@/app/(domains)/example/_types/data-table';
+import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
+
+const columns: ColumnDef<User>[] = [
+	{
+		accessorKey: 'name',
+		header: 'Name',
+		footer: (info) => info.column.id,
+	},
+	{
+		accessorKey: 'email',
+		header: 'Email',
+		footer: (info) => info.column.id,
+	},
+	{
+		accessorKey: 'status',
+		header: 'Status',
+		footer: (info) => info.column.id,
+	},
+	{
+		accessorKey: 'role',
+		header: 'Role',
+		footer: (info) => info.column.id,
+	},
+	{
+		accessorKey: 'joinedAt',
+		header: 'Joined At',
+		cell: ({ row }) => {
+			return $utils.date.formatDate(row.getValue('joinedAt'), 'YYYY-MM-DD');
+		},
+		footer: (info) => info.column.id,
+	},
+];
+
+function SamplePage() {
+	const table = useReactTable({
+		data: mockUsers.slice(0, 10), // 처음 10개만 표시
+		columns,
+		getCoreRowModel: getCoreRowModel(),
+	});
+
+	return (
+		<div className="rounded-md border">
+			<table className={styles.table}>
+				<thead className={styles.tableHeader}>
+					{table.getHeaderGroups().map((headerGroup) => (
+						<tr
+							key={headerGroup.id}
+							className={styles.tableHeaderRow}
+						>
+							{headerGroup.headers.map((header) => (
+								<th
+									key={header.id}
+									className={styles.tableHeaderCell}
+								>
+									{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+								</th>
 							))}
 						</tr>
-					))
-				) : (
-					<tr>
-						<td
-							colSpan={columns.length}
-							className="h-24 text-center"
+					))}
+				</thead>
+				<tbody className={styles.tableBody}>
+					{table.getRowModel().rows?.length ? (
+						table.getRowModel().rows.map((row) => (
+							<tr
+								key={row.id}
+								className={styles.tableRow}
+							>
+								{row.getVisibleCells().map((cell) => (
+									<td
+										key={cell.id}
+										className={styles.tableCell}
+									>
+										{flexRender(cell.column.columnDef.cell, cell.getContext())}
+									</td>
+								))}
+							</tr>
+						))
+					) : (
+						<tr className={styles.tableRow}>
+							<td
+								colSpan={columns.length}
+								className={styles.emptyState}
+							>
+								No results.
+							</td>
+						</tr>
+					)}
+				</tbody>
+				<tfoot>
+					{table.getFooterGroups().map((footerGroup) => (
+						<tr
+							key={footerGroup.id}
+							className={styles.tableFooterRow}
 						>
-							No results.
-						</td>
-					</tr>
-				)}
-			</tbody>
-			<tfoot>
-				{table.getFooterGroups().map((footerGroup) => (
-					<TableRow key={footerGroup.id}>
-						{footerGroup.headers.map((header) => (
-							<TableCell key={header.id}>
-								{header.isPlaceholder ? null : flexRender(header.column.columnDef.footer, header.getContext())}
-							</TableCell>
-						))}
-					</TableRow>
-				))}
-			</tfoot>
-		</table>
+							{footerGroup.headers.map((header) => (
+								<td
+									key={header.id}
+									className={styles.tableFooterCell}
+								>
+									{header.isPlaceholder ? null : flexRender(header.column.columnDef.footer, header.getContext())}
+								</td>
+							))}
+						</tr>
+					))}
+				</tfoot>
+			</table>
+		</div>
 	);
 }`}
 						lang="tsx"

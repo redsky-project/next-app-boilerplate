@@ -2,7 +2,6 @@
 
 import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tanstack/react-table';
 import { $utils } from '@utils';
-import styles from '@/app/(domains)/example/_styles/data-table/DataTableBasic.module.css';
 
 import type { User } from '@/app/(domains)/example/_types/data-table';
 import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
