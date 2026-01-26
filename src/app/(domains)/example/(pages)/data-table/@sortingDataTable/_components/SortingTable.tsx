@@ -14,6 +14,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import type { User } from '@/app/(domains)/example/_types/data-table';
 import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
 
+const data = mockUsers.slice(0, 10);
 const columns: ColumnDef<User>[] = [
 	{
 		accessorKey: 'name',
@@ -44,14 +45,14 @@ export default function SortingTable() {
 	const [sorting, setSorting] = useState<SortingState>([]);
 
 	const table = useReactTable({
-		data: mockUsers.slice(0, 10),
+		data: mockUsers,
 		columns,
+		getCoreRowModel: getCoreRowModel(),
+		onSortingChange: setSorting,
+		getSortedRowModel: getSortedRowModel(),
 		state: {
 			sorting,
 		},
-		onSortingChange: setSorting,
-		getCoreRowModel: getCoreRowModel(),
-		getSortedRowModel: getSortedRowModel(),
 	});
 
 	return (
@@ -81,13 +82,16 @@ export default function SortingTable() {
 				</TableHeader>
 				<TableBody>
 					{table.getRowModel().rows?.length ? (
-						table.getRowModel().rows.map((row) => (
-							<TableRow key={row.id}>
-								{row.getVisibleCells().map((cell) => (
-									<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
-								))}
-							</TableRow>
-						))
+						table
+							.getRowModel()
+							.rows.slice(0, 10)
+							.map((row) => (
+								<TableRow key={row.id}>
+									{row.getVisibleCells().map((cell) => (
+										<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+									))}
+								</TableRow>
+							))
 					) : (
 						<TableRow>
 							<TableCell
