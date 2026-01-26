@@ -1,0 +1,15 @@
+'use client';
+
+import dynamic from 'next/dynamic';
+
+const DataTableBasic = dynamic(
+	() =>
+		import('@/app/(domains)/example/_components/data-table/examples').then((mod) => ({
+			default: mod.DataTableBasic,
+		})),
+	{ ssr: false }
+);
+
+export default function BasicExamplePage() {
+	return <DataTableBasic />;
+}

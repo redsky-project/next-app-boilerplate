@@ -30,3 +30,6 @@ export {
 // Class 방식 - format-utils.ts
 export { default as FormatUtils } from './format-utils';
 export type { CurrencyFormatOptions, DateFormatOptions } from './format-utils';
+
+// Date utilities
+export { formatDate, formatRelativeTime } from './date-utils';

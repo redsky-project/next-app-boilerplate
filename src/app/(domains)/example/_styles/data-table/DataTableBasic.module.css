@@ -1,0 +1,116 @@
+/* CSS Module for Data Table */
+.tableContainer {
+	width: 100%;
+}
+
+.tableBorder {
+	border-radius: 0.375rem;
+	border: 1px solid #e5e7eb;
+	overflow: hidden;
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.tableHeader {
+	background-color: #f9fafb;
+}
+
+.tableHeaderRow {
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.tableHeaderCell {
+	padding: 0.75rem 1rem;
+	text-align: left;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #374151;
+	white-space: nowrap;
+}
+
+.tableBody {
+	background-color: #ffffff;
+}
+
+.tableRow {
+	border-bottom: 1px solid #e5e7eb;
+	transition: background-color 0.15s ease;
+}
+
+.tableRow:hover {
+	background-color: #f9fafb;
+}
+
+.tableRow:last-child {
+	border-bottom: none;
+}
+
+.tableCell {
+	padding: 0.75rem 1rem;
+	font-size: 0.875rem;
+	color: #1f2937;
+}
+
+/* Sortable header */
+.sortableHeader {
+	cursor: pointer;
+	user-select: none;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.sortableHeader:hover {
+	color: #111827;
+}
+
+/* Empty state */
+.emptyState {
+	padding: 3rem 1rem;
+	text-align: center;
+	color: #6b7280;
+}
+
+/* Dark mode support */
+:global(.dark) .tableBorder {
+	border-color: #374151;
+}
+
+:global(.dark) .tableHeader {
+	background-color: #1f2937;
+}
+
+:global(.dark) .tableHeaderRow {
+	border-color: #374151;
+}
+
+:global(.dark) .tableHeaderCell {
+	color: #e5e7eb;
+}
+
+:global(.dark) .tableBody {
+	background-color: #111827;
+}
+
+:global(.dark) .tableRow {
+	border-color: #374151;
+}
+
+:global(.dark) .tableRow:hover {
+	background-color: #1f2937;
+}
+
+:global(.dark) .tableCell {
+	color: #d1d5db;
+}
+
+:global(.dark) .sortableHeader:hover {
+	color: #f9fafb;
+}
+
+:global(.dark) .emptyState {
+	color: #9ca3af;
+}

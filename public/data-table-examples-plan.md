@@ -1,49 +1,55 @@
 ---
 name: Data Table Examples Enhanced
-overview: shadcn/ui Data Table을 사용한 포괄적인 예제 페이지를 구현합니다. 기본 기능부터 실전 활용까지, Tailwind CSS와 CSS Module 두 가지 스타일링 방식을 포함하며, 재사용 가능한 공통 컴포넌트와 커스텀 훅을 제공합니다. 500건의 가상 데이터와 API 연동 예제를 통해 실무에서 바로 활용 가능한 패턴을 보여줍니다.
+overview: shadcn/ui Data Table을 사용한 포괄적인 예제 페이지를 도메인 레벨 구조로 구현했습니다. 기본 기능부터 실전 활용까지, Tailwind CSS와 CSS Module 두 가지 스타일링 방식을 포함하며, 재사용 가능한 공통 컴포넌트와 커스텀 훅을 제공합니다. 500건의 가상 데이터와 API 연동 예제를 통해 실무에서 바로 활용 가능한 패턴을 보여줍니다.
 todos:
   - id: install-packages
     content: '@tanstack/react-table 및 shadcn/ui 컴포넌트 설치'
-    status: pending
+    status: completed
   - id: create-types
     content: 타입 정의 파일 생성 (user.types.ts, table state 타입 등)
-    status: pending
+    status: completed
   - id: create-mock-data
-    content: 500건의 가상 사용자 데이터 생성
-    status: pending
+    content: 500건의 가상 사용자 데이터 생성 (seeded random)
+    status: completed
+  - id: create-date-utils
+    content: 날짜 포맷팅 유틸리티 함수 생성
+    status: completed
   - id: create-styles
-    content: _styles 폴더 생성 및 CSS Module 파일 작성
-    status: pending
+    content: _styles 폴더 생성 및 CSS Module 파일 작성 (도메인 레벨)
+    status: completed
   - id: common-components
     content: 공통 컴포넌트 구현 (TableToolbar, TablePagination, ColumnToggle, Skeleton, EmptyState, ErrorState)
-    status: pending
+    status: completed
   - id: cell-components
     content: 셀 렌더링 컴포넌트 구현 (StatusBadge, UserAvatar, ActionButtons, DateCell)
-    status: pending
+    status: completed
   - id: custom-hooks
     content: 커스텀 훅 구현 (useTableState, useTablePersistence)
-    status: pending
+    status: completed
   - id: basic-examples
     content: 기본 예제 구현 (Tailwind, CSS Module)
-    status: pending
+    status: completed
   - id: feature-examples
     content: 개별 기능 예제 구현 (정렬, 필터, 페이지네이션, 검색, 선택, 컬럼 표시)
-    status: pending
+    status: completed
   - id: advanced-examples
     content: 고급 기능 예제 구현 (커스텀 셀, 액션 컬럼)
-    status: pending
+    status: completed
   - id: practical-examples
     content: 실전 예제 구현 (복합 기능, 상태 저장)
-    status: pending
+    status: completed
   - id: api-integration
     content: API 연동 예제 및 Route Handler 구현
-    status: pending
+    status: completed
   - id: layout-page
-    content: 메인 layout.tsx 구현 (13개 Parallel Routes)
-    status: pending
-  - id: testing-polish
-    content: 테스트, 접근성, 에러 처리, 문서화
-    status: pending
+    content: 메인 layout.tsx 및 13개 Parallel Routes 구현
+    status: completed
+  - id: default-files
+    content: 13개 Parallel Routes default.tsx 파일 생성
+    status: completed
+  - id: hydration-fix
+    content: Hydration 에러 수정 (dynamic import, Client Component 변환)
+    status: completed
 isProject: false
 ---
 
@@ -64,87 +70,117 @@ isProject: false
 - `command`: 검색/필터 UI용
 - `avatar`: 사용자 아바타 표시용
 
-## 2. 프로젝트 구조 (개선됨)
+## 2. 프로젝트 구조 (도메인 레벨 구조로 개선됨) ⭐
 
 ```
 src/app/(domains)/example/
 ├── _types/
 │   └── data-table/                          # 타입 정의 (공통)
 │       ├── index.ts
-│       └── user.types.ts
+│       └── user.types.ts                    # User, TableState, API 응답 타입
 ├── _common/
+│   ├── data-table/
+│   │   └── mock/                            # Mock 데이터 (공통)
+│   │       ├── index.ts
+│   │       └── users.mock.ts                # 500건 가상 데이터 (seeded random)
+│   ├── date-utils.ts                        # ⭐ 날짜 포맷팅 유틸리티 (NEW)
+│   └── index.ts                             # 통합 export
+├── _styles/                                 # ⭐ 도메인 레벨로 이동
 │   └── data-table/
-│       └── mock/                            # Mock 데이터 (공통)
-│           ├── index.ts
-│           └── users.mock.ts                # 500건 가상 데이터
+│       └── DataTableBasic.module.css
+├── _hooks/                                  # ⭐ 도메인 레벨로 이동
+│   └── data-table/
+│       ├── useTableState.ts                 # 테이블 상태 관리
+│       ├── useTablePersistence.ts           # localStorage 저장/복원
+│       └── index.ts
+├── _components/                             # ⭐ 도메인 레벨로 이동
+│   ├── dialog/                              # 기존
+│   │   └── PostDetailModal.tsx
+│   └── data-table/                          # ⭐ 새로 추가
+│       ├── common/                          # 공통 컴포넌트
+│       │   ├── TableToolbar.tsx
+│       │   ├── TablePagination.tsx
+│       │   ├── ColumnToggle.tsx
+│       │   ├── DataTableSkeleton.tsx
+│       │   ├── EmptyState.tsx
+│       │   ├── ErrorState.tsx
+│       │   └── index.ts
+│       ├── cells/                           # 셀 렌더링 컴포넌트
+│       │   ├── StatusBadge.tsx
+│       │   ├── UserAvatar.tsx
+│       │   ├── ActionButtons.tsx
+│       │   ├── DateCell.tsx                 # ⭐ Hydration 문제 해결
+│       │   └── index.ts
+│       └── examples/                        # 예제별 컴포넌트
+│           ├── DataTableBasic.tsx
+│           ├── DataTableBasicCssModule.tsx
+│           ├── DataTableWithSorting.tsx
+│           ├── DataTableWithFiltering.tsx
+│           ├── DataTableWithPagination.tsx
+│           ├── DataTableWithSearch.tsx
+│           ├── DataTableWithSelection.tsx
+│           ├── DataTableWithColumnVisibility.tsx
+│           ├── DataTableWithCustomCells.tsx
+│           ├── DataTableWithActions.tsx
+│           ├── DataTableAllFeatures.tsx
+│           ├── DataTablePersistent.tsx
+│           ├── DataTableWithApi.tsx
+│           └── index.ts
 └── (pages)/
     └── data-table/
-        ├── layout.tsx                       # 메인 레이아웃
-        ├── @basicExample/                   # 1. 기본 (Tailwind)
-        │   └── page.tsx
-        ├── @basicExampleCssModule/          # 2. 기본 (CSS Module)
-        │   └── page.tsx
-        ├── @sortingExample/                 # 3. 정렬
-        │   └── page.tsx
-        ├── @filteringExample/               # 4. 필터링
-        │   └── page.tsx
-        ├── @paginationExample/              # 5. 페이지네이션
-        │   └── page.tsx
-        ├── @searchExample/                  # 6. 검색
-        │   └── page.tsx
-        ├── @selectionExample/               # 7. 행 선택
-        │   └── page.tsx
-        ├── @columnVisibilityExample/        # 8. 컬럼 표시/숨김
-        │   └── page.tsx
-        ├── @customCellsExample/             # 9. 커스텀 셀 렌더링 ⭐ NEW
-        │   └── page.tsx
-        ├── @actionsExample/                 # 10. 액션 컬럼 ⭐ NEW
-        │   └── page.tsx
-        ├── @allFeaturesExample/             # 11. 복합 기능 ⭐ NEW
-        │   └── page.tsx
-        ├── @persistentStateExample/         # 12. 상태 저장 ⭐ NEW
-        │   └── page.tsx
-        ├── @apiIntegrationExample/          # 13. API 연동
-        │   └── page.tsx
-        ├── _styles/                         # CSS Module 스타일 ⭐ NEW
-        │   └── DataTableBasic.module.css
-        ├── _components/
-        │   ├── common/                      # 공통 컴포넌트
-        │   │   ├── TableToolbar.tsx         # 검색/필터 툴바
-        │   │   ├── TablePagination.tsx      # 재사용 페이지네이션
-        │   │   ├── ColumnToggle.tsx         # 컬럼 토글 드롭다운
-        │   │   ├── DataTableSkeleton.tsx    # 로딩 스켈레톤
-        │   │   ├── EmptyState.tsx           # 빈 상태
-        │   │   └── ErrorState.tsx           # 에러 상태
-        │   ├── cells/                       # 셀 렌더링 컴포넌트
-        │   │   ├── StatusBadge.tsx          # 상태 뱃지
-        │   │   ├── UserAvatar.tsx           # 사용자 아바타
-        │   │   ├── ActionButtons.tsx        # 액션 버튼
-        │   │   └── DateCell.tsx             # 날짜 포맷팅
-        │   └── examples/                    # 예제별 컴포넌트
-        │       ├── DataTableBasic.tsx
-        │       ├── DataTableBasicCssModule.tsx
-        │       ├── DataTableWithSorting.tsx
-        │       ├── DataTableWithFiltering.tsx
-        │       ├── DataTableWithPagination.tsx
-        │       ├── DataTableWithSearch.tsx
-        │       ├── DataTableWithSelection.tsx
-        │       ├── DataTableWithColumnVisibility.tsx
-        │       ├── DataTableWithCustomCells.tsx
-        │       ├── DataTableWithActions.tsx
-        │       ├── DataTableAllFeatures.tsx
-        │       ├── DataTablePersistent.tsx
-        │       └── DataTableWithApi.tsx
-        └── _hooks/                          # 커스텀 훅
-            ├── useTableState.ts             # 테이블 상태 관리
-            └── useTablePersistence.ts       # localStorage 저장/복원
+        ├── layout.tsx                       # 메인 레이아웃 (Server Component)
+        ├── @basicExample/
+        │   ├── page.tsx                     # ⭐ 'use client' + dynamic import
+        │   └── default.tsx                  # ⭐ Parallel Route 필수 (NEW)
+        ├── @basicExampleCssModule/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @sortingExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @filteringExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @paginationExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @searchExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @selectionExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @columnVisibilityExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @customCellsExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @actionsExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @allFeaturesExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        ├── @persistentStateExample/
+        │   ├── page.tsx
+        │   └── default.tsx                  # ⭐ (NEW)
+        └── @apiIntegrationExample/
+            ├── page.tsx
+            └── default.tsx                  # ⭐ (NEW)
+
+src/app/api/data-table/users/route.ts       # API Route Handler
 ```
 
 **폴더 구조 개선 포인트:**
 
-- `_styles/` 폴더: CSS Module 파일들을 별도로 관리
-- `_components/`, `_hooks/`, `_styles/`로 관심사 명확히 분리
-- import 경로: `'../_styles/DataTableBasic.module.css'`
+- ✅ **도메인 레벨 구조**: `_components`, `_styles`, `_hooks`를 example 도메인 레벨로 승격
+- ✅ **(pages) 폴더**: 순수하게 페이지와 라우팅만 담당
+- ✅ **재사용성**: data-table 관련 리소스를 example 도메인 전체에서 재사용 가능
+- ✅ **확장성**: 다른 복잡한 예제 추가 시 동일한 패턴 적용 가능
+- ✅ **일관성**: 기존 example 도메인의 구조(`_types`, `_common`, `_components`)와 일치
+- ✅ **Parallel Routes**: 각 슬롯에 필수 `default.tsx` 파일 추가
+- ✅ **Hydration 문제 해결**: Client Component + dynamic import with `ssr: false`
 
 ## 3. 주요 구현 내용
 
@@ -190,12 +226,41 @@ export * from './user.types';
 
 - 500건의 가상 사용자 데이터
 - 다양한 상태, 역할, 날짜 조합
-- 랜덤 이름, 이메일, 아바타 URL
+- ⭐ **Seeded Random 사용**: 서버/클라이언트에서 동일한 데이터 생성 (Hydration 문제 해결)
+
+```typescript
+// Seeded random function for consistent data generation
+function seededRandom(seed: number): number {
+	const x = Math.sin(seed) * 10000;
+	return x - Math.floor(x);
+}
+
+function getRandomElement<T>(array: T[], seed: number): T {
+	return array[Math.floor(seededRandom(seed) * array.length)];
+}
+```
 
 **[`src/app/(domains)/example/_common/data-table/mock/index.ts`](<src/app/(domains)/example/_common/data-table/mock/index.ts>)**
 
 ```typescript
 export * from './users.mock';
+```
+
+### 3.2.1 날짜 포맷팅 유틸리티 ⭐ NEW
+
+**[`src/app/(domains)/example/_common/date-utils.ts`](<src/app/(domains)/example/_common/date-utils.ts>)**
+
+Hydration 문제를 방지하기 위한 일관된 날짜 포맷팅 함수:
+
+```typescript
+export function formatDate(date: string, format: string = 'yyyy-MM-dd'): string {
+	const d = new Date(date);
+	// ... 서버/클라이언트에서 동일한 결과 반환
+}
+
+export function formatRelativeTime(date: string): string {
+	// ... relative time 포맷팅
+}
 ```
 
 ### 3.3 스타일 파일 (NEW ⭐)
@@ -479,7 +544,33 @@ export function StatusBadge({ status }: StatusBadgeProps) {
 
 **3) ActionButtons** - 수정/삭제/보기 버튼
 
-**4) DateCell** - 날짜 포맷팅
+**4) DateCell** - 날짜 포맷팅 ⭐ Hydration 문제 해결
+
+```typescript
+'use client';
+
+import { useEffect, useState } from 'react';
+import { formatDate, formatRelativeTime } from '@/app/(domains)/example/_common';
+
+export function DateCell({ date, showRelative = false }: DateCellProps) {
+	const [mounted, setMounted] = useState(false);
+	const formattedDate = formatDate(date, 'yyyy-MM-dd HH:mm');
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
+
+	// relativeTime은 클라이언트에서만 표시 (Hydration 문제 방지)
+	const relativeTime = mounted && showRelative ? formatRelativeTime(date) : null;
+
+	return (
+		<div className="flex flex-col">
+			<span className="text-sm">{formattedDate}</span>
+			{relativeTime && <span className="text-xs text-muted-foreground">{relativeTime}</span>}
+		</div>
+	);
+}
+```
 
 ### 3.6 커스텀 훅
 
@@ -526,11 +617,13 @@ export function useTableState() {
 
 ### 3.7 예제별 Data Table 컴포넌트
 
+**위치**: `src/app/(domains)/example/_components/data-table/examples/`
+
 #### 기존 예제 (1-8번)
 
 1. **기본 Data Table (Tailwind)** - TanStack Table 기본
 2. **기본 Data Table (CSS Module)** - CSS Module 스타일
-   - import: `import styles from '../_styles/DataTableBasic.module.css';`
+   - import: `import styles from '@/app/(domains)/example/_styles/data-table/DataTableBasic.module.css';`
 
 3. **정렬** - 컬럼 헤더 클릭 정렬
 4. **필터링** - 컬럼별 필터
@@ -550,6 +643,51 @@ export function useTableState() {
 **12) 상태 저장** - localStorage 활용
 
 **13) API 연동** - useApi 훅 사용
+
+### 3.8 페이지 구현 ⭐ Hydration 문제 해결
+
+**위치**: `src/app/(domains)/example/(pages)/data-table/@xxxExample/page.tsx`
+
+모든 페이지는 **Client Component + dynamic import** 패턴 사용:
+
+```typescript
+'use client';
+
+import dynamic from 'next/dynamic';
+
+const DataTableBasic = dynamic(
+	() =>
+		import('@/app/(domains)/example/_components/data-table/examples').then((mod) => ({
+			default: mod.DataTableBasic,
+		})),
+	{ ssr: false }  // ⭐ Hydration 문제 방지
+);
+
+export default function BasicExamplePage() {
+	return <DataTableBasic />;
+}
+```
+
+**이유:**
+- Seeded random의 미세한 차이로 인한 Hydration 불일치 방지
+- `ssr: false`로 클라이언트에서만 렌더링하여 완전한 일관성 보장
+- 예제 페이지이므로 SEO가 중요하지 않아 적합한 패턴
+
+### 3.9 Parallel Routes default.tsx ⭐ 필수
+
+**위치**: `src/app/(domains)/example/(pages)/data-table/@xxxExample/default.tsx`
+
+각 Parallel Route 슬롯에 **반드시 필요**:
+
+```typescript
+export default function Default() {
+	return null;
+}
+```
+
+**이유:**
+- Next.js Parallel Routes에서 soft navigation 시 필수
+- 없으면 404 에러 또는 렌더링 에러 발생
 
 ## 4. 레이아웃 구성
 
@@ -661,10 +799,27 @@ import styles from '../_styles/DataTableBasic.module.css';
 
 ## 9. 참고사항
 
-- 기존 프로젝트 패턴 준수
-- `_components/`, `_hooks/`, `_styles/`로 관심사 분리
-- CSS Module import: `'../_styles/FileName.module.css'`
-- 공통 컴포넌트 재사용
-- 커스텀 훅으로 로직 분리
-- 타입 안정성
-- 실용적인 예제 중심
+### 구현 패턴
+- ✅ **도메인 레벨 구조**: `_components/`, `_hooks/`, `_styles/`를 example 도메인 레벨로 관리
+- ✅ **일관성**: 기존 example 도메인 구조와 완벽하게 일치
+- ✅ **재사용성**: data-table 관련 리소스를 도메인 전체에서 활용 가능
+- ✅ **확장성**: 새로운 예제 추가 시 동일한 패턴 적용 가능
+
+### Hydration 문제 해결
+- ✅ **Seeded Random**: 서버/클라이언트에서 동일한 Mock 데이터 생성
+- ✅ **formatDate**: locale 차이 없는 일관된 날짜 포맷팅
+- ✅ **Dynamic Import**: `ssr: false`로 클라이언트 렌더링만 사용
+- ✅ **useEffect**: relative time은 hydration 후 표시
+
+### Next.js Parallel Routes
+- ✅ **default.tsx**: 각 슬롯에 필수 파일 (13개)
+- ✅ **Client Component**: `'use client'` 지시어로 dynamic import 사용 가능
+
+### Import 경로
+```typescript
+// 도메인 레벨 리소스 import
+import { DataTableBasic } from '@/app/(domains)/example/_components/data-table/examples';
+import { formatDate } from '@/app/(domains)/example/_common';
+import styles from '@/app/(domains)/example/_styles/data-table/DataTableBasic.module.css';
+import { useTableState } from '@/app/(domains)/example/_hooks/data-table';
+```
