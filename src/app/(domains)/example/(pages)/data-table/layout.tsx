@@ -23,7 +23,8 @@ export default function DataTableLayout({ basicDataTable }: IDataTableLayoutProp
 						현재 화면은 Layout.tsx 파일이며, 각 컨텐츠는 병렬 라우트로 구현된 <strong>Client Component</strong>입니다.
 					</p>
 					<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-						shadcn/ui를 사용한 TanStack 테이블의 예제 모음입니다. 기본 사용법부터 고급 기능까지 다룹니다..
+						<strong>shadcn/ui</strong>와 <strong>TanStack 데이터 테이블</strong>의 예제 모음입니다. 기본 사용법부터 고급
+						기능까지 다룹니다..
 					</p>
 				</div>
 				<div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">

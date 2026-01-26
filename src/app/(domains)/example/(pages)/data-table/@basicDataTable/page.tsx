@@ -31,7 +31,7 @@ export default function BasicDataTablePage() {
 					</div>
 				</div>
 				<ul className="list-disc list-inside text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-					<li>Tailwind CSS를 사용한 기본적인 DataTable 예제입니다.</li>
+					<li>Tailwind CSS 또는 CSS Module을 사용한 기본적인 DataTable 예제입니다.</li>
 				</ul>
 			</div>
 
