@@ -19,6 +19,10 @@ export const SIDEBAR_MENU = [
 				title: 'DataTable',
 				url: '/example/components/data-table',
 			},
+			{
+				title: 'DataTable Other',
+				url: '/example/components/data-table-other',
+			},
 		],
 	},
 	{
