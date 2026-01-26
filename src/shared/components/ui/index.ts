@@ -9,6 +9,7 @@ export { default as Button } from './button/Button.tsx';
 export { default as DataTable, type TDataTableColumns } from './data-table/DataTable.tsx';
 export { default as Icon } from './icon/IconDefault.tsx';
 export { default as Input } from './input/Input.tsx';
+export { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableFooter } from './table/table.tsx';
 export { CodeBlock, CodeBlockClient } from './code-block';
 
 // UI Components Types ====================================================

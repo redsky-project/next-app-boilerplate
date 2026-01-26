@@ -8,7 +8,7 @@ import {
 	TableHeader,
 	TableRow,
 	//TableFooter,
-} from '@/core/components/shadcn/ui/table';
+} from '@components/ui';
 import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tanstack/react-table';
 
 export interface IDataTableProps<TData, TValue> {
