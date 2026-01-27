@@ -12,6 +12,10 @@ export const SIDEBAR_MENU = [
 				url: '/example/components/accordion',
 			},
 			{
+				title: 'Badge',
+				url: '/example/components/badge',
+			},
+			{
 				title: 'Button',
 				url: '/example/components/button',
 			},
