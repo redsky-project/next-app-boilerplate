@@ -12,10 +12,28 @@ interface DataTableItem {
 
 const DATA_TABLE_LIST: DataTableItem[] = [
 	{
+		id: 'paginationDataTable',
+		title: 'Pagination DataTable',
+		description: '페이지네이션 기능이 있는 DataTable 컴포넌트 사용 예제',
+		link: '/example/components/data-table-other/pagination-data-table',
+	},
+	{
 		id: 'sortingDataTable',
 		title: 'Sorting DataTable',
 		description: '정렬 기능이 있는 DataTable 컴포넌트 사용 예제',
 		link: '/example/components/data-table-other/sorting-data-table',
+	},
+	{
+		id: 'filteringDataTable',
+		title: 'Filtering DataTable',
+		description: '필터링 기능이 있는 DataTable 컴포넌트 사용 예제',
+		link: '/example/components/data-table-other/filtering-data-table',
+	},
+	{
+		id: 'rowSelectionDataTable',
+		title: 'Row Selection DataTable',
+		description: 'Row 선택 기능이 있는 DataTable 컴포넌트 사용 예제',
+		link: '/example/components/data-table-other/row-selection-data-table',
 	},
 ];
 

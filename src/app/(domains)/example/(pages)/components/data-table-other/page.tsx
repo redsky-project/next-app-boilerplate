@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-import { Separator } from '@/core/components/shadcn/ui/separator';
+//import { Separator } from '@/core/components/shadcn/ui/separator';
 import { DataTableList } from './_components/DataTableList';
 //import { ToCamelCase } from './_components/ToCamelCase';
 
@@ -28,7 +28,7 @@ export default function ComponentsDataTableOther({}: IComponentsDataTableOtherPr
 						</p>
 					</div>
 					<div className="w-full flex-1 *:data-[slot=alert]:first:mt-0">
-						<Separator className="my-6" />
+						{/*<Separator className="my-6" />*/}
 						{/* example 블럭요소 START */}
 						<div className="w-full flex-1 py-4">
 							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">

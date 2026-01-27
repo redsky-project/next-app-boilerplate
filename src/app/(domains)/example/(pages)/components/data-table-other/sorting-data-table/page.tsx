@@ -2,7 +2,7 @@
 
 import { DataTable, type TDataTableColumns } from '@components/ui';
 import { $utils } from '@utils';
-import { CodeBlockClient } from '@components/ui';
+import { CodeBlockClient, Button, Icon } from '@components/ui';
 
 import type { User } from '@/app/(domains)/example/_types/data-table';
 import { mockUsers } from '@/app/(domains)/example/_common/data-table/mock';
@@ -15,6 +15,20 @@ const columns: TDataTableColumns<User>[] = [
 	{
 		accessorKey: 'email',
 		header: 'Email',
+		//header: ({ column }) => {
+		//	return (
+		//		<Button
+		//			variant="ghost"
+		//			onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+		//		>
+		//			Email
+		//			<Icon
+		//				name="ArrowUpDown"
+		//				className="ml-2 h-4 w-4"
+		//			/>
+		//		</Button>
+		//	);
+		//},
 	},
 	{
 		accessorKey: 'status',
@@ -27,13 +41,38 @@ const columns: TDataTableColumns<User>[] = [
 	{
 		accessorKey: 'joinedAt',
 		header: 'Joined At',
+		//header: ({ column }) => {
+		//	return (
+		//		<Button
+		//			variant="ghost"
+		//			onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+		//		>
+		//			Joined At
+		//			{column.getIsSorted() === 'asc' ? (
+		//				<Icon
+		//					name="ArrowUp"
+		//					className="ml-2 h-4 w-4"
+		//				/>
+		//			) : (
+		//				<Icon
+		//					name="ArrowDown"
+		//					className="ml-2 h-4 w-4"
+		//				/>
+		//			)}
+		//			{/*<Icon
+		//				name="ArrowUpDown"
+		//				className="ml-2 h-4 w-4"
+		//			/>*/}
+		//		</Button>
+		//	);
+		//},
 		cell: ({ row }: { row: any }) => {
 			return $utils.date.formatDate(row.getValue('joinedAt'), 'YYYY-MM-DD');
 		},
 	},
 ];
 
-export default function BasicDataTablePage() {
+export default function SortingDataTablePage() {
 	return (
 		<>
 			<div className="flex flex-col gap-2 pt-6">
@@ -42,14 +81,14 @@ export default function BasicDataTablePage() {
 						data-shorcut="true"
 						className="scroll-m-20 text-2xl font-semibold tracking-tight sm:text-2xl xl:text-2xl"
 					>
-						Basic DataTable
+						Sorting DataTable
 					</h2>
 					<div className="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
 						&nbsp;
 					</div>
 				</div>
 				<ul className="list-disc list-inside text-muted-foreground text-[1.05rem] text-balance sm:text-base">
-					<li>columns, data 값을 전달하여 DataTable 컴포넌트를 사용한 기본 예제입니다.</li>
+					<li>정렬 기능이 있는 DataTable 컴포넌트 사용 예제입니다.</li>
 				</ul>
 			</div>
 
@@ -60,7 +99,7 @@ export default function BasicDataTablePage() {
 						<Separator className="my-4" />*/}
 						{/* posts 데이터 화면에 표시 영역 */}
 						<div className="grid gap-4">
-							<DataTable<User>
+							<DataTable
 								columns={columns}
 								data={mockUsers.slice(0, 10)}
 							/>

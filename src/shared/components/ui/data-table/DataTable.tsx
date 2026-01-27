@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import {
 	Table,
 	TableBody,
@@ -10,7 +11,7 @@ import {
 	//TableFooter,
 } from '@components/ui';
 import { useReactTable, getCoreRowModel, flexRender, type ColumnDef } from '@tanstack/react-table';
-
+import { type SortingState, getSortedRowModel } from '@tanstack/react-table';
 export interface IDataTableProps<TData, TValue> {
 	data: TData[];
 	columns: TDataTableColumns<TData, TValue>[];
@@ -19,10 +20,19 @@ export interface IDataTableProps<TData, TValue> {
 export type TDataTableColumns<TData = any, TValue = any> = ColumnDef<TData, TValue>;
 
 export default function DataTable<TData = any, TValue = any>({ data, columns }: IDataTableProps<TData, TValue>) {
+	const [sorting, setSorting] = useState<SortingState>([]);
+
 	const table = useReactTable({
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
+		// sorting 기능 추가 ================================
+		onSortingChange: setSorting,
+		getSortedRowModel: getSortedRowModel(),
+		state: {
+			sorting,
+		},
+		// sorting 기능 추가 ================================
 	});
 
 	return (
@@ -35,7 +45,28 @@ export default function DataTable<TData = any, TValue = any>({ data, columns }: 
 								{headerGroup.headers.map((header) => {
 									return (
 										<TableHead key={header.id}>
-											{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+											{/*{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}*/}
+											{header.isPlaceholder ? null : (
+												<div
+													className={header.column.getCanSort() ? 'cursor-pointer select-none' : ''}
+													onClick={header.column.getToggleSortingHandler()}
+													title={
+														header.column.getCanSort()
+															? header.column.getNextSortingOrder() === 'asc'
+																? 'Sort ascending'
+																: header.column.getNextSortingOrder() === 'desc'
+																	? 'Sort descending'
+																	: 'Clear sort'
+															: undefined
+													}
+												>
+													{flexRender(header.column.columnDef.header, header.getContext())}
+													{{
+														asc: ' 🔼',
+														desc: ' 🔽',
+													}[header.column.getIsSorted() as string] ?? null}
+												</div>
+											)}
 										</TableHead>
 									);
 								})}

@@ -20,7 +20,7 @@ export const SIDEBAR_MENU = [
 				url: '/example/components/data-table',
 			},
 			{
-				title: 'DataTable Other',
+				title: 'Other DataTables',
 				url: '/example/components/data-table-other',
 			},
 		],
