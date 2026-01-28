@@ -475,6 +475,56 @@ function SamplePage() {
 							/>
 						</div>
 						{/* example 블럭요소 END */}
+						{/* example 블럭요소 START */}
+						<div className="flex flex-col gap-2 pt-6">
+							<div className="flex items-start justify-between">
+								<h3
+									data-shorcut="true"
+									className="scroll-m-20 text-2xl font-semibold tracking-tight sm:text-2xl xl:text-2xl"
+								>
+									색상 변경
+								</h3>
+								<div className="docs-nav bg-background/80 border-border/50 fixed inset-x-0 bottom-0 isolate z-50 flex items-center gap-2 border-t px-6 py-4 backdrop-blur-sm sm:static sm:z-0 sm:border-t-0 sm:bg-transparent sm:px-0 sm:pt-1.5 sm:backdrop-blur-none">
+									&nbsp;
+								</div>
+							</div>
+							{/*<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+								<code className="bg-muted relative rounded-md px-[0.3rem] py-[0.2rem] font-mono text-[0.8rem] wrap-break-word outline-none">
+								variant="default | destructive | outline | secondary | ghost | link | success | warning | info | purple | pink | indigo | teal"
+								</code>
+							</p>*/}
+							<p className="text-muted-foreground text-[1.05rem] text-balance sm:text-base">
+								<strong>Badge</strong> 컴포넌트에 <strong>className</strong> 속성을 사용하여 색상을 변경할 수 있습니다.
+							</p>
+						</div>
+						<div className="w-full flex-1 py-4">
+							<div className="w-full rounded-lg border border-neutral-200 overflow-hidden dark:border-neutral-800 px-6 py-4 shadow-sm">
+								<div className="flex flex-wrap gap-2">
+									<Badge className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300">Blue</Badge>
+									<Badge className="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300">Green</Badge>
+									<Badge className="bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300">Sky</Badge>
+									<Badge className="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300">Purple</Badge>
+									<Badge className="bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300">Red</Badge>
+								</div>
+							</div>
+							<CodeBlockClient
+								lang="tsx"
+								code={`import { Badge } from '@components/ui';
+
+function SamplePage() {
+	return (
+		<div className="flex flex-wrap gap-2">
+			<Badge className="bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300">Blue</Badge>
+			<Badge className="bg-green-50 text-green-700 dark:bg-green-950 dark:text-green-300">Green</Badge>
+			<Badge className="bg-sky-50 text-sky-700 dark:bg-sky-950 dark:text-sky-300">Sky</Badge>
+			<Badge className="bg-purple-50 text-purple-700 dark:bg-purple-950 dark:text-purple-300">Purple</Badge>
+			<Badge className="bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300">Red</Badge>
+		</div>
+	);
+}`}
+							/>
+						</div>
+						{/* example 블럭요소 END */}
 					</div>
 				</div>
 			</div>
