@@ -70,7 +70,7 @@ export function useTablePersistence({
 		} catch (error) {
 			console.error('Failed to load table state from localStorage:', error);
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
+		 
 	}, [key]);
 
 	// Save state to localStorage whenever it changes

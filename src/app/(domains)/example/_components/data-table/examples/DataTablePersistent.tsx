@@ -27,7 +27,9 @@ const columns: ColumnDef<User>[] = [
 		accessorKey: 'name',
 		header: 'User',
 		cell: ({ row }) => (
-			<UserAvatar name={row.original.name} email={row.original.email} avatar={row.original.avatar} />
+			<UserAvatar name={row.original.name}
+email={row.original.email}
+avatar={row.original.avatar} />
 		),
 	},
 	{
@@ -110,9 +112,12 @@ export function DataTablePersistent() {
 				<h2 className="text-2xl font-bold tracking-tight">Persistent State Example</h2>
 				<p className="text-muted-foreground">Table state saved to localStorage</p>
 			</div>
-			<TableToolbar globalFilter={globalFilter} onGlobalFilterChange={setGlobalFilter}>
+			<TableToolbar globalFilter={globalFilter}
+onGlobalFilterChange={setGlobalFilter}>
 				<ColumnToggle table={table} />
-				<Button variant="outline" size="sm" onClick={handleReset}>
+				<Button variant="outline"
+size="sm"
+onClick={handleReset}>
 					Reset State
 				</Button>
 			</TableToolbar>
@@ -151,7 +156,8 @@ export function DataTablePersistent() {
 							))
 						) : (
 							<TableRow>
-								<TableCell colSpan={columns.length} className="h-24 text-center">
+								<TableCell colSpan={columns.length}
+className="h-24 text-center">
 									No results.
 								</TableCell>
 							</TableRow>

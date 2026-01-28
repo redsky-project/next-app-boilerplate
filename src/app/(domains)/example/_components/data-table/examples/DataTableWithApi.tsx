@@ -28,7 +28,9 @@ const columns: ColumnDef<User>[] = [
 		accessorKey: 'name',
 		header: 'User',
 		cell: ({ row }) => (
-			<UserAvatar name={row.original.name} email={row.original.email} avatar={row.original.avatar} />
+			<UserAvatar name={row.original.name}
+email={row.original.email}
+avatar={row.original.avatar} />
 		),
 	},
 	{
@@ -97,7 +99,8 @@ export function DataTableWithApi() {
 	});
 
 	if (isLoading) {
-		return <DataTableSkeleton columnCount={4} rowCount={10} />;
+		return <DataTableSkeleton columnCount={4}
+rowCount={10} />;
 	}
 
 	if (error) {

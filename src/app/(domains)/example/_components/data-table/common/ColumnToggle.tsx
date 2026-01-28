@@ -19,11 +19,13 @@ export function ColumnToggle<TData>({ table }: ColumnToggleProps<TData>) {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="outline" size="sm">
+				<Button variant="outline"
+size="sm">
 					Columns
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end" className="w-[200px]">
+			<DropdownMenuContent align="end"
+className="w-[200px]">
 				<DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				{table

@@ -11,7 +11,9 @@ const columns: ColumnDef<User>[] = [
 		accessorKey: 'name',
 		header: 'User',
 		cell: ({ row }) => (
-			<UserAvatar name={row.original.name} email={row.original.email} avatar={row.original.avatar} />
+			<UserAvatar name={row.original.name}
+email={row.original.email}
+avatar={row.original.avatar} />
 		),
 	},
 	{
@@ -32,7 +34,8 @@ const columns: ColumnDef<User>[] = [
 	{
 		accessorKey: 'lastActive',
 		header: 'Last Active',
-		cell: ({ row }) => <DateCell date={row.original.lastActive} showRelative />,
+		cell: ({ row }) => <DateCell date={row.original.lastActive}
+showRelative />,
 	},
 ];
 
@@ -73,7 +76,8 @@ export function DataTableWithCustomCells() {
 							))
 						) : (
 							<TableRow>
-								<TableCell colSpan={columns.length} className="h-24 text-center">
+								<TableCell colSpan={columns.length}
+className="h-24 text-center">
 									No results.
 								</TableCell>
 							</TableRow>

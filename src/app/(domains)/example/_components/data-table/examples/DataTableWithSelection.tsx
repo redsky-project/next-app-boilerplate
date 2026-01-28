@@ -77,7 +77,9 @@ export function DataTableWithSelection() {
 			{selectedCount > 0 && (
 				<div className="flex items-center justify-between rounded-md border bg-muted p-4">
 					<span className="text-sm font-medium">{selectedCount} row(s) selected</span>
-					<Button variant="ghost" size="sm" onClick={() => setRowSelection({})}>
+					<Button variant="ghost"
+size="sm"
+onClick={() => setRowSelection({})}>
 						Clear selection
 					</Button>
 				</div>
@@ -98,7 +100,8 @@ export function DataTableWithSelection() {
 					<TableBody>
 						{table.getRowModel().rows?.length ? (
 							table.getRowModel().rows.map((row) => (
-								<TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+								<TableRow key={row.id}
+data-state={row.getIsSelected() && 'selected'}>
 									{row.getVisibleCells().map((cell) => (
 										<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
 									))}
@@ -106,7 +109,8 @@ export function DataTableWithSelection() {
 							))
 						) : (
 							<TableRow>
-								<TableCell colSpan={columns.length} className="h-24 text-center">
+								<TableCell colSpan={columns.length}
+className="h-24 text-center">
 									No results.
 								</TableCell>
 							</TableRow>

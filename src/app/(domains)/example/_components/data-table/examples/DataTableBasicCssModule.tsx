@@ -50,9 +50,11 @@ export function DataTableBasicCssModule() {
 					<table className={styles.table}>
 						<thead className={styles.tableHeader}>
 							{table.getHeaderGroups().map((headerGroup) => (
-								<tr key={headerGroup.id} className={styles.tableHeaderRow}>
+								<tr key={headerGroup.id}
+className={styles.tableHeaderRow}>
 									{headerGroup.headers.map((header) => (
-										<th key={header.id} className={styles.tableHeaderCell}>
+										<th key={header.id}
+className={styles.tableHeaderCell}>
 											{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
 										</th>
 									))}
@@ -62,9 +64,11 @@ export function DataTableBasicCssModule() {
 						<tbody className={styles.tableBody}>
 							{table.getRowModel().rows?.length ? (
 								table.getRowModel().rows.map((row) => (
-									<tr key={row.id} className={styles.tableRow}>
+									<tr key={row.id}
+className={styles.tableRow}>
 										{row.getVisibleCells().map((cell) => (
-											<td key={cell.id} className={styles.tableCell}>
+											<td key={cell.id}
+className={styles.tableCell}>
 												{flexRender(cell.column.columnDef.cell, cell.getContext())}
 											</td>
 										))}
@@ -72,7 +76,8 @@ export function DataTableBasicCssModule() {
 								))
 							) : (
 								<tr>
-									<td colSpan={columns.length} className={styles.emptyState}>
+									<td colSpan={columns.length}
+className={styles.emptyState}>
 										No results.
 									</td>
 								</tr>

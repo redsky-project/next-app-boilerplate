@@ -31,7 +31,8 @@ export function TablePagination<TData>({ table, pageSizeOptions = [10, 20, 50, 1
 					</SelectTrigger>
 					<SelectContent>
 						{pageSizeOptions.map((size) => (
-							<SelectItem key={size} value={String(size)}>
+							<SelectItem key={size}
+value={String(size)}>
 								{size}
 							</SelectItem>
 						))}
@@ -52,10 +53,16 @@ export function TablePagination<TData>({ table, pageSizeOptions = [10, 20, 50, 1
 					>
 						{'<<'}
 					</Button>
-					<Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+					<Button variant="outline"
+size="sm"
+onClick={() => table.previousPage()}
+disabled={!table.getCanPreviousPage()}>
 						{'<'}
 					</Button>
-					<Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+					<Button variant="outline"
+size="sm"
+onClick={() => table.nextPage()}
+disabled={!table.getCanNextPage()}>
 						{'>'}
 					</Button>
 					<Button

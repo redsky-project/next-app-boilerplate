@@ -20,7 +20,8 @@ export function ActionButtons({ onView, onEdit, onDelete }: ActionButtonsProps) 
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="ghost" size="sm">
+				<Button variant="ghost"
+size="sm">
 					⋮
 				</Button>
 			</DropdownMenuTrigger>
@@ -30,7 +31,8 @@ export function ActionButtons({ onView, onEdit, onDelete }: ActionButtonsProps) 
 				{onView && <DropdownMenuItem onClick={onView}>View details</DropdownMenuItem>}
 				{onEdit && <DropdownMenuItem onClick={onEdit}>Edit</DropdownMenuItem>}
 				{onDelete && (
-					<DropdownMenuItem onClick={onDelete} className="text-destructive">
+					<DropdownMenuItem onClick={onDelete}
+className="text-destructive">
 						Delete
 					</DropdownMenuItem>
 				)}

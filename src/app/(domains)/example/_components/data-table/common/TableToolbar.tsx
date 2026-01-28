@@ -32,7 +32,9 @@ export function TableToolbar({
 					<div className="flex items-center gap-2">
 						<span className="text-sm text-muted-foreground">{selectedCount} selected</span>
 						{onClearSelection && (
-							<Button variant="ghost" size="sm" onClick={onClearSelection}>
+							<Button variant="ghost"
+size="sm"
+onClick={onClearSelection}>
 								Clear
 							</Button>
 						)}

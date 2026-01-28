@@ -46,7 +46,9 @@ const columns: ColumnDef<User>[] = [
 		accessorKey: 'name',
 		header: 'User',
 		cell: ({ row }) => (
-			<UserAvatar name={row.original.name} email={row.original.email} avatar={row.original.avatar} />
+			<UserAvatar name={row.original.name}
+email={row.original.email}
+avatar={row.original.avatar} />
 		),
 	},
 	{
@@ -165,7 +167,8 @@ export function DataTableAllFeatures() {
 					<TableBody>
 						{table.getRowModel().rows?.length ? (
 							table.getRowModel().rows.map((row) => (
-								<TableRow key={row.id} data-state={row.getIsSelected() && 'selected'}>
+								<TableRow key={row.id}
+data-state={row.getIsSelected() && 'selected'}>
 									{row.getVisibleCells().map((cell) => (
 										<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
 									))}
@@ -173,7 +176,8 @@ export function DataTableAllFeatures() {
 							))
 						) : (
 							<TableRow>
-								<TableCell colSpan={columns.length} className="h-24 text-center">
+								<TableCell colSpan={columns.length}
+className="h-24 text-center">
 									No results.
 								</TableCell>
 							</TableRow>
